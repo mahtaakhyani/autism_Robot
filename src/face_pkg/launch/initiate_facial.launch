@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="face_pkg" type="main.py" name="face_exp_handler" output="screen"/>
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+    <remap from="rosbridge_websocket" to="web_interface"/>
+</launch>
