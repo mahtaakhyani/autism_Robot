@@ -1,0 +1,1 @@
+/home/mahta/Downloads/catkin_ws/devel/.private/face_pkg/share/gennodejs/ros/face_pkg/msg/Exp.js

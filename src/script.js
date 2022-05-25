@@ -9,7 +9,7 @@
 // Connecting to ROS via 'rosbridge_websocket_server' Launch Node running on the master "URI/IP/URL :Port 9090(default)"
 // ----------------- 
 var ros = new ROSLIB.Ros({
-  url : 'ws://127.0.0.1:9090'
+  url : 'ws://192.168.43.250:9090'
 });
 
 ros.on('connection', function() {
@@ -36,15 +36,35 @@ var exp_msg = new ROSLIB.Message({
 // Creating new Topic for expressions data
 var exp_Topic = new ROSLIB.Topic({
   ros : ros,
-  name : '/exp',
+  name : '/web_exp_publisher',
   messageType : 'face_pkg/Exp'
 });
+var autoexp_Topic = new ROSLIB.Topic({
+  ros : ros,
+  name : 'exp_publisher',
+  messageType : 'face_pkg/Exp'
+});
+
+autoexp_Topic.subscribe(function(message) {
+  console.log('Received message on ' + autoexp_Topic.name + ': ' + message.emotion);
+  var msgd = message.emotion;
+  // exp_Topic.unsubscribe();
+  document.getElementById("msg").innerHTML = msgd;
+});
+
 
  // Subscribing to the Topic
     // ----------------------
     
     exp_Topic.subscribe(function(message) {
       console.log('Received message on ' + exp_Topic.name + ': ' + message.emotion);
+      var msgd = message.emotion;
+      // exp_Topic.unsubscribe();
+      document.getElementById("msg").innerHTML = msgd;
+    });
+
+    exp_Topic.subscribe(function(message) {
+      // console.log('Received message on ' + exp_Topic.name + ': ' + message.emotion);
       var msgd = message.emotion;
       // exp_Topic.unsubscribe();
       document.getElementById("msg").innerHTML = msgd;
@@ -66,15 +86,6 @@ function viewdiv(div) {
 //houshangexp
 function exp(element) {
   var id = element.id;
-  $('#mouth').attr('class' , 'mouth-' + id );
-  var lastClass = $(".housheye").attr('class').split(' ').pop();
-  $(".housheye").removeClass(lastClass);
-  $(".housheye").addClass( id+'eye');
-  if (id == 'shy')
-    $('.shyblush').show();
-  else 
-    $('.shyblush').hide();
-
   if (id == 'auto')
     var auto_bool = true
   else var auto_bool = false
