@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from logging import shutdown
 import rospy
 from face_pkg.msg import Exp
 import cv2
@@ -51,3 +50,9 @@ class FaceDetection():
                 break
             if not msg:
                 return 'Auto Deactivated'
+
+if __name__=="__main__":
+    try:
+        FaceDetection().main()
+    except:
+        pass

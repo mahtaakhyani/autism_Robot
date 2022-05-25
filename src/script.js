@@ -9,7 +9,7 @@
 // Connecting to ROS via 'rosbridge_websocket_server' Launch Node running on the master "URI/IP/URL :Port 9090(default)"
 // ----------------- 
 var ros = new ROSLIB.Ros({
-  url : 'ws://192.168.43.250:9090'
+  url : 'ws://127.0.0.1:9090'
 });
 
 ros.on('connection', function() {
