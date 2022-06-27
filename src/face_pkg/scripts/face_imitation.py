@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
-import rospy
-from face_pkg.msg import Exp
 import cv2
 from deepface import DeepFace
-import numpy as np
 
 
 class FaceDetection():  
