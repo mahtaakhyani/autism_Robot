@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import rospy
-from std_msgs.msg import String
 from face_pkg.msg import Exp
 import face_imitation
 

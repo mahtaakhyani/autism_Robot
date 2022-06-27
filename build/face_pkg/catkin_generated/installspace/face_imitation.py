@@ -1,15 +1,8 @@
 #!/usr/bin/env python3
-import rospy
-from face_pkg.msg import Exp
 import cv2
-# from cv_bridge import CvBridge
-# from fer import FER
-import parser
-from std_msgs.msg import String
 # from sensor_msgs.msg import Image
 
 from deepface import DeepFace
-import numpy as np
 
 
 class FaceDetection():  
