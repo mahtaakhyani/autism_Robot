@@ -23,19 +23,19 @@ class ActionHeader {
       this.command_type = null;
     }
     else {
-      if (initObj.hasOwnProperty('seq')) {
+      if (Object.prototype.hasOwnProperty.call(initObj, 'seq')) {
         this.seq = initObj.seq
       }
       else {
         this.seq = 0;
       }
-      if (initObj.hasOwnProperty('stamp')) {
+      if (Object.prototype.hasOwnProperty.call(initObj, 'stamp')) {
         this.stamp = initObj.stamp
       }
       else {
         this.stamp = {secs: 0, nsecs: 0};
       }
-      if (initObj.hasOwnProperty('command_type')) {
+      if (Object.prototype.hasOwnProperty.call(initObj, 'command_type')) {
         this.command_type = initObj.command_type
       }
       else {

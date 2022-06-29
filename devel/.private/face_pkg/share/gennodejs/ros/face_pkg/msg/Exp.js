@@ -25,31 +25,31 @@ class Exp {
       this.auto_imit = null;
     }
     else {
-      if (initObj.hasOwnProperty('seq')) {
+      if (Object.prototype.hasOwnProperty.call(initObj, 'seq')) {
         this.seq = initObj.seq
       }
       else {
         this.seq = 0;
       }
-      if (initObj.hasOwnProperty('time')) {
+      if (Object.prototype.hasOwnProperty.call(initObj, 'time')) {
         this.time = initObj.time
       }
       else {
         this.time = {secs: 0, nsecs: 0};
       }
-      if (initObj.hasOwnProperty('action')) {
+      if (Object.prototype.hasOwnProperty.call(initObj, 'action')) {
         this.action = initObj.action
       }
       else {
         this.action = '';
       }
-      if (initObj.hasOwnProperty('emotion')) {
+      if (Object.prototype.hasOwnProperty.call(initObj, 'emotion')) {
         this.emotion = initObj.emotion
       }
       else {
         this.emotion = '';
       }
-      if (initObj.hasOwnProperty('auto_imit')) {
+      if (Object.prototype.hasOwnProperty.call(initObj, 'auto_imit')) {
         this.auto_imit = initObj.auto_imit
       }
       else {
