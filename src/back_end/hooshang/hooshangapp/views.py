@@ -19,13 +19,10 @@ import hooshangapp.serializers as serializers
 from hooshangapp.models import *
 from soundsapp.models import *
 
-# class TemplateLoader(APIView):
-#     def get(self,request):
-#         return render(request, 'index.html')
 
 #------------------------------- Emotion handling --------------------------
 
-class ReqpubCommandController(APIView):
+class CoreReqHandler(APIView):
 
         default_exp = ''
             
@@ -37,39 +34,25 @@ class ReqpubCommandController(APIView):
             must contain the name of an emotion in the form of String data.
             e.g. "(i.e. /reqpub?face=normal or laugh,upset,surprise or shy)"
               '''
-            cls.default_exp = request.GET.get('face') 
-            print(cls.default_exp)
-            data = {'face' : cls.default_exp,  
-                    }
-            return JsonResponse(data, status=200) #JSON response is also sent back on the URL: /reqpub just in case! Feel free to ignore it.
+            cls.default_exp = request.GET.get('face')
+            cls.sound_file = request.GET.get('sound')
+            print(cls.default_exp,cls.sound_file)
+            cls.data = {'face' : cls.default_exp, 
+                    'sound' : cls.sound_file,
+                    'status' : HttpResponse.status_code,
+                    'message' : 'The emotion has been set' 
+                    } #Recieved Commands from the user
+            return JsonResponse(cls.data, status=200) #JSON response is also sent back on the URL: /reqpub to the user just in case! Feel free to ignore it.
         
         @classmethod
         def __str__(cls):
-           return cls.default_exp 
+           return cls.data
         '''
         Returning the emotion name in the form of String
         to be fetched by the client (i.e. the front-end, android app, etc.)
 
         * Hint: Defined __str__ function is accessible from outside the class also. 
     '''
-
-
-class HooshangCommandController(APIView):
-
-    def get(self, request): 
-        data = {
-            "face": ReqpubCommandController.__str__()
-        }
-        # print(self.requested_expression)
-        '''
-            Taking in the latest user-commanded facial expression(emotion) through the
-            "ReqpubCommandController" function,
-            and returning the corresponding String to the client in the form of JSON data.
-            (Data is being sent on the URL:/reqcli)
-            -Which here the client would be the android app sending requests to the server to
-            update the face based on the new commands.
-        '''
-        return JsonResponse(data, status=201)
 
                             
 # ----------------------------------------- Movement handling ----------------------------------
@@ -90,7 +73,7 @@ class HooshangCommandController(APIView):
 
     #     self.command = [[k,v] for k,v in self.requested_move.items() if v not in defaultvals.values()]
 
-    ''' Form must send POST data considering the instructions below:
+''' Form must send POST data considering the instructions below:
             1) All sent data must be strictly within the ranges given in the instructions of models.py e.g. For the Hand-right-top --> {'right_hand': '2101220'}
                   (If not, substraction/sum must be included in move.py on each needed object, after recieving data as a list.)
 
@@ -99,12 +82,12 @@ class HooshangCommandController(APIView):
        
         # move.move(self.command) #Sending data to move.py move().
 
-    '''
+'''
         Notice: POST method is only used to make the API extendable for the future developments
           i.e. Implementing joystick or etc. Also it gives the advantage of being able to change the moving mechanisms
           without any need to change the code entirely.
           Using GET method is enough to make API usable for the current version but it is not encouraged as
-          it is more efficient and presice-commanded to use POST method.
+          it is more efficient and precise-commanded to use POST method.
 
     '''
 
@@ -114,3 +97,26 @@ class HooshangCommandController(APIView):
     #         status=200, 
     #         content_type='application/json; charset=utf8')
 
+
+
+class EmotionCommandController(APIView):
+
+
+    def get(self, request): 
+        self.api_response_data = CoreReqHandler.__str__()
+        data = {
+            "face": self.api_response_data['face'],
+            "sound": self.api_response_data['sound'],
+            "status": self.api_response_data['status']
+        }
+        # print(self.requested_expression)
+        '''
+            Taking in the latest user-commanded facial expression(emotion) through CoreReqHandler
+            and returning the corresponding String to the client in the form of JSON data.
+            (Data is being sent on the URL:/reqcli)
+            -Which here the client would be the android app sending requests to the server to
+            update the face based on the new commands.
+        '''
+        return JsonResponse(data, status=201)
+
+   
