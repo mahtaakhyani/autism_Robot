@@ -18,6 +18,6 @@ from django.urls import path, re_path
 from django.urls.conf import include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('',include('hooshangapp.urls'))
 ]

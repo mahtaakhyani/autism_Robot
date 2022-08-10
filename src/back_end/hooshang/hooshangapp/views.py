@@ -111,8 +111,7 @@ class EmotionCommandController(APIView):
         }
         # print(self.requested_expression)
         '''
-            Taking in the latest user-commanded facial expression(emotion) through CoreReqHandler
-            and returning the corresponding String to the client in the form of JSON data.
+            Taking in the latest user-commanded facial expression(emotion) through CoreReqHandler       and returning the corresponding String to the client in the form of JSON data.
             (Data is being sent on the URL:/reqcli)
             -Which here the client would be the android app sending requests to the server to
             update the face based on the new commands.
