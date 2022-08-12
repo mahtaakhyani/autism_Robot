@@ -1,16 +1,7 @@
 {
-  "Emotion": [{
-    "face": { 
-      "name": "happy",
-       "url": ""
-    },
-    "sound": { 
-      "name": "laughter",
-       "url": ""
-    }
-  }]
-}
+	"Emotion": [{
+		"name": "happy"
 
-     
-       
-        
+
+	}]
+}
