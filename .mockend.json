@@ -1,5 +1,10 @@
 {
-  "Emotion": {
-    "title": { "string": {"happy"} }
-  }
+  "Emotion": [{
+    "face": [{ 
+      "name": "happy",
+       "url": ""}],
+    "sound": [{ 
+      "name": "laughter",
+       "url": ""}],
+  }]
 }
