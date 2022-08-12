@@ -1,11 +1,5 @@
 
-{
-  "Emotion": {
-     "face": {"title":{"happy"}},
-     "sound": {"title":{"laughter"}} 
-  }
 
-}
 {
   "Post": {
     "title": { "string": {} },
