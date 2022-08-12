@@ -1,6 +1,9 @@
+
 {
-'face': 'happy',
-  'sound': 'laugh',
-  'message':'',
-  'status': 200
+  "emotion": {
+    "face": {"happy"},
+    "sound": {
+      "title": "laughter"
+    }
+  }
 }
