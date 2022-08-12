@@ -1,5 +1,9 @@
 {
   "Emotion": {
-    "face": { "string": {} }
+    "face": { "name": {"string": {}},
+              "url": {"string": {}}
+            },
+    "sound": { "name": {"string": {}},
+              "url": {"string": {}}
   }
 }
