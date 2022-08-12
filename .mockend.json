@@ -1,7 +1,7 @@
 
-{
+
   "Emotion": {
-    "face": {"title": {"happy"}},
-    "sound": {"title": {"laughter"}}
+    "face": "happy",
+    "sound": "laughter"
   }
-}
+
