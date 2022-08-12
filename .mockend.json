@@ -1,14 +1,14 @@
 {
-  "Emotion": [{
-    "face": [{ 
+  "Emotion": {
+    "face": { 
       "name": "happy",
        "url": ""
-    }],
-    "sound": [{ 
+    },
+    "sound": { 
       "name": "laughter",
        "url": ""
-    }]
-  }]
+    }
+  }
 }
 
      
