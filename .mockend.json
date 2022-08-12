@@ -1,7 +1,6 @@
 {
   "Emotion": {
-     "face": {"string":{"happy"}},
-     "sound": {"string":{"laughter"}} 
+     "face": {"string":{"happy"}}
   }
 
 }
