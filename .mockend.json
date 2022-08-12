@@ -1,5 +1,5 @@
 {
-  "Emotion": {
+  "Emotion": [{
     "face": { 
       "name": "happy",
        "url": ""
@@ -8,7 +8,7 @@
       "name": "laughter",
        "url": ""
     }
-  }
+  }]
 }
 
      
