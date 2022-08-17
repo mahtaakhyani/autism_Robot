@@ -26,4 +26,4 @@ class EmotionModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.EmotionModel
-        fields = ('id','face','sound')	
+        fields = "__all__" #('id','face','sound')	

@@ -1,8 +1,7 @@
-
-from email.policy import default
 import json
 from pathlib import Path
 import sys
+from this import d
 # Create your views here."\move.py""\hooshang\hooshangapp\views.py"
 from django.http import HttpResponse, request, JsonResponse
 from django.shortcuts import render
@@ -15,7 +14,7 @@ from rest_framework.response import Response
 ws_dir = str(Path(__file__).resolve().parent.parent.parent)
 sys.path.insert(0, ws_dir)
 
-import hooshangapp.serializers as serializers
+from hooshangapp.serializers import *
 from hooshangapp.models import *
 from soundsapp.models import *
 
@@ -28,6 +27,7 @@ class CoreReqHandler(APIView):
             
         @classmethod
         def get(cls,request):
+            serializer = EmotionModelSerializer(request)
             print(cls.default_exp)
             ''' 
             Get Param 'face' sent from the front-end (to the URL:  /reqpub)
@@ -35,8 +35,9 @@ class CoreReqHandler(APIView):
             e.g. "(i.e. /reqpub?face=normal or laugh,upset,surprise or shy)"
               '''
             cls.default_exp = request.GET.get('face')
+            cls.exp_fetched_db = serializer.data.keys()
             cls.sound_file = request.GET.get('sound')
-            print(cls.default_exp,cls.sound_file)
+            print(cls.exp_fetched_db,'cls.sound_file')
             cls.data = {'face' : cls.default_exp, 
                     'sound' : cls.sound_file,
                     'status' : HttpResponse.status_code,
@@ -117,5 +118,11 @@ class EmotionCommandController(APIView):
             update the face based on the new commands.
         '''
         return JsonResponse(data, status=201)
+
+    def post(self, request):
+        self.response_data = request.data #Recieving client response data on the URL:/reqcli
+        self.response_data = {"Client response" : str(self.response_data)}
+        print(self.response_data)
+        return JsonResponse(self.response_data, status=201)
 
    

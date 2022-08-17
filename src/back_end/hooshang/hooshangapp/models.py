@@ -4,8 +4,8 @@ from soundsapp.models import Song
 
 # Create your models here.
 class EmotionModel(models.Model):
-    face = models.CharField(max_length= 25, blank=True, default= "normal") #Types : normal , laugh, upset, surprise, shy
-    sound = models.ForeignKey(Song, on_delete=models.CASCADE, blank=True, null=True)
+    face = models.CharField(max_length= 25, blank=True, default= "normal", null=False) #Types : normal , laugh, upset, surprise, shy
+    sound = models.ForeignKey(Song, on_delete=models.CASCADE, blank=True, null=False)
     # dynatype = models.ForeignKey(HooshangCommandsDyna, on_delete=models.CASCADE)
     # movement = models.BooleanField(blank=False , null=False, default= False)
     
