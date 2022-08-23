@@ -1,14 +1,16 @@
 from django.db import models
+from django.core.files.storage import Storage
 
 # Create your models here.
 class Song(models.Model):
-    title= models.TextField(default='Unknown')
-    artist= models.TextField(default='Unknown')
-    image= models.ImageField(default='No Image')
+    title= models.CharField(max_length=20,default='Unknown')
+    description = models.TextField(max_length=50, blank=True, null=True)
     audio_file = models.FileField(blank=True,null=True)
     audio_link = models.CharField(max_length=200,blank=True,null=True)
     duration=models.CharField(max_length=20,default='Unknown')
-    paginate_by = 2
+    
+    # def path(self):
+    #     return self.audio_file
 
     def __str__(self):
         return self.title

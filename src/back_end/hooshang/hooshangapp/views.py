@@ -1,15 +1,17 @@
 import json
 from pathlib import Path
 import sys
-from this import d
+import requests
 # Create your views here."\move.py""\hooshang\hooshangapp\views.py"
-from django.http import HttpResponse, request, JsonResponse
+from django.http import HttpResponse, request, JsonResponse, StreamingHttpResponse
+from django.core.files.storage import Storage
 from django.shortcuts import render
 from django.views import View
 from django.views.generic import TemplateView
+from django.template.response import TemplateResponse
 from rest_framework.request import Request
 from rest_framework.views import APIView
-from rest_framework.response import Response
+from rest_framework.response import Response    
 
 ws_dir = str(Path(__file__).resolve().parent.parent.parent)
 sys.path.insert(0, ws_dir)
@@ -19,8 +21,13 @@ from hooshangapp.models import *
 from soundsapp.models import *
 
 
-#------------------------------- Emotion handling --------------------------
+class MainViewTemp(APIView):
+        def get(self, request):
+            db = EmotionModel.objects.all().order_by('-id')[1:]
+            # print(EmotionModel.objects.all()[1].sound.path())
+            return TemplateResponse(request, 'Modified_files/Page-1.html', {'emotions':db})
 
+#------------------------------- Emotion handling --------------------------
 class CoreReqHandler(APIView):
 
         default_exp = ''
@@ -37,14 +44,21 @@ class CoreReqHandler(APIView):
             cls.default_exp = request.GET.get('face')
             cls.exp_fetched_db = serializer.data.keys()
             cls.sound_file = request.GET.get('sound')
+
             print(cls.exp_fetched_db,'cls.sound_file')
             cls.data = {'face' : cls.default_exp, 
                     'sound' : cls.sound_file,
                     'status' : HttpResponse.status_code,
                     'message' : 'The emotion has been set' 
                     } #Recieved Commands from the user
-            return JsonResponse(cls.data, status=200) #JSON response is also sent back on the URL: /reqpub to the user just in case! Feel free to ignore it.
-        
+            return  JsonResponse(cls.data, status=200) #JSON response is also sent as the response on the URL: /reqpub to the user just in case! Feel free to ignore it.
+        #     return cls.startstream()
+
+        # @classmethod
+        # def startstream(cls):
+        #     cls.stream_var = requests.get(cls.default_exp,stream= True)
+        #     return StreamingHttpResponse(streaming_content=cls.stream_var.raw)
+
         @classmethod
         def __str__(cls):
            return cls.data

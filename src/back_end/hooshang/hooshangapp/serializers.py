@@ -23,7 +23,14 @@ from hooshangapp import models
 #         fields = ('id','speed','theta','yaw')
 
 class EmotionModelSerializer(serializers.ModelSerializer):
+    file_url = serializers.SerializerMethodField()
 
     class Meta:
         model = models.EmotionModel
-        fields = "__all__" #('id','face','sound')	
+        fields = ("id","face","sound","file_url") #('id','face','sound')	
+    
+    def get_file_url(self, document):
+        request = self.context.get('request')
+        file_url = document
+        print(request.build_absolute_uri(file_url))
+        return request.build_absolute_uri(file_url)

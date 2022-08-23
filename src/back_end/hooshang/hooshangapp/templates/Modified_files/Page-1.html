@@ -1,0 +1,196 @@
+{% load static %}
+<html style="font-size: 16px;">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hooshang Control Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+   <link rel="stylesheet" href=" {% static 'css/nicepage.css' %} " media="screen">
+   <link rel="stylesheet" href=" {% static 'css/Page-1.css' %} " media="screen">
+   <script class="u-script" type="text/javascript" src=" {% static 'js/jquery.js' %} " defer=""></script>
+   <script class="u-script" type="text/javascript" src=" {% static 'js/nicepage.js' %} " defer=""></script>
+   <script class="u-script" type="text/javascript" src=" {% static 'js/script.js' %} " defer=""></script>
+   <script src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelement-and-player.min.js"></script>
+   <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+   <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
+   <link rel="stylesheet" href=" {% static 'font-awesome-4.7.0/css/font-awesome.min.css' %} ">
+   <link rel="stylesheet" href=" {% static 'icons-1.5.0/font/bootstrap-icons.css' %} ">
+    <script type="text/javascript" type="text/javascript">
+    
+    
+    
+      // Calling a service
+      // -----------------
+      // var addTwoIntsClient = new ROSLIB.Service({
+      //   ros : ros,
+      //   name : '/add_two_ints',
+      //   serviceType : 'rospy_tutorials/AddTwoInts'
+      // });
+    
+      // var request = new ROSLIB.ServiceRequest({
+      //   a : 1,
+      //   b : 2
+      // });
+    
+      // addTwoIntsClient.callService(request, function(result) {
+      //   console.log('Result for service call on '
+      //     + addTwoIntsClient.name
+      //     + ': '
+      //     + result.sum);
+      // });
+    
+      // // Getting and setting a param value
+      // // ---------------------------------
+    
+      // ros.getParams(function(params) {
+      //   console.log(params);
+      // });
+    
+      // var maxVelX = new ROSLIB.Param({
+      //   ros : ros,
+      //   name : 'max_vel_y'
+      // });
+    
+      // maxVelX.set(0.8);
+      // maxVelX.get(function(value) {
+      //   console.log('MAX VAL: ' + value);
+      // });
+        </script>
+
+    <meta name="theme-color" content="#ee5009">
+    <meta property="og:title" content="Page 1">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode">
+    <section class="u-clearfix u-palette-5-light-2 u-section-1" id="sec-48f7">
+      <div class="u-align-left u-clearfix u-expanded-width-xs u-gutter-12 u-layout-spacing-left-right u-layout-wrap u-layout-wrap-1">
+        <a class="button u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1" href="/admin">Admin Panel</a>
+        <div class="u-layout">
+          <div class="u-layout-col">
+            <div class="u-size-30">
+              <div class="u-layout-row">
+                <div class="u-align-center u-container-style u-layout-cell u-radius-16 u-shape-round u-size-60 u-white u-layout-cell-1">
+                  <div class="u-border-1 u-border-white u-container-layout u-container-layout-1">
+                    <h4 class="u-text u-text-1">Emotion</h4>
+                    <p id="msg">Null</p>
+                    <div class="u-align-center u-list u-list-1">
+                      <div class="u-repeater u-repeater-1">
+                        
+                        {% for emotion in emotions %}
+                        <div class="u-align-center u-container-style u-list-item u-repeater-item">
+                          <div class="u-container-layout u-similar-container u-container-layout-3">
+                            <button id={{emotion.face}} onclick="exp(this);" class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
+                              <span class="u-icon u-text-custom-color-7 u-icon-1">
+                                <img><i class="bi {{emotion.interface_button_emoji}}"></i></button>
+                          </div>
+                        </div>
+                        {% endfor %}
+                        
+                        <div class="u-align-center u-container-style u-list-item u-repeater-item">
+                          <div class="u-container-layout u-similar-container u-container-layout-7">
+                            <!-- autu -->
+                            <button id='auto' onclick="exp(this)"  class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
+                              <span class="u-icon u-text-custom-color-7 u-icon-1">
+                                <img><i class="bi bi-emoji-neutral"></i></button>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="u-size-30">
+              <div class="u-layout-row">
+                <div class="u-container-style u-layout-cell u-opacity u-opacity-50 u-radius-16 u-shape-round u-size-60 u-white u-layout-cell-2">
+                  <div class="u-container-layout u-container-layout-8">
+                    <h4 class="u-align-center u-text u-text-2">Sound Track</h4>
+                    <h5 id="msg_sound"></h5>
+                    <div class="u-expanded-width u-tab-links-align-left u-tabs u-tabs-1">
+                      <ul class="u-border-2 u-border-grey-75 u-custom-color-7 u-tab-list u-unstyled u-tab-list-1" role="tablist">
+        
+                          <li class="u-tab-item" role="presentation">
+                            <a class="active u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d31" href=" {% static '#tab-3d31' %} " role="tab" aria-controls="tab-3d31" aria-selected="true">Tab 1</a>
+                          </li>
+                        
+                      </ul>
+                      <div class="u-tab-content">
+                        <div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-3d31" role="tabpanel" aria-labelledby="link-tab-3d31">
+                          <div class="u-container-layout u-container-layout-9">
+                            <ul class="u-custom-font u-custom-list u-file-icon u-font-pt-sans u-indent-0 u-text u-text-3">
+                              {% for sound in emotions %}{% if sound.sound %}
+                                <li class="u-align-left ">
+                                  <!-- <audio class="fc-media" style="width: 100%;">
+                                    <source src="{{sound.sound.audio_link}}" type="audio/mp3"/>
+                                   </audio> -->
+                                   <button id="{% if sound.sound.audio_file %}{{sound.sound.audio_file.audio_file.url}} {% else %} {{sound.sound.audio_link}} {% endif %} " 
+                                   onclick="exp_sound(this)" 
+                                   href="{% if sound.sound.audio_file %}{{sound.sound.audio_file.audio_file.url}} {% else %} {{sound.sound.audio_link}} {% endif %} " class="bi bi-play-circle-fill"></button>
+                                  {{sound.sound}}
+                                </li>
+                              {% endif %}{% endfor %}
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="u-container-style u-tab-pane u-white u-tab-pane-2" id="tab-acd9" role="tabpanel" aria-labelledby="link-tab-acd9">
+                          <div class="u-container-layout u-container-layout-10"></div>
+                        </div>
+                        <div class="u-container-style u-tab-pane u-white u-tab-pane-3" id="tab-f9eb" role="tabpanel" aria-labelledby="link-tab-f9eb">
+                          <div class="u-container-layout u-container-layout-11"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="u-clearfix u-expanded-width-xs u-gutter-14 u-layout-spacing-left-right u-layout-wrap u-layout-wrap-2">
+        <div class="u-gutter-0 u-layout">
+          <div class="u-layout-col">
+            <div class="u-container-style u-layout-cell u-radius-24 u-shape-round u-size-30 u-white u-layout-cell-3">
+              <div class="u-border-1 u-border-white u-container-layout u-container-layout-12">
+                <h4 class="u-align-center u-text u-text-4">Move</h4>
+                <p class="u-text u-text-5">{{ face }} Use the arrow keys to move the robot.<br>
+                  <br>Use WASD keys to tilt the head up/left/down/right relatively.
+                </p>
+              </div>
+            </div>
+            <div class="u-container-style u-layout-cell u-radius-16 u-shape-round u-size-30 u-uploaded-video u-video u-video-contain u-video-1">
+              <div class="u-absolute-hcenter u-align-left u-background-video u-border-6 u-border-white u-expanded u-left-0" style="">
+                <div class="embed-responsive">
+                  <video class="embed-responsive-item" data-autoplay="1" loop="" muted="" poster="images/default-image-27.jpg" autoplay="autoplay" playsinline="">
+                    <source src=" {{face}} " type="video/mp4">
+                    <p>Your browser does not support HTML5 video.</p>
+                  </video>
+                </div>
+              </div>
+              <div class="u-container-layout u-container-layout-13"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Web Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="https://nicepage.online" target="_blank">
+        <span>Website Builder</span>
+      </a>. 
+    </section>
+  </body>
+</html>

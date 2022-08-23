@@ -1,3 +1,5 @@
 
 .vscode/settings.json
 *.pyc
+*.mp3
+src/back_end/hooshang/db.sqlite3
