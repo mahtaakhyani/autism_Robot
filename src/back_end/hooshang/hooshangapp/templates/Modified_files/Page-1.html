@@ -123,17 +123,17 @@
                         <div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-3d31" role="tabpanel" aria-labelledby="link-tab-3d31">
                           <div class="u-container-layout u-container-layout-9">
                             <ul class="u-custom-font u-custom-list u-file-icon u-font-pt-sans u-indent-0 u-text u-text-3">
-                              {% for sound in emotions %}{% if sound.sound %}
+                              {% for sound in voices %}
                                 <li class="u-align-left ">
-                                  <!-- <audio class="fc-media" style="width: 100%;">
-                                    <source src="{{sound.sound.audio_link}}" type="audio/mp3"/>
-                                   </audio> -->
-                                   <button id="{% if sound.sound.audio_file %}{{sound.sound.audio_file.audio_file.url}} {% else %} {{sound.sound.audio_link}} {% endif %} " 
-                                   onclick="exp_sound(this)" 
-                                   href="{% if sound.sound.audio_file %}{{sound.sound.audio_file.audio_file.url}} {% else %} {{sound.sound.audio_link}} {% endif %} " class="bi bi-play-circle-fill"></button>
-                                  {{sound.sound}}
+                                  <audio id="robot_audio" class="fc-media" style="width: 100%;">
+                                    <source src="{% if sound.audio_file %}{{sound.audio_file}}{% else %}{{sound.url}}{% endif %}"
+                                           type="audio/mp3"/>
+                                   </audio>
+                                   <button id="{% if sound.audio_file %}{{sound.audio_file}}{% else %}{{sound.url}}{% endif %}" 
+                                   onclick="exp_sound(this); playAudio(this);" >{{sound}}</button>
+                                    
                                 </li>
-                              {% endif %}{% endfor %}
+                             {% endfor %}
                             </ul>
                           </div>
                         </div>

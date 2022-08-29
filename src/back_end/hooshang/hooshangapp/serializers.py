@@ -27,10 +27,6 @@ class EmotionModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.EmotionModel
-        fields = ("id","face","sound","file_url") #('id','face','sound')	
+        fields = ("id","face","sound",) #("file_url",'id','face','sound')	
     
-    def get_file_url(self, document):
-        request = self.context.get('request')
-        file_url = document
-        print(request.build_absolute_uri(file_url))
-        return request.build_absolute_uri(file_url)
+    # def get_fiS

@@ -149,6 +149,18 @@ function exp_sound(element) {
 // });
 
 
+// Audio Player for the web interface
+var x = document.getElementById("robot_audio");
+
+function playAudio(file) { 
+  play(file); 
+} 
+
+function pauseAudio() { 
+  x.pause(); 
+} 
+
+
 var audio = {    
   init: function() {        
   var $that = this;        
