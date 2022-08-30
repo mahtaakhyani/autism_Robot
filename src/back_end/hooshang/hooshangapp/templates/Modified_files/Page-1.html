@@ -83,7 +83,7 @@
                         {% for emotion in emotions %}
                         <div class="u-align-center u-container-style u-list-item u-repeater-item">
                           <div class="u-container-layout u-similar-container u-container-layout-3">
-                            <button id={{emotion.face}} onclick="exp(this);" class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
+                            <button id={{emotion.face_video_url}} onclick="exp(this);" class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
                               <span class="u-icon u-text-custom-color-7 u-icon-1">
                                 <img><i class="bi {{emotion.interface_button_emoji}}"></i></button>
                           </div>
@@ -124,14 +124,17 @@
                           <div class="u-container-layout u-container-layout-9">
                             <ul class="u-custom-font u-custom-list u-file-icon u-font-pt-sans u-indent-0 u-text u-text-3">
                               {% for sound in voices %}
-                                <li class="u-align-left ">
-                                  <audio id="robot_audio" class="fc-media" style="width: 100%;">
+                                <li class="u-align-left " style="padding-bottom: 3%;">
+                                  <audio id="robot_audio{{sound.id}}" class="fc-media" style="width: 100%;">
                                     <source src="{% if sound.audio_file %}{{sound.audio_file}}{% else %}{{sound.url}}{% endif %}"
                                            type="audio/mp3"/>
                                    </audio>
-                                   <button id="{% if sound.audio_file %}{{sound.audio_file}}{% else %}{{sound.url}}{% endif %}" 
-                                   onclick="exp_sound(this); playAudio(this);" >{{sound}}</button>
-                                    
+                                   <input id="robot_audio{{sound.id}}" 
+                                   value="{% if sound.audio_file %}{{sound.audio_file}}{% else %}{{sound.url}}{% endif %}"
+                                   class="play_btn"
+                                   onclick="exp_sound(this); playAudio(this);" type="button"></input>
+                                
+                                   &emsp;&emsp; {{sound}}
                                 </li>
                              {% endfor %}
                             </ul>

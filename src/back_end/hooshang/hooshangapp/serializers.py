@@ -23,7 +23,7 @@ from hooshangapp import models
 #         fields = ('id','speed','theta','yaw')
 
 class EmotionModelSerializer(serializers.ModelSerializer):
-    file_url = serializers.SerializerMethodField()
+    # file_url = serializers.SerializerMethodField()
 
     class Meta:
         model = models.EmotionModel

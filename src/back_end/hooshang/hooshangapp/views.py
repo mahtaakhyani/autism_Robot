@@ -23,13 +23,15 @@ from soundsapp.models import *
 
 class MainViewTemp(APIView):
         def get(self, request):
-            # voices_uri = '/sounds/' +  request.build_absolute_uri(song).split('media')[0]
+           
             # print(voices_uri)
             emdb = EmotionModel.objects.all().order_by('-id')[1:]
-            sdb = Song.objects.all().order_by('-id')[1:]
+            sdb = Song.objects.all().order_by('-id')[0:]
             # print(EmotionModel.objects.all()[1].sound.path())
-            return TemplateResponse(request, 'Modified_files/Page-1.html', {'emotions':emdb,
-            'voices':sdb})
+            return TemplateResponse(request, 
+            'Modified_files/Page-1.html',
+             {'emotions':emdb,
+                'voices':sdb})
 
 #------------------------------- Emotion handling --------------------------
 class CoreReqHandler(APIView):

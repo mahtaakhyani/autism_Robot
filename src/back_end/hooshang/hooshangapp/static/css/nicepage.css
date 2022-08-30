@@ -1012,6 +1012,23 @@ ol {
 .u-effect-hover-slide.u-effect-active .u-background-effect-image.u-effect-hover-slide-direction-down {
   top: 0 !important;
 }
+
+
+.play_btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  background-color:rgb(19, 199, 10) ; 
+  font-size: 0%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.play_btn.active {
+  background-color:#ee5009;
+}
 .u-btn {
   /*display: inline-block;*/
   display: table;

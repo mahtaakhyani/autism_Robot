@@ -86,7 +86,7 @@ function exp(element) {
   // -----------------
   $.ajax({
     type: "GET",
-    url: "http://localhost:5353/reqpub", //URL has been set in 'hooshangapp/urls.py'
+    url: "http://192.168.43.250:5353/reqpub", //URL has been set in 'hooshangapp/urls.py'
     data: {
       face: element.id,
       sound: null
@@ -115,16 +115,17 @@ function exp(element) {
   
 };
 function exp_sound(element) {
-  var id = element.id;
-  document.getElementById("msg_sound").innerHTML = id;
+  var val = element.value;
+  document.getElementById("msg_sound").innerHTML = val;
+  alert(val);
 
   // Sending a GET request to the server to set a new sound on demand
   // -----------------
   $.ajax({
     type: "GET",
-    url: "http://localhost:5353/reqpub", //URL has been set in 'hooshangapp/urls.py'
+    url: "http://192.168.43.250:5353/reqpub", //URL has been set in 'hooshangapp/urls.py'
     data: {
-      sound: element.id,
+      sound: val,
       face: null
     }
   })
@@ -150,39 +151,20 @@ function exp_sound(element) {
 
 
 // Audio Player for the web interface
-var x = document.getElementById("robot_audio");
 
-function playAudio(file) { 
-  play(file); 
-} 
+function playAudio(input) { 
+  var file = input.id;
+  var x = document.getElementById(file);
+  if (x.paused == false) {
+    x.pause();
+    $(".play_btn").removeClass("active");
+    
+  } 
+  else {
+    x.play();
+    $(".play_btn").removeClass("active");
+    $(input).addClass("active"); 
+       
 
-function pauseAudio() { 
-  x.pause(); 
-} 
-
-
-var audio = {    
-  init: function() {        
-  var $that = this;        
-      $(function() {            
-          $that.components.media();        
-      });    
-  },
-  components: {        
-      media: function(target) {            
-          var media = $('audio.fc-media', (target !== undefined) ? target : 'body');            
-          if (media.length) {                
-              media.mediaelementplayer({                    
-                  audioHeight: 40,
-                  features : ['playpause', 'current', 'duration', 'progress', 'volume', 'tracks', 'fullscreen'],
-                  alwaysShowControls      : true,
-                  timeAndDurationSeparator: '<span></span>',
-                  iPadUseNativeControls: true,
-                  iPhoneUseNativeControls: true,
-                  AndroidUseNativeControls: true                
-              });            
-          }        
-      },
-          
-  },
-};
+    }
+  }
