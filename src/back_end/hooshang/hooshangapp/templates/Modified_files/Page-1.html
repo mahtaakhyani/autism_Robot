@@ -83,19 +83,28 @@
                         {% for emotion in emotions %}
                         <div class="u-align-center u-container-style u-list-item u-repeater-item">
                           <div class="u-container-layout u-similar-container u-container-layout-3">
-                            <button id={{emotion.face_video_url}} onclick="exp(this);" class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
-                              <span class="u-icon u-text-custom-color-7 u-icon-1">
-                                <img><i class="bi {{emotion.interface_button_emoji}}"></i></button>
+                            <span class="u-icon u-text-custom-color-7 u-icon-1">
+                              <img><i class="bi {{emotion.interface_button_emoji}}"></i></input>
+                            <input type="button"
+                             id={{emotion.face_video_url}} 
+                             onclick="exp(this);"
+                             value="{{emotion}}" 
+                             style="font-size: 50%;"
+                             class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
                           </div>
                         </div>
                         {% endfor %}
                         
                         <div class="u-align-center u-container-style u-list-item u-repeater-item">
                           <div class="u-container-layout u-similar-container u-container-layout-7">
-                            <!-- autu -->
-                            <button id='auto' onclick="exp(this)"  class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
-                              <span class="u-icon u-text-custom-color-7 u-icon-1">
-                                <img><i class="bi bi-emoji-neutral"></i></button>
+                            <!-- auto -->
+                            <input type="button"
+                             id=Auto 
+                             onclick="exp(this);"
+                             value="auto" 
+                             style="font-size: 50%;"
+                             class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
+                             <img><i class="bi bi-emoji-neutral"></i></button>
                             
                           </div>
                         </div>
@@ -182,18 +191,5 @@
       </div>
     </section>
     
-    
-    
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Web Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.online" target="_blank">
-        <span>Website Builder</span>
-      </a>. 
-    </section>
   </body>
 </html>

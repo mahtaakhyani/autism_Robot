@@ -1,1 +1,10 @@
-/home/mahta/Downloads/catkin_ws/devel/.private/face_pkg/share/gennodejs/ros/face_pkg/msg/_index.js
+
+"use strict";
+
+let ActionHeader = require('./ActionHeader.js');
+let Exp = require('./Exp.js');
+
+module.exports = {
+  ActionHeader: ActionHeader,
+  Exp: Exp,
+};

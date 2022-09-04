@@ -1,1 +1,8 @@
-/home/mahta/Downloads/catkin_ws/devel/.private/face_pkg/share/common-lisp/ros/face_pkg/msg/_package_ActionHeader.lisp
+(cl:in-package face_pkg-msg)
+(cl:export '(SEQ-VAL
+          SEQ
+          STAMP-VAL
+          STAMP
+          COMMAND_TYPE-VAL
+          COMMAND_TYPE
+))

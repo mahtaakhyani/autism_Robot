@@ -67,14 +67,14 @@ set(face_pkg_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(face_pkg_SOURCE_PREFIX /home/mahta/Downloads/catkin_ws/src/face_pkg)
-  set(face_pkg_DEVEL_PREFIX /home/mahta/Downloads/catkin_ws/devel/.private/face_pkg)
+  set(face_pkg_SOURCE_PREFIX C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/face_pkg)
+  set(face_pkg_DEVEL_PREFIX C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel)
   set(face_pkg_INSTALL_PREFIX "")
   set(face_pkg_PREFIX ${face_pkg_DEVEL_PREFIX})
 else()
   set(face_pkg_SOURCE_PREFIX "")
   set(face_pkg_DEVEL_PREFIX "")
-  set(face_pkg_INSTALL_PREFIX /home/mahta/Downloads/catkin_ws/install)
+  set(face_pkg_INSTALL_PREFIX C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/install)
   set(face_pkg_PREFIX ${face_pkg_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/mahta/Downloads/catkin_ws/install/lib;/home/mahta/Downloads/catkin_ws/devel/lib;/home/mahta/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/install/lib;C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel/lib;c:/opt/ros/noetic/x64/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(face_pkg_LIBRARIES ${face_pkg_LIBRARIES})
 
   _list_append_unique(face_pkg_LIBRARY_DIRS ${${face_pkg_dep}_LIBRARY_DIRS})
-  _list_append_deduplicate(face_pkg_EXPORTED_TARGETS ${${face_pkg_dep}_EXPORTED_TARGETS})
+  list(APPEND face_pkg_EXPORTED_TARGETS ${${face_pkg_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "face_pkg-msg-extras.cmake")

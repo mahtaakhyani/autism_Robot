@@ -1,9 +1,5 @@
-#!/usr/bin/env python3
-import rospy
-from face_pkg.msg import Exp
 import cv2
 from deepface import DeepFace
-import numpy as np
 
 
 class FaceDetection():  
@@ -14,7 +10,6 @@ class FaceDetection():
         self.face_cascade = cv2.CascadeClassifier()  #processing it for our project
         if not self.face_cascade.load(cv2.samples.findFile(self.face_cascade_name)):  #adding a fallback event
             print("Error loading xml file")
-
 
 
 
@@ -32,8 +27,8 @@ class FaceDetection():
             #this is the part where we display the output to the user
             cv2.imshow('video', self.frame)
             key=cv2.waitKey(1) 
-            emo = self.send_emo()
-            return emo
+            
+            return self.send_emo()
                     
 
     def send_emo(self):
@@ -45,11 +40,12 @@ class FaceDetection():
                 except Exception as e:
                     print("no face", e)
                     return e
-                    pass
-f = FaceDetection()
+                 
 
-# if __name__=="__main__":
-#     try:
-#         FaceDetection()
-#     except Exception as e:
-#         print(e)
+
+    
+if __name__=="__main__":
+    try:
+        FaceDetection()
+    except Exception as e:
+        print(e)

@@ -1,4 +1,4 @@
-prefix=/home/mahta/Downloads/catkin_ws/install
+prefix=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/install
 
 Name: face_pkg
 Description: Description of face_pkg

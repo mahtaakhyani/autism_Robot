@@ -1,1 +1,12 @@
-/home/mahta/Downloads/catkin_ws/devel/.private/face_pkg/share/common-lisp/ros/face_pkg/msg/_package_Exp.lisp
+(cl:in-package face_pkg-msg)
+(cl:export '(SEQ-VAL
+          SEQ
+          TIME-VAL
+          TIME
+          ACTION-VAL
+          ACTION
+          EMOTION-VAL
+          EMOTION
+          AUTO_IMIT-VAL
+          AUTO_IMIT
+))

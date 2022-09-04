@@ -1,1 +1,6 @@
-/home/mahta/Downloads/catkin_ws/devel/.private/face_pkg/share/gennodejs/ros/face_pkg/_index.js
+
+"use strict";
+
+module.exports = {
+  msg: require('./msg/_index.js'),
+};

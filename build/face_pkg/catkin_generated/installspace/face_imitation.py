@@ -1,15 +1,6 @@
-#!/usr/bin/env python3
-import rospy
-from face_pkg.msg import Exp
+# !/usr/bin/env python3
 import cv2
-# from cv_bridge import CvBridge
-# from fer import FER
-import parser
-from std_msgs.msg import String
-# from sensor_msgs.msg import Image
-
 from deepface import DeepFace
-import numpy as np
 
 
 class FaceDetection():  
@@ -23,7 +14,7 @@ class FaceDetection():
 
 
 
-
+    
     def main(self):
         self.video=cv2.VideoCapture(0)  #requisting the input from the webcam or camera
         while self.video.isOpened():  #checking if are getting video feed and using it
@@ -52,9 +43,12 @@ class FaceDetection():
                     print("no face", e)
                     return e
                     pass
+global f
+f = FaceDetection()
+f = f.main()
 
-FaceDetection().main()
-# if __name__=="__main__":
-#     try:
-#     except Exception as e:
-#         print(e)
+if __name__=="__main__":
+    try:
+        FaceDetection()
+    except Exception as e:
+        print(e)

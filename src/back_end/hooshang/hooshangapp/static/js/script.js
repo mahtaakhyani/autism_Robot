@@ -6,12 +6,14 @@ function viewdiv(div) {
   $(document.getElementById(div)).show().children().show();
 }
 
-// Init handle for rosbridge_websocket - If not willing to be initiated at the robot startup.(Limited to when control interface is requested.)
+// Init handle for rosbridge_websocket - If not willing to be initiated at 
+//  the robot startup through launch file.(Limited to when control interface is requested.)
 // robot_WS = 'ws://localhost:9090';
 //     ros = new ROSLIB.Ros({
 //     url: robot_WS
 //     });  
 
+// -----------------
 // Connecting to ROS via 'rosbridge_websocket_server' Launch Node running on the master "URI/IP/URL :Port 9090(default)"
 // ----------------- 
 var ros = new ROSLIB.Ros({
@@ -31,6 +33,7 @@ ros.on('close', function() {
 });
 
 
+// -----------------
 // Creating and Publishing the first emotion control message on the pre-defined(initiated through 'main.py') Topic /exp
 // as the interface starts interacting with the robot on user's demand.
 // -----------------
@@ -40,6 +43,7 @@ var exp_msg = new ROSLIB.Message({
   auto_imit: false
 });
 
+// -----------------
 // Creating new Topic for expressions data
 // -----------------
 var exp_Topic = new ROSLIB.Topic({
@@ -48,6 +52,8 @@ var exp_Topic = new ROSLIB.Topic({
   messageType : 'face_pkg/Exp'
 });
 
+
+// -----------------
 // Handling the turned on facial imitiator button through the server.
 // (Same as other buttons but on a different topic to be recognized by the robot/user.)
 // -----------------
@@ -65,9 +71,10 @@ autoexp_Topic.subscribe(function(message) {
 });
 
 
+// -----------------
  // Subscribing to the Topic
     // + Logging all recieved messages in the browser's console for debugging purposes.
-    // ----------------------
+// ----------------------
     exp_Topic.subscribe(function(message) {
       console.log('Received message on ' + exp_Topic.name + ': ' + message.emotion);
       var msgd = message.emotion;
@@ -76,11 +83,13 @@ autoexp_Topic.subscribe(function(message) {
     });
 
 
+// -----------------
 //Handling the facial expression buttons events through both the Django server and the ROS environment
 // -----------------
 function exp(element) {
   var id = element.id;
-  document.getElementById("msg").innerHTML = id;
+  var val = element.value;
+  document.getElementById("msg").innerHTML = val;
 
   // Sending a GET request to the server to set a new emotion on demand
   // -----------------
@@ -93,10 +102,12 @@ function exp(element) {
     }
   })
   .then(console.log); // logging the response in browser's console
+
+
 // -----------------
   // Publishing the new emotion on the topic /exp for the robot to react(initiate motion) via ROS, if needed.
 // -----------------
-  if (id == 'auto')
+  if (val == 'auto')
     var auto_bool = true
   else var auto_bool = false //checking if the button is 'auto' or not.
 
@@ -105,7 +116,7 @@ function exp(element) {
     // and can be safely modified to meet new needs at any time.
 
       action: 'facial',
-      emotion : id,
+      emotion : val,
       auto_imit: auto_bool
     }); // creating a new message for the topic /exp based on the button clicked and the auto_bool value.
     
@@ -117,7 +128,6 @@ function exp(element) {
 function exp_sound(element) {
   var val = element.value;
   document.getElementById("msg_sound").innerHTML = val;
-  alert(val);
 
   // Sending a GET request to the server to set a new sound on demand
   // -----------------
@@ -132,26 +142,48 @@ function exp_sound(element) {
   .then(console.log); // logging the response in browser's console
 }
 
+
+
+
 // -----------------
-// Publishing manual motion control messages on the related topics
+// Listening to the /cmd_vel topic to get the robot's current velocity commanded through keyboard teleoperation.
 // -----------------
-// var exp_Topic = new ROSLIB.Topic({
-//   ros : ros,
-//   name : '/cmd_vel_wheel',
-//   messageType : 'geometry_msgs/Twist'
-// });
 
-// exp_Topic.subscribe(function(message) {
-//   console.log('Received message on ' + exp_Topic.name + ': ' + message.linear.x);
-//   linear_x = message.linear.x;
-//   linear_y = message.linear.y;
-//   angular_z = message.angular.z
-
-// });
+var motion_Topic = new ROSLIB.Topic({
+  ros : ros,
+  name : '/cmd_vel_listener',
+  messageType : 'geometry_msgs/Twist'
+});
 
 
+motion_Topic.subscribe(function(message) {
+  console.log('Received message on ' + exp_Topic.name + ': ' + message.linear.x);
+  linear_x = message.linear.x;
+  linear_y = message.linear.y;
+  angular_z = message.angular.z
+  
+});
+
+// -----------------
+// Publishing manual movement commands from the user interface(not from the keyboard) on /cmd_vel_web topic
+// -----------------
+var motion_Topic = new ROSLIB.Topic({
+  ros : ros,
+  name : '/cmd_vel_web',
+  messageType : 'geometry_msgs/Twist'
+});
+
+function motion(element) {
+  var twist = new ROSLIB.Message({
+   element
+  });
+  cmdVel.publish(twist);
+}
+
+
+// -----------------
 // Audio Player for the web interface
-
+// -----------------
 function playAudio(input) { 
   var file = input.id;
   var x = document.getElementById(file);

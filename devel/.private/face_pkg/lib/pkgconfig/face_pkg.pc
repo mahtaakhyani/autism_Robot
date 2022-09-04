@@ -1,8 +1,0 @@
-prefix=/home/mahta/Downloads/catkin_ws/devel/.private/face_pkg
-
-Name: face_pkg
-Description: Description of face_pkg
-Version: 0.0.0
-Cflags: -I/home/mahta/Downloads/catkin_ws/devel/.private/face_pkg/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime

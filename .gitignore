@@ -3,3 +3,4 @@
 *.pyc
 *.mp3
 src/back_end/hooshang/db.sqlite3
+.vscode/c_cpp_properties.json

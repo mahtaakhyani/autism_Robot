@@ -160,7 +160,7 @@ include_directories(
 ## in contrast to setup.py, you can choose the destination
 
 catkin_install_python(
-PROGRAMS scripts/main.py scripts/face_imitation.py
+PROGRAMS scripts/main.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

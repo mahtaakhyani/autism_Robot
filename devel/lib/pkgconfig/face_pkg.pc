@@ -1,1 +1,8 @@
-/home/mahta/Downloads/catkin_ws/devel/.private/face_pkg/lib/pkgconfig/face_pkg.pc
+prefix=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel
+
+Name: face_pkg
+Description: Description of face_pkg
+Version: 0.0.0
+Cflags: -IC:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime
