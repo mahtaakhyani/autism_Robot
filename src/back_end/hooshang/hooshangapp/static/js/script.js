@@ -6,9 +6,11 @@ function viewdiv(div) {
   $(document.getElementById(div)).show().children().show();
 }
 
+
+
 // Init handle for rosbridge_websocket - If not willing to be initiated at 
 //  the robot startup through launch file.(Limited to when control interface is requested.)
-// robot_WS = 'ws://localhost:9090';
+// robot_WS = 'ws://172.18.133.208:9090';
 //     ros = new ROSLIB.Ros({
 //     url: robot_WS
 //     });  
@@ -33,6 +35,24 @@ ros.on('close', function() {
 });
 
 
+window.addEventListener('load', (event) => {
+  console.log('page is fully loaded');
+  var cam_reciever = new ROSLIB.Topic({
+    ros : ros,
+    name : '/viz_flow/rgb',
+    messageType : 'std_msgs/String'
+  });
+  
+  cam_reciever.subscribe(function(msg) {
+    console.log('Received message on ' + cam_reciever.name);
+    
+    var canvas = document.getElementById('rgb-canvas');
+    ctx = canvas.getContext('2d');
+    var image = new Image();
+    image.src = `data:image/png;base64,${msg.data}`;
+    ctx.drawImage(image, 0, 0);
+}); 
+});
 // -----------------
 // Creating and Publishing the first emotion control message on the pre-defined(initiated through 'main.py') Topic /exp
 // as the interface starts interacting with the robot on user's demand.
@@ -59,7 +79,7 @@ var exp_Topic = new ROSLIB.Topic({
 // -----------------
 var autoexp_Topic = new ROSLIB.Topic({
   ros : ros,
-  name : 'exp_publisher',
+  name : 'py_exp_publisher',
   messageType : 'face_pkg/Exp'
 });
 
@@ -67,20 +87,23 @@ autoexp_Topic.subscribe(function(message) {
   console.log('Received message on ' + autoexp_Topic.name + ': ' + message.emotion);
   var msgd = message.emotion;
   // exp_Topic.unsubscribe();
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:5353/reqemo", //URL has been set in 'hooshangapp/urls.py'
+    data: {
+      face: msgd
+    },
+    success: function(response) {
+      document.getElementById("vidsrc").innerHTML = '<source src="'+ response.face_url+'" type="video/mp4">';
+      document.getElementById("vidsrc").load()
+      document.getElementById("vidsrc").play()
+    }
+  })
   document.getElementById("msg").innerHTML = msgd;
 });
+console.log(response);
 
 
-// -----------------
- // Subscribing to the Topic
-    // + Logging all recieved messages in the browser's console for debugging purposes.
-// ----------------------
-    exp_Topic.subscribe(function(message) {
-      console.log('Received message on ' + exp_Topic.name + ': ' + message.emotion);
-      var msgd = message.emotion;
-      // exp_Topic.unsubscribe();
-      document.getElementById("msg").innerHTML = msgd;
-    });
 
 
 // -----------------
@@ -90,18 +113,24 @@ function exp(element) {
   var id = element.id;
   var val = element.value;
   document.getElementById("msg").innerHTML = val;
+  document.getElementById("vidsrc").innerHTML = '<source src="'+ id+'" type="video/mp4">';
 
   // Sending a GET request to the server to set a new emotion on demand
   // -----------------
   $.ajax({
     type: "GET",
-    url: "http://192.168.43.250:5353/reqpub", //URL has been set in 'hooshangapp/urls.py'
+    url: "http://localhost:5353/reqpub", //URL has been set in 'hooshangapp/urls.py'
     data: {
       face: element.id,
       sound: null
+    },
+    success: function(response) {
+      document.getElementById("vidsrc").load()
+
+      document.getElementById("vidsrc").play()
+      console.log(response);
     }
-  })
-  .then(console.log); // logging the response in browser's console
+  }) // logging the response in browser's console
 
 
 // -----------------
@@ -133,10 +162,15 @@ function exp_sound(element) {
   // -----------------
   $.ajax({
     type: "GET",
-    url: "http://192.168.43.250:5353/reqpub", //URL has been set in 'hooshangapp/urls.py'
+    url: "http://localhost:5353/reqpub", //URL has been set in 'hooshangapp/urls.py'
     data: {
       sound: val,
       face: null
+    },
+    success: function(response) {
+      document.getElementById("vidsrc").innerHTML = '<source src="'+ response.face_url+'" type="video/mp4">';
+      document.getElementById("vidsrc").play()
+      console.log(response);
     }
   })
   .then(console.log); // logging the response in browser's console

@@ -25,7 +25,7 @@ class MainViewTemp(APIView):
         def get(self, request):
            
             # print(voices_uri)
-            emdb = EmotionModel.objects.all().order_by('-id')[1:]
+            emdb = EmotionModel.objects.all().order_by('-id')[0:]
             sdb = Song.objects.all().order_by('-id')[0:]
             # print(EmotionModel.objects.all()[1].sound.path())
             return TemplateResponse(request, 
@@ -50,12 +50,14 @@ class CoreReqHandler(APIView):
             cls.default_exp = request.GET.get('face')
             cls.exp_fetched_db = serializer.data.keys()
             cls.sound_file = request.GET.get('sound')
+            cls.face_video_url = request.GET.get('face_video_url')
 
             print(cls.exp_fetched_db,'cls.sound_file')
-            cls.data = {'face' : cls.default_exp, 
-                    'sound' : cls.sound_file,
-                    'status' : HttpResponse.status_code,
-                    'message' : 'The emotion has been set' 
+            cls.data = {'face' : cls.default_exp,
+                        'face_url':cls.face_video_url,
+                        'sound' : cls.sound_file,
+                        'status' : HttpResponse.status_code,
+                        'message' : 'The emotion has been set' 
                     } #Recieved Commands from the user
             return  JsonResponse(cls.data, status=200) #JSON response is also sent as the response on the URL: /reqpub to the user just in case! Feel free to ignore it.
         #     return cls.startstream()
@@ -140,9 +142,32 @@ class EmotionCommandController(APIView):
         return JsonResponse(data, status=201)
 
     def post(self, request):
-        self.response_data = request.data #Recieving client response data on the URL:/reqcli
+        self.response_data = request.data #Recieving android-client response data on the URL:/reqcli
         self.response_data = {"Client response" : str(self.response_data)}
         print(self.response_data)
         return JsonResponse(self.response_data, status=201)
+
+
+class EmotionModelViewDB(APIView):
+
+    def get(self, request):
+        fetched_db = EmotionModel.objects.all()
+        reqed_emo_src = request.GET.get("face") #Recieving web-client response data on the URL:/reqcli
+        try:
+            reqed_vidsrc_url = fetched_db.get(face=reqed_emo_src).face_video_url
+            if reqed_vidsrc_url:
+                try:
+                    reqed_soundsrc_url = fetched_db.get(face=reqed_emo_src).sound.audio_link
+                except:
+                    reqed_soundsrc_url = "No assigned sound found"
+        except:
+            reqed_vidsrc_url = "No matching face found"
+            reqed_soundsrc_url = ""
+
+        return JsonResponse( 
+            data={
+            "face_url": reqed_vidsrc_url,
+            "sound_url": reqed_soundsrc_url,
+         } ,status=201)
 
    

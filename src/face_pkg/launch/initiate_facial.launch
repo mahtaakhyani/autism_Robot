@@ -10,10 +10,12 @@
           output="screen"/>
 
 <!-- Bridging between ROS and HTML interface node -->
-    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+        <arg name="unregister_timeout" value="100"/>
+    </include>
 <!-- Streaming a video from the ROS server to the client -->
     <include file="$(find video_stream_opencv)/launch/camera.launch">
-        <arg name="video_stream_provider" value="https://static.videezy.com/system/resources/previews/000/045/693/original/22.mp4" />
+        <arg name="video_stream_provider" value="0" />
         <arg name="visualize" value="false" />
     </include>
 

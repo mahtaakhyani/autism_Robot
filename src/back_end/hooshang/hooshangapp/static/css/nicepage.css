@@ -11029,6 +11029,7 @@ section.u-image:not(.u-hover-box),
   min-height: -webkit-fit-content;
   min-height: fit-content;
   max-width: 100%;
+  margin: 0px 0 2% 0;
 }
 .u-layout-col {
   flex-direction: column;
@@ -18462,6 +18463,7 @@ a.pswp__share--download:hover {
 .u-repeater-item {
   display: flex;
   position: relative;
+  align-items: flex-end;
 }
 .u-list-control {
   display: flex;
@@ -36387,7 +36389,7 @@ a.u-link.u-text-hover-grey-90:hover {
 
         .u-link.u-border-custom-color-6[class*="u-border-"]:hover
         {
-            border-color: rgba(170,174,139,0) !important;
+            border-color: rgba(120,174,139,0) !important;
         }
         
         
@@ -36400,17 +36402,20 @@ a.u-link.u-text-hover-grey-90:hover {
 
         .u-button-style.u-border-custom-color-7
         {
-            border-color: #ffbb00 !important;
-            color: #ffbb00 !important;
-            background-color: transparent !important;
+          min-width: -webkit-fill-available;
+          border-color: #332c29 !important;
+          color: #000000 !important;
+          background-color: #ffbb00 !important;
+          font-size: 20px !important;
         }
 
         .u-button-style.u-border-custom-color-7:hover,
-        .u-button-style.u-border-custom-color-7:focus
+        .u-button-style.u-border-custom-color-7:focus,
+        .u-button-style.u-border-custom-color-7:active
         {
             border-color: transparent !important;
-            color: #e6a800 !important;
-            background-color: transparent !important;
+            color: #fff !important;
+            background-color: #54f241 !important;
         }
 
         .u-border-hover-custom-color-7:hover,
@@ -36641,7 +36646,7 @@ a.u-link.u-text-hover-grey-90:hover {
         a.u-button-style.u-text-custom-color-7,
         a.u-button-style.u-text-custom-color-7[class*="u-border-"]
         {
-            color: #ffbb00 !important;
+            
         }
 
         a.u-button-style.u-text-custom-color-7:hover,

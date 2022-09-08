@@ -65,12 +65,67 @@
     <meta property="og:title" content="Page 1">
     <meta property="og:type" content="website">
   </head>
-  <body class="u-body u-xl-mode">
+  <body class="u-body u-xl-mode u-palette-5-light-2">
     <section class="u-clearfix u-palette-5-light-2 u-section-1" id="sec-48f7">
-      <div class="u-align-left u-clearfix u-expanded-width-xs u-gutter-12 u-layout-spacing-left-right u-layout-wrap u-layout-wrap-1">
-        <a class="button u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1" href="/admin">Admin Panel</a>
-        <div class="u-layout">
+      <div class="u-layout-row u-align-left u-clearfix u-expanded-width-xs u-gutter-12 u-layout-spacing-left-right u-layout-wrap u-layout-wrap-1">
+        <div class=" u-layout-col u-clearfix u-expanded-width-xs u-gutter-14 u-layout-spacing-left-right u-layout-wrap u-layout-wrap-2">
+        <div class="u-gutter-0 u-layout">
           <div class="u-layout-col">
+            <div class="u-container-style u-layout-cell u-radius-24 u-shape-round u-size-30 u-white u-layout-cell-3">
+              <div class="u-border-1 u-border-white u-container-layout u-container-layout-12">
+                <h4 class="u-align-center u-text u-text-4">Move</h4>
+                <p class="u-text u-text-5">Use the arrow keys to move the robot.<br>
+                  <br>Use WASD keys to tilt the head up/left/down/right relatively.
+                </p>
+              </div>
+            </div>
+            <div class="u-expanded-width u-tab-links-align-left u-tabs u-tabs-1">
+              <ul class="u-border-2 u-border-grey-75 u-custom-color-7 u-tab-list u-unstyled u-tab-list-1" role="tablist">
+          
+                <li class="u-tab-item" role="presentation">
+                  <a class="active u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d34" href="#tab-3d34" role="tab" aria-controls="tab-3d34" aria-selected="true">Face</a>
+                </li>
+                <li class="u-tab-item" role="presentation">
+                  <a class="u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d35" href="#tab-3d35" role="tab" aria-controls="tab-3d35" aria-selected="true">Camera</a>
+                </li>
+                <li class="u-tab-item" role="presentation">
+                  <a class="u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d36" href="#tab-3d36" role="tab" aria-controls="tab-3d36" aria-selected="true">Localization</a>
+                </li>
+              
+              </ul>
+              <div class="u-tab-content">
+                <div class="u-container-style  u-layout-cell u-radius-16 u-shape-round u-size-30 u-uploaded-video u-video u-video-contain u-video-1 u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-3d34" role="tabpanel" aria-labelledby="link-tab-3d34">
+                  <div class="u-absolute-hcenter u-align-left u-background-video u-border-6 u-border-white u-expanded u-left-0" style="">
+                    <div class="embed-responsive">
+                      <video id="vidsrc" class="embed-responsive-item" loop="true" playsinline="">
+                        <source  src="" type="video/mp4">
+                        <p>Your browser does not support HTML5 video.</p>
+                      </video>
+                    </div>
+                  </div>
+                </div>
+                <div class="u-container-layout u-container-layout-13"></div>
+              </div>
+              <div class="u-tab-content">
+                <div class="u-container-style  u-layout-cell u-radius-16 u-shape-round u-size-30 u-uploaded-video u-video u-video-contain u-video-1 u-tab-pane u-white u-tab-pane-1" id="tab-3d35" role="tabpanel" aria-labelledby="link-tab-3d35">
+                  <div class="u-absolute-hcenter u-align-left u-background-video u-border-6 u-border-white u-expanded u-left-0" style="">
+                    <div class="embed-responsive">
+                      <img id="rgb-canvas" class="embed-responsive-item" src="http://localhost:8181/stream?topic=/camera/image_raw">
+                        <p>Unable to load camera frames.</p>
+                    </img>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="u-layout-col">
+          <div class="u-layout-col">
+            <div class="u-layout-row">
+              <button class="button u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1" href="/admin" style=" width: -webkit-fill-available !important;">Admin Panel</button>
+            </div>
             <div class="u-size-30">
               <div class="u-layout-row">
                 <div class="u-align-center u-container-style u-layout-cell u-radius-16 u-shape-round u-size-60 u-white u-layout-cell-1">
@@ -80,20 +135,21 @@
                     <div class="u-align-center u-list u-list-1">
                       <div class="u-repeater u-repeater-1">
                         
-                        {% for emotion in emotions %}
+                        {% for emotion in emotions %}{% if emotion %}
                         <div class="u-align-center u-container-style u-list-item u-repeater-item">
                           <div class="u-container-layout u-similar-container u-container-layout-3">
                             <span class="u-icon u-text-custom-color-7 u-icon-1">
-                              <img><i class="bi {{emotion.interface_button_emoji}}"></i></input>
+                              <img><i class="bi {{emotion.interface_button_emoji}}"></i>
                             <input type="button"
                              id={{emotion.face_video_url}} 
                              onclick="exp(this);"
                              value="{{emotion}}" 
                              style="font-size: 50%;"
                              class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
+                            </input>
                           </div>
                         </div>
-                        {% endfor %}
+                        {% endif %} {% endfor %}
                         
                         <div class="u-align-center u-container-style u-list-item u-repeater-item">
                           <div class="u-container-layout u-similar-container u-container-layout-7">
@@ -102,9 +158,9 @@
                              id=Auto 
                              onclick="exp(this);"
                              value="auto" 
-                             style="font-size: 50%;"
+                             style="font-size: 50%; background-color: #ff0000 !important ; color: aliceblue !important;"
                              class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
-                             <img><i class="bi bi-emoji-neutral"></i></button>
+                          </input>
                             
                           </div>
                         </div>
@@ -124,7 +180,13 @@
                       <ul class="u-border-2 u-border-grey-75 u-custom-color-7 u-tab-list u-unstyled u-tab-list-1" role="tablist">
         
                           <li class="u-tab-item" role="presentation">
-                            <a class="active u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d31" href=" {% static '#tab-3d31' %} " role="tab" aria-controls="tab-3d31" aria-selected="true">Tab 1</a>
+                            <a class="active u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d31" href="#tab-3d31" role="tab" aria-controls="tab-3d31" aria-selected="true">Tab 1</a>
+                          </li>
+                          <li class="u-tab-item" role="presentation">
+                            <a class="u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d32" href="#tab-3d32" role="tab" aria-controls="tab-3d32" aria-selected="true">Tab 2</a>
+                          </li>
+                          <li class="u-tab-item" role="presentation">
+                            <a class="u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d33" href="#tab-3d33" role="tab" aria-controls="tab-3d33" aria-selected="true">Tab 3</a>
                           </li>
                         
                       </ul>
@@ -149,6 +211,23 @@
                             </ul>
                           </div>
                         </div>
+                        <div class="u-container-style u-tab-pane u-white u-tab-pane-1" id="tab-3d32" role="tabpanel" aria-labelledby="link-tab-3d32">
+                          <div class="u-container-layout u-container-layout-9">
+                            <ul class="u-custom-font u-custom-list u-file-icon u-font-pt-sans u-indent-0 u-text u-text-3">
+                              {% for sound in voices %}
+                                <li class="u-align-left " style="padding-bottom: 3%;">
+                                  
+                                   <input id="robot_audio{{sound.id}}" 
+                                   value="{% if sound.audio_file %}{{sound.audio_file}}{% else %}{{sound.url}}{% endif %}"
+                                   class="play_btn"
+                                   onclick="exp_sound(this); playAudio(this);" type="button"></input>
+                                
+                                   &emsp;&emsp; -----
+                                </li>
+                             {% endfor %}
+                            </ul>
+                          </div>
+                        </div>
                         <div class="u-container-style u-tab-pane u-white u-tab-pane-2" id="tab-acd9" role="tabpanel" aria-labelledby="link-tab-acd9">
                           <div class="u-container-layout u-container-layout-10"></div>
                         </div>
@@ -163,31 +242,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="u-clearfix u-expanded-width-xs u-gutter-14 u-layout-spacing-left-right u-layout-wrap u-layout-wrap-2">
-        <div class="u-gutter-0 u-layout">
-          <div class="u-layout-col">
-            <div class="u-container-style u-layout-cell u-radius-24 u-shape-round u-size-30 u-white u-layout-cell-3">
-              <div class="u-border-1 u-border-white u-container-layout u-container-layout-12">
-                <h4 class="u-align-center u-text u-text-4">Move</h4>
-                <p class="u-text u-text-5">{{ face }} Use the arrow keys to move the robot.<br>
-                  <br>Use WASD keys to tilt the head up/left/down/right relatively.
-                </p>
-              </div>
-            </div>
-            <div class="u-container-style u-layout-cell u-radius-16 u-shape-round u-size-30 u-uploaded-video u-video u-video-contain u-video-1">
-              <div class="u-absolute-hcenter u-align-left u-background-video u-border-6 u-border-white u-expanded u-left-0" style="">
-                <div class="embed-responsive">
-                  <video class="embed-responsive-item" data-autoplay="1" loop="" muted="" poster="images/default-image-27.jpg" autoplay="autoplay" playsinline="">
-                    <source src=" {{face}} " type="video/mp4">
-                    <p>Your browser does not support HTML5 video.</p>
-                  </video>
-                </div>
-              </div>
-              <div class="u-container-layout u-container-layout-13"></div>
-            </div>
-          </div>
-        </div>
+      
+        
       </div>
     </section>
     

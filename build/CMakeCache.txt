@@ -17,6 +17,39 @@
 //Build dynamically-linked binaries
 BUILD_SHARED_LIBS:BOOL=ON
 
+//Boost atomic library (debug)
+Boost_ATOMIC_LIBRARY_DEBUG:FILEPATH=Boost_ATOMIC_LIBRARY_DEBUG-NOTFOUND
+
+//Boost atomic library (release)
+Boost_ATOMIC_LIBRARY_RELEASE:FILEPATH=C:/opt/ros/noetic/x64/Lib/boost_atomic-vc140-mt.lib
+
+//Boost chrono library (debug)
+Boost_CHRONO_LIBRARY_DEBUG:FILEPATH=Boost_CHRONO_LIBRARY_DEBUG-NOTFOUND
+
+//Boost chrono library (release)
+Boost_CHRONO_LIBRARY_RELEASE:FILEPATH=C:/opt/ros/noetic/x64/Lib/boost_chrono-vc140-mt.lib
+
+//Boost date_time library (debug)
+Boost_DATE_TIME_LIBRARY_DEBUG:FILEPATH=Boost_DATE_TIME_LIBRARY_DEBUG-NOTFOUND
+
+//Boost date_time library (release)
+Boost_DATE_TIME_LIBRARY_RELEASE:FILEPATH=C:/opt/ros/noetic/x64/Lib/boost_date_time-vc140-mt.lib
+
+//The directory containing a CMake configuration file for Boost.
+Boost_DIR:PATH=Boost_DIR-NOTFOUND
+
+//Path to a file.
+Boost_INCLUDE_DIR:PATH=C:/opt/ros/noetic/x64/include
+
+//Boost library directory RELEASE
+Boost_LIBRARY_DIR_RELEASE:PATH=C:/opt/ros/noetic/x64/Lib
+
+//Boost thread library (debug)
+Boost_THREAD_LIBRARY_DEBUG:FILEPATH=Boost_THREAD_LIBRARY_DEBUG-NOTFOUND
+
+//Boost thread library (release)
+Boost_THREAD_LIBRARY_RELEASE:FILEPATH=C:/opt/ros/noetic/x64/Lib/boost_thread-vc140-mt.lib
+
 //List of ';' separated packages to exclude
 CATKIN_BLACKLIST_PACKAGES:STRING=
 
@@ -287,6 +320,9 @@ _gtest_INCLUDES:FILEPATH=_gtest_INCLUDES-NOTFOUND
 //Path to a file.
 _gtest_SOURCES:FILEPATH=_gtest_SOURCES-NOTFOUND
 
+//The directory containing a CMake configuration file for async_web_server_cpp.
+async_web_server_cpp_DIR:PATH=async_web_server_cpp_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for bond.
 bond_DIR:PATH=C:/opt/ros/noetic/x64/share/bond/cmake
 
@@ -345,7 +381,7 @@ geometry_msgs_DIR:PATH=C:/opt/ros/noetic/x64/share/geometry_msgs/cmake
 image_transport_DIR:PATH=C:/opt/ros/noetic/x64/share/image_transport/cmake
 
 //Path to a library.
-lib:FILEPATH=C:/opt/ros/noetic/x64/Lib/dynamic_reconfigure_config_init_mutex.lib
+lib:FILEPATH=C:/opt/ros/noetic/x64/Lib/class_loader.lib
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=C:/opt/ros/noetic/x64/share/message_filters/cmake
@@ -355,6 +391,12 @@ message_generation_DIR:PATH=C:/opt/ros/noetic/x64/share/message_generation/cmake
 
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=C:/opt/ros/noetic/x64/share/message_runtime/cmake
+
+//Value Computed by CMake
+mjpeg_server_BINARY_DIR:STATIC=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/mjpeg_server
+
+//Value Computed by CMake
+mjpeg_server_SOURCE_DIR:STATIC=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/mjpeg_server
 
 //The directory containing a CMake configuration file for nodelet.
 nodelet_DIR:PATH=C:/opt/ros/noetic/x64/share/nodelet/cmake
@@ -410,6 +452,12 @@ video_stream_opencv_LIB_DEPENDS:STATIC=general;C:/opt/ros/noetic/x64/Lib/cv_brid
 //Value Computed by CMake
 video_stream_opencv_SOURCE_DIR:STATIC=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv
 
+//Value Computed by CMake
+web_video_server_BINARY_DIR:STATIC=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/web_video_server
+
+//Value Computed by CMake
+web_video_server_SOURCE_DIR:STATIC=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/web_video_server
+
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=C:/opt/ros/noetic/x64/share/xmlrpcpp/cmake
 
@@ -418,6 +466,28 @@ xmlrpcpp_DIR:PATH=C:/opt/ros/noetic/x64/share/xmlrpcpp/cmake
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: Boost_ATOMIC_LIBRARY_DEBUG
+Boost_ATOMIC_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_ATOMIC_LIBRARY_RELEASE
+Boost_ATOMIC_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_CHRONO_LIBRARY_DEBUG
+Boost_CHRONO_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_CHRONO_LIBRARY_RELEASE
+Boost_CHRONO_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_DATE_TIME_LIBRARY_DEBUG
+Boost_DATE_TIME_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_DATE_TIME_LIBRARY_RELEASE
+Boost_DATE_TIME_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_DIR
+Boost_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_INCLUDE_DIR
+Boost_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LIBRARY_DIR_RELEASE
+Boost_LIBRARY_DIR_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_THREAD_LIBRARY_DEBUG
+Boost_THREAD_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_THREAD_LIBRARY_RELEASE
+Boost_THREAD_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //catkin environment
 CATKIN_ENV:INTERNAL=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/catkin_generated/env_cached.bat
 CATKIN_TEST_RESULTS_DIR:INTERNAL=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results
@@ -509,7 +579,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MT
 CMAKE_MT-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_COMPILER
@@ -553,12 +623,16 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding Boost
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[C:/opt/ros/noetic/x64/include][cfound components: thread chrono date_time atomic ][v1.73.0()]
 //Details about finding OpenCV
 FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[C:/opt/ros/noetic/x64][v4.3.0()]
 //Details about finding PY_em
 FIND_PACKAGE_MESSAGE_DETAILS_PY_em:INTERNAL=[C:\opt\ros\noetic\x64\lib\site-packages\em.py][v()]
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[C:/opt/ros/noetic/x64/python.exe][v3.8.3()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 GTEST_BOTH_LIBRARIES:INTERNAL=C:/opt/ros/noetic/x64/Lib/gtest.lib;C:/opt/ros/noetic/x64/Lib/gtest_main.lib
 GTEST_FOUND:INTERNAL=TRUE
 //ADVANCED property for variable: GTEST_INCLUDE_DIR
@@ -580,4 +654,14 @@ PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //  And it needs to match.  But setuptools won't tell us where
 // it will install things.
 PYTHON_INSTALL_DIR:INTERNAL=lib/site-packages
+//Components requested for this build tree.
+_Boost_COMPONENTS_SEARCHED:INTERNAL=atomic;chrono;date_time;thread
+//Last used Boost_INCLUDE_DIR value.
+_Boost_INCLUDE_DIR_LAST:INTERNAL=C:/opt/ros/noetic/x64/include
+//Last used Boost_LIBRARY_DIR_RELEASE value.
+_Boost_LIBRARY_DIR_RELEASE_LAST:INTERNAL=C:/opt/ros/noetic/x64/Lib
+//Last used Boost_NAMESPACE value.
+_Boost_NAMESPACE_LAST:INTERNAL=boost
+//Last used Boost_USE_MULTITHREADED value.
+_Boost_USE_MULTITHREADED_LAST:INTERNAL=TRUE
 

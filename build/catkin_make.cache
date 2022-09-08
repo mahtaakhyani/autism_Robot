@@ -1,2 +1,2 @@
-face_pkg;video_stream_opencv
+face_pkg;video_stream_opencv;web_video_server
 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCATKIN_DEVEL_PREFIX=C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel -DCMAKE_INSTALL_PREFIX=C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\install -G Ninja

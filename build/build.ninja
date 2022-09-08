@@ -588,153 +588,232 @@ build C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\site-pack
 
 
 #############################################
-# Utility command for dynamic_reconfigure_generate_messages_eus
-
-build video_stream_opencv\dynamic_reconfigure_generate_messages_eus: phony
-
-
-#############################################
 # Utility command for roscpp_generate_messages_cpp
 
-build video_stream_opencv\roscpp_generate_messages_cpp: phony
+build mjpeg_server\roscpp_generate_messages_cpp: phony
 
 
 #############################################
 # Utility command for roscpp_generate_messages_eus
 
-build video_stream_opencv\roscpp_generate_messages_eus: phony
+build mjpeg_server\roscpp_generate_messages_eus: phony
 
 
 #############################################
 # Utility command for install/local
 
-build video_stream_opencv\CMakeFiles\install\local.util: CUSTOM_COMMAND video_stream_opencv\all
-  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\video_stream_opencv && C:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+build mjpeg_server\CMakeFiles\install\local.util: CUSTOM_COMMAND mjpeg_server\all
+  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\mjpeg_server && C:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
   DESC = Installing only the local directory...
   pool = console
   restat = 1
 
-build video_stream_opencv\install\local: phony video_stream_opencv\CMakeFiles\install\local.util
+build mjpeg_server\install\local: phony mjpeg_server\CMakeFiles\install\local.util
 
 
 #############################################
 # Utility command for install
 
-build video_stream_opencv\CMakeFiles\install.util: CUSTOM_COMMAND video_stream_opencv\all
-  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\video_stream_opencv && C:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\bin\cmake.exe -P cmake_install.cmake"
+build mjpeg_server\CMakeFiles\install.util: CUSTOM_COMMAND mjpeg_server\all
+  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\mjpeg_server && C:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\bin\cmake.exe -P cmake_install.cmake"
   DESC = Install the project...
   pool = console
   restat = 1
 
-build video_stream_opencv\install: phony video_stream_opencv\CMakeFiles\install.util
-
-
-#############################################
-# Utility command for video_stream_opencv_gencfg
-
-build video_stream_opencv\video_stream_opencv_gencfg: phony video_stream_opencv\CMakeFiles\video_stream_opencv_gencfg C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\include\video_stream_opencv\VideoStreamConfig.h C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\share\video_stream_opencv\docs\VideoStreamConfig.dox C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\share\video_stream_opencv\docs\VideoStreamConfig-usage.dox C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\site-packages\video_stream_opencv\cfg\VideoStreamConfig.py C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\share\video_stream_opencv\docs\VideoStreamConfig.wikidoc
+build mjpeg_server\install: phony mjpeg_server\CMakeFiles\install.util
 
 
 #############################################
 # Utility command for roscpp_generate_messages_lisp
 
-build video_stream_opencv\roscpp_generate_messages_lisp: phony
-
-
-#############################################
-# Utility command for bond_generate_messages_nodejs
-
-build video_stream_opencv\bond_generate_messages_nodejs: phony
+build mjpeg_server\roscpp_generate_messages_lisp: phony
 
 
 #############################################
 # Utility command for geometry_msgs_generate_messages_py
 
-build video_stream_opencv\geometry_msgs_generate_messages_py: phony
+build mjpeg_server\geometry_msgs_generate_messages_py: phony
 
 
 #############################################
 # Utility command for rosgraph_msgs_generate_messages_eus
 
-build video_stream_opencv\rosgraph_msgs_generate_messages_eus: phony
+build mjpeg_server\rosgraph_msgs_generate_messages_eus: phony
 
 
 #############################################
 # Utility command for geometry_msgs_generate_messages_nodejs
 
-build video_stream_opencv\geometry_msgs_generate_messages_nodejs: phony
+build mjpeg_server\geometry_msgs_generate_messages_nodejs: phony
 
 
 #############################################
 # Utility command for roscpp_generate_messages_py
 
-build video_stream_opencv\roscpp_generate_messages_py: phony
+build mjpeg_server\roscpp_generate_messages_py: phony
 
 
 #############################################
 # Utility command for roscpp_generate_messages_nodejs
 
-build video_stream_opencv\roscpp_generate_messages_nodejs: phony
-
-
-#############################################
-# Utility command for nodelet_generate_messages_py
-
-build video_stream_opencv\nodelet_generate_messages_py: phony
-
-
-#############################################
-# Utility command for nodelet_generate_messages_nodejs
-
-build video_stream_opencv\nodelet_generate_messages_nodejs: phony
+build mjpeg_server\roscpp_generate_messages_nodejs: phony
 
 
 #############################################
 # Utility command for sensor_msgs_generate_messages_py
 
-build video_stream_opencv\sensor_msgs_generate_messages_py: phony
+build mjpeg_server\sensor_msgs_generate_messages_py: phony
 
 
 #############################################
 # Utility command for sensor_msgs_generate_messages_nodejs
 
-build video_stream_opencv\sensor_msgs_generate_messages_nodejs: phony
+build mjpeg_server\sensor_msgs_generate_messages_nodejs: phony
 
 
 #############################################
 # Utility command for rosgraph_msgs_generate_messages_cpp
 
-build video_stream_opencv\rosgraph_msgs_generate_messages_cpp: phony
-
-
-#############################################
-# Utility command for _run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test
-
-build video_stream_opencv\_run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test: phony video_stream_opencv\CMakeFiles\_run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test tests video_stream_opencv\clean_test_results_video_stream_opencv
+build mjpeg_server\rosgraph_msgs_generate_messages_cpp: phony
 
 
 #############################################
 # Utility command for rosgraph_msgs_generate_messages_lisp
 
-build video_stream_opencv\rosgraph_msgs_generate_messages_lisp: phony
+build mjpeg_server\rosgraph_msgs_generate_messages_lisp: phony
 
 
 #############################################
 # Utility command for rosgraph_msgs_generate_messages_nodejs
 
-build video_stream_opencv\rosgraph_msgs_generate_messages_nodejs: phony
+build mjpeg_server\rosgraph_msgs_generate_messages_nodejs: phony
 
 
 #############################################
 # Utility command for geometry_msgs_generate_messages_eus
 
-build video_stream_opencv\geometry_msgs_generate_messages_eus: phony
+build mjpeg_server\geometry_msgs_generate_messages_eus: phony
 
 
 #############################################
 # Utility command for rosgraph_msgs_generate_messages_py
 
-build video_stream_opencv\rosgraph_msgs_generate_messages_py: phony
+build mjpeg_server\rosgraph_msgs_generate_messages_py: phony
+
+
+#############################################
+# Utility command for sensor_msgs_generate_messages_cpp
+
+build mjpeg_server\sensor_msgs_generate_messages_cpp: phony
+
+
+#############################################
+# Utility command for sensor_msgs_generate_messages_eus
+
+build mjpeg_server\sensor_msgs_generate_messages_eus: phony
+
+
+#############################################
+# Utility command for sensor_msgs_generate_messages_lisp
+
+build mjpeg_server\sensor_msgs_generate_messages_lisp: phony
+
+
+#############################################
+# Utility command for geometry_msgs_generate_messages_cpp
+
+build mjpeg_server\geometry_msgs_generate_messages_cpp: phony
+
+
+#############################################
+# Utility command for geometry_msgs_generate_messages_lisp
+
+build mjpeg_server\geometry_msgs_generate_messages_lisp: phony
+
+
+#############################################
+# Utility command for edit_cache
+
+build mjpeg_server\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\mjpeg_server && C:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\bin\cmake-gui.exe -SC:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src -BC:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build mjpeg_server\edit_cache: phony mjpeg_server\CMakeFiles\edit_cache.util
+
+# =============================================================================
+# Object build statements for EXECUTABLE target mjpeg_server
+
+
+#############################################
+# Order-only phony target for mjpeg_server
+
+build cmake_object_order_depends_target_mjpeg_server: phony || mjpeg_server\CMakeFiles\mjpeg_server.dir
+
+build mjpeg_server\CMakeFiles\mjpeg_server.dir\src\mjpeg_server.cpp.obj: CXX_COMPILER__mjpeg_server_RelWithDebInfo C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\mjpeg_server\src\mjpeg_server.cpp || cmake_object_order_depends_target_mjpeg_server
+  DEFINES = -DNOMINMAX -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"mjpeg_server\" -DWIN32_LEAN_AND_MEAN -D_USE_MATH_DEFINES
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG   /D _VARIADIC_MAX=10 /Zc:__cplusplus
+  INCLUDES = -IC:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\mjpeg_server\include -IC:\opt\ros\noetic\x64\share\xmlrpcpp\cmake\..\..\..\include\xmlrpcpp -IC:\opt\ros\noetic\x64\include
+  OBJECT_DIR = mjpeg_server\CMakeFiles\mjpeg_server.dir
+  OBJECT_FILE_DIR = mjpeg_server\CMakeFiles\mjpeg_server.dir\src
+  TARGET_COMPILE_PDB = mjpeg_server\CMakeFiles\mjpeg_server.dir\
+  TARGET_PDB = C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\mjpeg_server\mjpeg_server.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target mjpeg_server
+
+
+#############################################
+# Link the executable C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\mjpeg_server\mjpeg_server.exe
+
+build C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\mjpeg_server\mjpeg_server.exe: CXX_EXECUTABLE_LINKER__mjpeg_server_RelWithDebInfo mjpeg_server\CMakeFiles\mjpeg_server.dir\src\mjpeg_server.cpp.obj | C$:\opt\ros\noetic\x64\Lib\cv_bridge.lib C$:\opt\ros\noetic\x64\lib\opencv_calib3d.lib C$:\opt\ros\noetic\x64\lib\opencv_dnn.lib C$:\opt\ros\noetic\x64\lib\opencv_features2d.lib C$:\opt\ros\noetic\x64\lib\opencv_flann.lib C$:\opt\ros\noetic\x64\lib\opencv_highgui.lib C$:\opt\ros\noetic\x64\lib\opencv_ml.lib C$:\opt\ros\noetic\x64\lib\opencv_objdetect.lib C$:\opt\ros\noetic\x64\lib\opencv_photo.lib C$:\opt\ros\noetic\x64\lib\opencv_stitching.lib C$:\opt\ros\noetic\x64\lib\opencv_video.lib C$:\opt\ros\noetic\x64\lib\opencv_videoio.lib C$:\opt\ros\noetic\x64\lib\opencv_core.lib C$:\opt\ros\noetic\x64\lib\opencv_imgproc.lib C$:\opt\ros\noetic\x64\lib\opencv_imgcodecs.lib C$:\opt\ros\noetic\x64\Lib\image_transport.lib C$:\opt\ros\noetic\x64\Lib\message_filters.lib C$:\opt\ros\noetic\x64\Lib\class_loader.lib C$:\opt\ros\noetic\x64\Lib\PocoFoundation.lib C$:\opt\ros\noetic\x64\Lib\roscpp.lib C$:\opt\ros\noetic\x64\Lib\rosconsole.lib C$:\opt\ros\noetic\x64\Lib\rosconsole_log4cxx.lib C$:\opt\ros\noetic\x64\Lib\rosconsole_backend_interface.lib C$:\opt\ros\noetic\x64\Lib\log4cxx.lib C$:\opt\ros\noetic\x64\Lib\boost_regex-vc140-mt.lib C$:\opt\ros\noetic\x64\Lib\xmlrpcpp.lib C$:\opt\ros\noetic\x64\Lib\roslib.lib C$:\opt\ros\noetic\x64\Lib\rospack.lib C$:\opt\ros\noetic\x64\Lib\python38.lib C$:\opt\ros\noetic\x64\Lib\boost_filesystem-vc140-mt.lib C$:\opt\ros\noetic\x64\Lib\boost_program_options-vc140-mt.lib C$:\opt\ros\noetic\x64\Lib\tinyxml2.lib C$:\opt\ros\noetic\x64\Lib\roscpp_serialization.lib C$:\opt\ros\noetic\x64\Lib\rostime.lib C$:\opt\ros\noetic\x64\Lib\cpp_common.lib C$:\opt\ros\noetic\x64\Lib\boost_system-vc140-mt.lib C$:\opt\ros\noetic\x64\Lib\boost_thread-vc140-mt.lib C$:\opt\ros\noetic\x64\Lib\boost_chrono-vc140-mt.lib C$:\opt\ros\noetic\x64\Lib\boost_date_time-vc140-mt.lib C$:\opt\ros\noetic\x64\Lib\boost_atomic-vc140-mt.lib C$:\opt\ros\noetic\x64\lib\console_bridge.lib C$:\opt\ros\noetic\x64\Lib\boost_thread-vc140-mt.lib C$:\opt\ros\noetic\x64\Lib\boost_chrono-vc140-mt.lib C$:\opt\ros\noetic\x64\Lib\boost_date_time-vc140-mt.lib C$:\opt\ros\noetic\x64\Lib\boost_atomic-vc140-mt.lib C$:\opt\ros\noetic\x64\lib\opencv_dnn.lib C$:\opt\ros\noetic\x64\lib\opencv_highgui.lib C$:\opt\ros\noetic\x64\lib\opencv_ml.lib C$:\opt\ros\noetic\x64\lib\opencv_objdetect.lib C$:\opt\ros\noetic\x64\lib\opencv_photo.lib C$:\opt\ros\noetic\x64\lib\opencv_stitching.lib C$:\opt\ros\noetic\x64\lib\opencv_video.lib C$:\opt\ros\noetic\x64\lib\opencv_videoio.lib C$:\opt\ros\noetic\x64\lib\console_bridge.lib C$:\opt\ros\noetic\x64\lib\opencv_imgcodecs.lib C$:\opt\ros\noetic\x64\lib\opencv_calib3d.lib C$:\opt\ros\noetic\x64\lib\opencv_features2d.lib C$:\opt\ros\noetic\x64\lib\opencv_flann.lib C$:\opt\ros\noetic\x64\lib\opencv_imgproc.lib C$:\opt\ros\noetic\x64\lib\opencv_core.lib
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = C:\opt\ros\noetic\x64\Lib\cv_bridge.lib  C:\opt\ros\noetic\x64\lib\opencv_calib3d.lib  C:\opt\ros\noetic\x64\lib\opencv_dnn.lib  C:\opt\ros\noetic\x64\lib\opencv_features2d.lib  C:\opt\ros\noetic\x64\lib\opencv_flann.lib  C:\opt\ros\noetic\x64\lib\opencv_highgui.lib  C:\opt\ros\noetic\x64\lib\opencv_ml.lib  C:\opt\ros\noetic\x64\lib\opencv_objdetect.lib  C:\opt\ros\noetic\x64\lib\opencv_photo.lib  C:\opt\ros\noetic\x64\lib\opencv_stitching.lib  C:\opt\ros\noetic\x64\lib\opencv_video.lib  C:\opt\ros\noetic\x64\lib\opencv_videoio.lib  C:\opt\ros\noetic\x64\lib\opencv_core.lib  C:\opt\ros\noetic\x64\lib\opencv_imgproc.lib  C:\opt\ros\noetic\x64\lib\opencv_imgcodecs.lib  C:\opt\ros\noetic\x64\Lib\image_transport.lib  C:\opt\ros\noetic\x64\Lib\message_filters.lib  C:\opt\ros\noetic\x64\Lib\class_loader.lib  C:\opt\ros\noetic\x64\Lib\PocoFoundation.lib  C:\opt\ros\noetic\x64\Lib\roscpp.lib  C:\opt\ros\noetic\x64\Lib\rosconsole.lib  C:\opt\ros\noetic\x64\Lib\rosconsole_log4cxx.lib  C:\opt\ros\noetic\x64\Lib\rosconsole_backend_interface.lib  C:\opt\ros\noetic\x64\Lib\log4cxx.lib  C:\opt\ros\noetic\x64\Lib\boost_regex-vc140-mt.lib  C:\opt\ros\noetic\x64\Lib\xmlrpcpp.lib  C:\opt\ros\noetic\x64\Lib\roslib.lib  C:\opt\ros\noetic\x64\Lib\rospack.lib  C:\opt\ros\noetic\x64\Lib\python38.lib  C:\opt\ros\noetic\x64\Lib\boost_filesystem-vc140-mt.lib  C:\opt\ros\noetic\x64\Lib\boost_program_options-vc140-mt.lib  C:\opt\ros\noetic\x64\Lib\tinyxml2.lib  C:\opt\ros\noetic\x64\Lib\roscpp_serialization.lib  C:\opt\ros\noetic\x64\Lib\rostime.lib  C:\opt\ros\noetic\x64\Lib\cpp_common.lib  C:\opt\ros\noetic\x64\Lib\boost_system-vc140-mt.lib  C:\opt\ros\noetic\x64\Lib\boost_thread-vc140-mt.lib  C:\opt\ros\noetic\x64\Lib\boost_chrono-vc140-mt.lib  C:\opt\ros\noetic\x64\Lib\boost_date_time-vc140-mt.lib  C:\opt\ros\noetic\x64\Lib\boost_atomic-vc140-mt.lib  C:\opt\ros\noetic\x64\lib\console_bridge.lib  C:\opt\ros\noetic\x64\Lib\boost_thread-vc140-mt.lib  C:\opt\ros\noetic\x64\Lib\boost_chrono-vc140-mt.lib  C:\opt\ros\noetic\x64\Lib\boost_date_time-vc140-mt.lib  C:\opt\ros\noetic\x64\Lib\boost_atomic-vc140-mt.lib  C:\opt\ros\noetic\x64\lib\opencv_dnn.lib  C:\opt\ros\noetic\x64\lib\opencv_highgui.lib  C:\opt\ros\noetic\x64\lib\opencv_ml.lib  C:\opt\ros\noetic\x64\lib\opencv_objdetect.lib  C:\opt\ros\noetic\x64\lib\opencv_photo.lib  C:\opt\ros\noetic\x64\lib\opencv_stitching.lib  C:\opt\ros\noetic\x64\lib\opencv_video.lib  C:\opt\ros\noetic\x64\lib\opencv_videoio.lib  C:\opt\ros\noetic\x64\lib\console_bridge.lib  C:\opt\ros\noetic\x64\lib\opencv_imgcodecs.lib  C:\opt\ros\noetic\x64\lib\opencv_calib3d.lib  C:\opt\ros\noetic\x64\lib\opencv_features2d.lib  C:\opt\ros\noetic\x64\lib\opencv_flann.lib  C:\opt\ros\noetic\x64\lib\opencv_imgproc.lib  C:\opt\ros\noetic\x64\lib\opencv_core.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = mjpeg_server\CMakeFiles\mjpeg_server.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = mjpeg_server\CMakeFiles\mjpeg_server.dir\
+  TARGET_FILE = C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\mjpeg_server\mjpeg_server.exe
+  TARGET_IMPLIB = C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\mjpeg_server.lib
+  TARGET_PDB = C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\mjpeg_server\mjpeg_server.pdb
+
+
+#############################################
+# Utility command for test
+
+build mjpeg_server\CMakeFiles\test.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\mjpeg_server && C:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\bin\ctest.exe --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build mjpeg_server\test: phony mjpeg_server\CMakeFiles\test.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build mjpeg_server\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\mjpeg_server && C:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\bin\cmake.exe --regenerate-during-build -SC:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src -BC:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build mjpeg_server\rebuild_cache: phony mjpeg_server\CMakeFiles\rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build mjpeg_server\list_install_components: phony
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/CMakeLists.txt
+# =============================================================================
 
 
 #############################################
@@ -747,48 +826,6 @@ build video_stream_opencv\run_tests_video_stream_opencv_rostest_test_test_rtsp_s
 # Utility command for nodelet_generate_messages_cpp
 
 build video_stream_opencv\nodelet_generate_messages_cpp: phony
-
-
-#############################################
-# Utility command for sensor_msgs_generate_messages_cpp
-
-build video_stream_opencv\sensor_msgs_generate_messages_cpp: phony
-
-
-#############################################
-# Utility command for nodelet_generate_messages_eus
-
-build video_stream_opencv\nodelet_generate_messages_eus: phony
-
-
-#############################################
-# Utility command for sensor_msgs_generate_messages_eus
-
-build video_stream_opencv\sensor_msgs_generate_messages_eus: phony
-
-
-#############################################
-# Utility command for nodelet_generate_messages_lisp
-
-build video_stream_opencv\nodelet_generate_messages_lisp: phony
-
-
-#############################################
-# Utility command for sensor_msgs_generate_messages_lisp
-
-build video_stream_opencv\sensor_msgs_generate_messages_lisp: phony
-
-
-#############################################
-# Utility command for geometry_msgs_generate_messages_cpp
-
-build video_stream_opencv\geometry_msgs_generate_messages_cpp: phony
-
-
-#############################################
-# Utility command for geometry_msgs_generate_messages_lisp
-
-build video_stream_opencv\geometry_msgs_generate_messages_lisp: phony
 
 
 #############################################
@@ -810,6 +847,30 @@ build video_stream_opencv\bond_generate_messages_cpp: phony
 
 
 #############################################
+# Utility command for nodelet_generate_messages_eus
+
+build video_stream_opencv\nodelet_generate_messages_eus: phony
+
+
+#############################################
+# Utility command for nodelet_generate_messages_lisp
+
+build video_stream_opencv\nodelet_generate_messages_lisp: phony
+
+
+#############################################
+# Utility command for nodelet_generate_messages_nodejs
+
+build video_stream_opencv\nodelet_generate_messages_nodejs: phony
+
+
+#############################################
+# Utility command for nodelet_generate_messages_py
+
+build video_stream_opencv\nodelet_generate_messages_py: phony
+
+
+#############################################
 # Utility command for bond_generate_messages_eus
 
 build video_stream_opencv\bond_generate_messages_eus: phony
@@ -825,6 +886,12 @@ build video_stream_opencv\run_tests_video_stream_opencv_rostest_test_test_mjpg_s
 # Utility command for bond_generate_messages_lisp
 
 build video_stream_opencv\bond_generate_messages_lisp: phony
+
+
+#############################################
+# Utility command for bond_generate_messages_nodejs
+
+build video_stream_opencv\bond_generate_messages_nodejs: phony
 
 
 #############################################
@@ -886,6 +953,12 @@ build video_stream_opencv\dynamic_reconfigure_generate_messages_cpp: phony
 
 
 #############################################
+# Utility command for dynamic_reconfigure_generate_messages_eus
+
+build video_stream_opencv\dynamic_reconfigure_generate_messages_eus: phony
+
+
+#############################################
 # Utility command for dynamic_reconfigure_generate_messages_lisp
 
 build video_stream_opencv\dynamic_reconfigure_generate_messages_lisp: phony
@@ -901,6 +974,36 @@ build video_stream_opencv\dynamic_reconfigure_generate_messages_nodejs: phony
 # Utility command for dynamic_reconfigure_generate_messages_py
 
 build video_stream_opencv\dynamic_reconfigure_generate_messages_py: phony
+
+
+#############################################
+# Utility command for install/local
+
+build video_stream_opencv\CMakeFiles\install\local.util: CUSTOM_COMMAND video_stream_opencv\all
+  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\video_stream_opencv && C:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build video_stream_opencv\install\local: phony video_stream_opencv\CMakeFiles\install\local.util
+
+
+#############################################
+# Utility command for install
+
+build video_stream_opencv\CMakeFiles\install.util: CUSTOM_COMMAND video_stream_opencv\all
+  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\video_stream_opencv && C:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build video_stream_opencv\install: phony video_stream_opencv\CMakeFiles\install.util
+
+
+#############################################
+# Utility command for video_stream_opencv_gencfg
+
+build video_stream_opencv\video_stream_opencv_gencfg: phony video_stream_opencv\CMakeFiles\video_stream_opencv_gencfg C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\include\video_stream_opencv\VideoStreamConfig.h C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\share\video_stream_opencv\docs\VideoStreamConfig.dox C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\share\video_stream_opencv\docs\VideoStreamConfig-usage.dox C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\site-packages\video_stream_opencv\cfg\VideoStreamConfig.py C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\share\video_stream_opencv\docs\VideoStreamConfig.wikidoc
 
 # =============================================================================
 # Object build statements for EXECUTABLE target video_stream_node
@@ -984,6 +1087,12 @@ build video_stream_opencv\_run_tests_video_stream_opencv_rostest_test_test_mjpg_
 
 
 #############################################
+# Utility command for _run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test
+
+build video_stream_opencv\_run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test: phony video_stream_opencv\CMakeFiles\_run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test tests video_stream_opencv\clean_test_results_video_stream_opencv
+
+
+#############################################
 # Utility command for test
 
 build video_stream_opencv\CMakeFiles\test.util: CUSTOM_COMMAND
@@ -1014,6 +1123,20 @@ build video_stream_opencv\list_install_components: phony
 
 
 #############################################
+# Custom command for video_stream_opencv\CMakeFiles\run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test
+
+build video_stream_opencv\CMakeFiles\run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\video_stream_opencv && C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\catkin_generated\env_cached.bat C:/opt/ros/noetic/x64/python.exe C:/opt/ros/noetic/x64/share/catkin/cmake/test/run_tests.py C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results/video_stream_opencv/rostest-test_test_rtsp_stream.xml "C:/opt/ros/noetic/x64/python.exe C:/opt/ros/noetic/x64/share/rostest/cmake/../../../bin/rostest --pkgdir=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv --package=video_stream_opencv --results-filename test_test_rtsp_stream.xml --results-base-dir \"C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results\" C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv/test/test_rtsp_stream.test ""
+
+
+#############################################
+# Custom command for video_stream_opencv\CMakeFiles\run_tests_video_stream_opencv_rostest_test_test_mjpg_stream.test
+
+build video_stream_opencv\CMakeFiles\run_tests_video_stream_opencv_rostest_test_test_mjpg_stream.test: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\video_stream_opencv && C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\catkin_generated\env_cached.bat C:/opt/ros/noetic/x64/python.exe C:/opt/ros/noetic/x64/share/catkin/cmake/test/run_tests.py C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results/video_stream_opencv/rostest-test_test_mjpg_stream.xml "C:/opt/ros/noetic/x64/python.exe C:/opt/ros/noetic/x64/share/rostest/cmake/../../../bin/rostest --pkgdir=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv --package=video_stream_opencv --results-filename test_test_mjpg_stream.xml --results-base-dir \"C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results\" C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv/test/test_mjpg_stream.test ""
+
+
+#############################################
 # Phony custom command for video_stream_opencv\CMakeFiles\video_stream_opencv_gencfg
 
 build video_stream_opencv\CMakeFiles\video_stream_opencv_gencfg: phony C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\include\video_stream_opencv\VideoStreamConfig.h C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\site-packages\video_stream_opencv\cfg\VideoStreamConfig.py
@@ -1026,27 +1149,6 @@ build C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\include\video
   COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\video_stream_opencv && C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\catkin_generated\env_cached.bat C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/video_stream_opencv/setup_custom_pythonpath.bat C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv/cfg/VideoStream.cfg C:/opt/ros/noetic/x64/share/dynamic_reconfigure/cmake/.. C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel/share/video_stream_opencv C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel/include/video_stream_opencv C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel/lib/site-packages/video_stream_opencv"
   DESC = Generating dynamic reconfigure files from cfg/VideoStream.cfg: C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel/include/video_stream_opencv/VideoStreamConfig.h C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel/lib/site-packages/video_stream_opencv/cfg/VideoStreamConfig.py
   restat = 1
-
-
-#############################################
-# Custom command for video_stream_opencv\CMakeFiles\_run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test
-
-build video_stream_opencv\CMakeFiles\_run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test: CUSTOM_COMMAND || tests video_stream_opencv\clean_test_results_video_stream_opencv
-  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\video_stream_opencv && C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\catkin_generated\env_cached.bat C:/opt/ros/noetic/x64/python.exe C:/opt/ros/noetic/x64/share/catkin/cmake/test/run_tests.py C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results/video_stream_opencv/rostest-test_test_rtsp_stream.xml "C:/opt/ros/noetic/x64/python.exe C:/opt/ros/noetic/x64/share/rostest/cmake/../../../bin/rostest --pkgdir=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv --package=video_stream_opencv --results-filename test_test_rtsp_stream.xml --results-base-dir \"C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results\" C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv/test/test_rtsp_stream.test ""
-
-
-#############################################
-# Custom command for video_stream_opencv\CMakeFiles\run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test
-
-build video_stream_opencv\CMakeFiles\run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\video_stream_opencv && C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\catkin_generated\env_cached.bat C:/opt/ros/noetic/x64/python.exe C:/opt/ros/noetic/x64/share/catkin/cmake/test/run_tests.py C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results/video_stream_opencv/rostest-test_test_rtsp_stream.xml "C:/opt/ros/noetic/x64/python.exe C:/opt/ros/noetic/x64/share/rostest/cmake/../../../bin/rostest --pkgdir=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv --package=video_stream_opencv --results-filename test_test_rtsp_stream.xml --results-base-dir \"C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results\" C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv/test/test_rtsp_stream.test ""
-
-
-#############################################
-# Custom command for video_stream_opencv\CMakeFiles\run_tests_video_stream_opencv_rostest_test_test_mjpg_stream.test
-
-build video_stream_opencv\CMakeFiles\run_tests_video_stream_opencv_rostest_test_test_mjpg_stream.test: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\video_stream_opencv && C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\catkin_generated\env_cached.bat C:/opt/ros/noetic/x64/python.exe C:/opt/ros/noetic/x64/share/catkin/cmake/test/run_tests.py C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results/video_stream_opencv/rostest-test_test_mjpg_stream.xml "C:/opt/ros/noetic/x64/python.exe C:/opt/ros/noetic/x64/share/rostest/cmake/../../../bin/rostest --pkgdir=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv --package=video_stream_opencv --results-filename test_test_mjpg_stream.xml --results-base-dir \"C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results\" C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv/test/test_mjpg_stream.test ""
 
 
 #############################################
@@ -1075,6 +1177,13 @@ build video_stream_opencv\CMakeFiles\clean_test_results_video_stream_opencv: CUS
 
 build video_stream_opencv\CMakeFiles\_run_tests_video_stream_opencv_rostest_test_test_mjpg_stream.test: CUSTOM_COMMAND || tests video_stream_opencv\clean_test_results_video_stream_opencv
   COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\video_stream_opencv && C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\catkin_generated\env_cached.bat C:/opt/ros/noetic/x64/python.exe C:/opt/ros/noetic/x64/share/catkin/cmake/test/run_tests.py C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results/video_stream_opencv/rostest-test_test_mjpg_stream.xml "C:/opt/ros/noetic/x64/python.exe C:/opt/ros/noetic/x64/share/rostest/cmake/../../../bin/rostest --pkgdir=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv --package=video_stream_opencv --results-filename test_test_mjpg_stream.xml --results-base-dir \"C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results\" C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv/test/test_mjpg_stream.test ""
+
+
+#############################################
+# Custom command for video_stream_opencv\CMakeFiles\_run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test
+
+build video_stream_opencv\CMakeFiles\_run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test: CUSTOM_COMMAND || tests video_stream_opencv\clean_test_results_video_stream_opencv
+  COMMAND = cmd.exe /C "cd /D C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\video_stream_opencv && C:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\build\catkin_generated\env_cached.bat C:/opt/ros/noetic/x64/python.exe C:/opt/ros/noetic/x64/share/catkin/cmake/test/run_tests.py C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results/video_stream_opencv/rostest-test_test_rtsp_stream.xml "C:/opt/ros/noetic/x64/python.exe C:/opt/ros/noetic/x64/share/rostest/cmake/../../../bin/rostest --pkgdir=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv --package=video_stream_opencv --results-filename test_test_rtsp_stream.xml --results-base-dir \"C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/test_results\" C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/video_stream_opencv/test/test_rtsp_stream.test ""
 
 # =============================================================================
 # Target aliases.
@@ -1145,17 +1254,21 @@ build face_pkg_main.py_exec_cip_devel_python: phony face_pkg\catkin_generated\wi
 
 build face_pkg_main.py_exec_install_python: phony face_pkg\catkin_generated\windows_wrappers\face_pkg_main.py_exec_install_python\main.exe
 
-build geometry_msgs_generate_messages_cpp: phony video_stream_opencv\geometry_msgs_generate_messages_cpp
+build geometry_msgs_generate_messages_cpp: phony mjpeg_server\geometry_msgs_generate_messages_cpp
 
-build geometry_msgs_generate_messages_eus: phony video_stream_opencv\geometry_msgs_generate_messages_eus
+build geometry_msgs_generate_messages_eus: phony mjpeg_server\geometry_msgs_generate_messages_eus
 
-build geometry_msgs_generate_messages_lisp: phony video_stream_opencv\geometry_msgs_generate_messages_lisp
+build geometry_msgs_generate_messages_lisp: phony mjpeg_server\geometry_msgs_generate_messages_lisp
 
-build geometry_msgs_generate_messages_nodejs: phony video_stream_opencv\geometry_msgs_generate_messages_nodejs
+build geometry_msgs_generate_messages_nodejs: phony mjpeg_server\geometry_msgs_generate_messages_nodejs
 
-build geometry_msgs_generate_messages_py: phony video_stream_opencv\geometry_msgs_generate_messages_py
+build geometry_msgs_generate_messages_py: phony mjpeg_server\geometry_msgs_generate_messages_py
 
 build main.exe: phony face_pkg\catkin_generated\windows_wrappers\face_pkg_main.py_exec_cip_devel_python\main.exe
+
+build mjpeg_server: phony C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\mjpeg_server\mjpeg_server.exe
+
+build mjpeg_server.exe: phony C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\mjpeg_server\mjpeg_server.exe
 
 build nodelet_generate_messages_cpp: phony video_stream_opencv\nodelet_generate_messages_cpp
 
@@ -1167,25 +1280,25 @@ build nodelet_generate_messages_nodejs: phony video_stream_opencv\nodelet_genera
 
 build nodelet_generate_messages_py: phony video_stream_opencv\nodelet_generate_messages_py
 
-build roscpp_generate_messages_cpp: phony video_stream_opencv\roscpp_generate_messages_cpp
+build roscpp_generate_messages_cpp: phony mjpeg_server\roscpp_generate_messages_cpp
 
-build roscpp_generate_messages_eus: phony video_stream_opencv\roscpp_generate_messages_eus
+build roscpp_generate_messages_eus: phony mjpeg_server\roscpp_generate_messages_eus
 
-build roscpp_generate_messages_lisp: phony video_stream_opencv\roscpp_generate_messages_lisp
+build roscpp_generate_messages_lisp: phony mjpeg_server\roscpp_generate_messages_lisp
 
-build roscpp_generate_messages_nodejs: phony video_stream_opencv\roscpp_generate_messages_nodejs
+build roscpp_generate_messages_nodejs: phony mjpeg_server\roscpp_generate_messages_nodejs
 
-build roscpp_generate_messages_py: phony video_stream_opencv\roscpp_generate_messages_py
+build roscpp_generate_messages_py: phony mjpeg_server\roscpp_generate_messages_py
 
-build rosgraph_msgs_generate_messages_cpp: phony video_stream_opencv\rosgraph_msgs_generate_messages_cpp
+build rosgraph_msgs_generate_messages_cpp: phony mjpeg_server\rosgraph_msgs_generate_messages_cpp
 
-build rosgraph_msgs_generate_messages_eus: phony video_stream_opencv\rosgraph_msgs_generate_messages_eus
+build rosgraph_msgs_generate_messages_eus: phony mjpeg_server\rosgraph_msgs_generate_messages_eus
 
-build rosgraph_msgs_generate_messages_lisp: phony video_stream_opencv\rosgraph_msgs_generate_messages_lisp
+build rosgraph_msgs_generate_messages_lisp: phony mjpeg_server\rosgraph_msgs_generate_messages_lisp
 
-build rosgraph_msgs_generate_messages_nodejs: phony video_stream_opencv\rosgraph_msgs_generate_messages_nodejs
+build rosgraph_msgs_generate_messages_nodejs: phony mjpeg_server\rosgraph_msgs_generate_messages_nodejs
 
-build rosgraph_msgs_generate_messages_py: phony video_stream_opencv\rosgraph_msgs_generate_messages_py
+build rosgraph_msgs_generate_messages_py: phony mjpeg_server\rosgraph_msgs_generate_messages_py
 
 build run_tests_video_stream_opencv: phony video_stream_opencv\run_tests_video_stream_opencv
 
@@ -1197,15 +1310,15 @@ build run_tests_video_stream_opencv_rostest_test_test_rtsp_stream.test: phony vi
 
 build run_tests_video_stream_opencv_rostest_test_test_video_file.test: phony video_stream_opencv\run_tests_video_stream_opencv_rostest_test_test_video_file.test
 
-build sensor_msgs_generate_messages_cpp: phony video_stream_opencv\sensor_msgs_generate_messages_cpp
+build sensor_msgs_generate_messages_cpp: phony mjpeg_server\sensor_msgs_generate_messages_cpp
 
-build sensor_msgs_generate_messages_eus: phony video_stream_opencv\sensor_msgs_generate_messages_eus
+build sensor_msgs_generate_messages_eus: phony mjpeg_server\sensor_msgs_generate_messages_eus
 
-build sensor_msgs_generate_messages_lisp: phony video_stream_opencv\sensor_msgs_generate_messages_lisp
+build sensor_msgs_generate_messages_lisp: phony mjpeg_server\sensor_msgs_generate_messages_lisp
 
-build sensor_msgs_generate_messages_nodejs: phony video_stream_opencv\sensor_msgs_generate_messages_nodejs
+build sensor_msgs_generate_messages_nodejs: phony mjpeg_server\sensor_msgs_generate_messages_nodejs
 
-build sensor_msgs_generate_messages_py: phony video_stream_opencv\sensor_msgs_generate_messages_py
+build sensor_msgs_generate_messages_py: phony mjpeg_server\sensor_msgs_generate_messages_py
 
 build std_msgs_generate_messages_cpp: phony face_pkg\std_msgs_generate_messages_cpp
 
@@ -1235,7 +1348,7 @@ build video_stream_opencv_gencfg: phony video_stream_opencv\video_stream_opencv_
 #############################################
 # Folder: C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build
 
-build all: phony catkin_generated\windows_wrappers\Project__setup_util.py_exec_install_python\_setup_util.exe face_pkg\all video_stream_opencv\all
+build all: phony catkin_generated\windows_wrappers\Project__setup_util.py_exec_install_python\_setup_util.exe face_pkg\all mjpeg_server\all video_stream_opencv\all
 
 # =============================================================================
 
@@ -1247,9 +1360,16 @@ build face_pkg\all: phony face_pkg\face_pkg_generate_messages face_pkg\catkin_ge
 # =============================================================================
 
 #############################################
+# Folder: C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/mjpeg_server
+
+build mjpeg_server\all: phony C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\mjpeg_server\mjpeg_server.exe
+
+# =============================================================================
+
+#############################################
 # Folder: C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/video_stream_opencv
 
-build video_stream_opencv\all: phony video_stream_opencv\video_stream_opencv_gencfg C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\bin\video_stream_opencv.dll C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\video_stream_opencv\video_stream.exe
+build video_stream_opencv\all: phony C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\bin\video_stream_opencv.dll video_stream_opencv\video_stream_opencv_gencfg C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\lib\video_stream_opencv\video_stream.exe
 
 # =============================================================================
 # Unknown Build Time Dependencies.
@@ -1263,14 +1383,14 @@ build video_stream_opencv\all: phony video_stream_opencv\video_stream_opencv_gen
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\share\face_pkg\cmake\face_pkg-msg-paths.cmake C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\CMakeLists.txt C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\face_pkg\CMakeLists.txt C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\face_pkg\package.xml C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\face_pkg\scripts\main.py C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\video_stream_opencv\CMakeLists.txt C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\video_stream_opencv\package.xml C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeCInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeCXXInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeCommonLanguageInclude.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeGenericSystem.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeInitializeConfigs.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeLanguageInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeParseArguments.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeRCInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeSystemSpecificInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeSystemSpecificInitialize.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CheckCSourceCompiles.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CheckIncludeFile.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CheckLibraryExists.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Compiler\MSVC-C.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Compiler\MSVC-CXX.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\DartConfiguration.tcl.in C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindGTest.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindPackageHandleStandardArgs.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindPackageMessage.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindPythonInterp.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindThreads.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\GoogleTest.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows-MSVC-C.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows-MSVC-CXX.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows-MSVC.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\WindowsPaths.cmake C$:\opt\ros\noetic\x64\share\bond\cmake\bond-msg-extras.cmake C$:\opt\ros\noetic\x64\share\bond\cmake\bondConfig-version.cmake C$:\opt\ros\noetic\x64\share\bond\cmake\bondConfig.cmake C$:\opt\ros\noetic\x64\share\bondcpp\cmake\bondcppConfig-version.cmake C$:\opt\ros\noetic\x64\share\bondcpp\cmake\bondcppConfig.cmake C$:\opt\ros\noetic\x64\share\camera_calibration_parsers\cmake\camera_calibration_parsersConfig-version.cmake C$:\opt\ros\noetic\x64\share\camera_calibration_parsers\cmake\camera_calibration_parsersConfig.cmake C$:\opt\ros\noetic\x64\share\camera_info_manager\cmake\camera_info_managerConfig-version.cmake C$:\opt\ros\noetic\x64\share\camera_info_manager\cmake\camera_info_managerConfig.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\all.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\assert.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\atomic_configure_file.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkinConfig-version.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkinConfig.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_add_env_hooks.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_destinations.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_download.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_generate_environment.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_install_python.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_libraries.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_metapackage.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_package.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_package_xml.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_python_setup.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_symlink_install.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_workspace.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\custom_install.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\debug_message.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\em\order_packages.cmake.em C$:\opt\ros\noetic\x64\share\catkin\cmake\em\pkg.pc.em C$:\opt\ros\noetic\x64\share\catkin\cmake\em_expand.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\empy.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\find_program_required.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\interrogate_setup_dot_py.py C$:\opt\ros\noetic\x64\share\catkin\cmake\legacy.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\list_append_deduplicate.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\list_append_unique.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\list_insert_in_workspace_order.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\platform\lsb.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\platform\ubuntu.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\platform\windows.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\python.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\safe_execute_process.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\stamp.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\string_starts_with.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\_setup_util.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\env.bat.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\generate_cached_setup.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\local_setup.bat.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\order_packages.context.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\pkg.context.pc.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\pkgConfig-version.cmake.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\pkgConfig.cmake.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\python_win32_wrapper.cpp.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\rosinstall.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\script.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\setup.bat.in C$:\opt\ros\noetic\x64\share\catkin\cmake\test\catkin_download_test_data.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\test\gtest.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\test\nosetests.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\test\tests.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\tools\doxygen.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\tools\libraries.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\tools\rt.cmake C$:\opt\ros\noetic\x64\share\catkin\package.xml C$:\opt\ros\noetic\x64\share\class_loader\cmake\class_loader-extras.cmake C$:\opt\ros\noetic\x64\share\class_loader\cmake\class_loaderConfig-version.cmake C$:\opt\ros\noetic\x64\share\class_loader\cmake\class_loaderConfig.cmake C$:\opt\ros\noetic\x64\share\cpp_common\cmake\cpp_commonConfig-version.cmake C$:\opt\ros\noetic\x64\share\cpp_common\cmake\cpp_commonConfig.cmake C$:\opt\ros\noetic\x64\share\cv_bridge\cmake\cv_bridge-extras.cmake C$:\opt\ros\noetic\x64\share\cv_bridge\cmake\cv_bridgeConfig-version.cmake C$:\opt\ros\noetic\x64\share\cv_bridge\cmake\cv_bridgeConfig.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigure-extras.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigure-macros.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigure-msg-extras.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigureConfig-version.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigureConfig.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\setup_custom_pythonpath.bat.in C$:\opt\ros\noetic\x64\share\gencpp\cmake\gencpp-extras.cmake C$:\opt\ros\noetic\x64\share\gencpp\cmake\gencppConfig-version.cmake C$:\opt\ros\noetic\x64\share\gencpp\cmake\gencppConfig.cmake C$:\opt\ros\noetic\x64\share\geneus\cmake\geneus-extras.cmake C$:\opt\ros\noetic\x64\share\geneus\cmake\geneusConfig-version.cmake C$:\opt\ros\noetic\x64\share\geneus\cmake\geneusConfig.cmake C$:\opt\ros\noetic\x64\share\genlisp\cmake\genlisp-extras.cmake C$:\opt\ros\noetic\x64\share\genlisp\cmake\genlispConfig-version.cmake C$:\opt\ros\noetic\x64\share\genlisp\cmake\genlispConfig.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\genmsg-extras.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\genmsgConfig-version.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\genmsgConfig.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-genmsg.cmake.em C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-genmsg.context.in C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-msg-extras.cmake.in C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-msg-paths.cmake.develspace.in C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-msg-paths.cmake.installspace.in C$:\opt\ros\noetic\x64\share\gennodejs\cmake\gennodejs-extras.cmake C$:\opt\ros\noetic\x64\share\gennodejs\cmake\gennodejsConfig-version.cmake C$:\opt\ros\noetic\x64\share\gennodejs\cmake\gennodejsConfig.cmake C$:\opt\ros\noetic\x64\share\genpy\cmake\genpy-extras.cmake C$:\opt\ros\noetic\x64\share\genpy\cmake\genpyConfig-version.cmake C$:\opt\ros\noetic\x64\share\genpy\cmake\genpyConfig.cmake C$:\opt\ros\noetic\x64\share\geometry_msgs\cmake\geometry_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\geometry_msgs\cmake\geometry_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\geometry_msgs\cmake\geometry_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\image_transport\cmake\image_transportConfig-version.cmake C$:\opt\ros\noetic\x64\share\image_transport\cmake\image_transportConfig.cmake C$:\opt\ros\noetic\x64\share\message_filters\cmake\message_filtersConfig-version.cmake C$:\opt\ros\noetic\x64\share\message_filters\cmake\message_filtersConfig.cmake C$:\opt\ros\noetic\x64\share\message_generation\cmake\message_generationConfig-version.cmake C$:\opt\ros\noetic\x64\share\message_generation\cmake\message_generationConfig.cmake C$:\opt\ros\noetic\x64\share\message_runtime\cmake\message_runtimeConfig-version.cmake C$:\opt\ros\noetic\x64\share\message_runtime\cmake\message_runtimeConfig.cmake C$:\opt\ros\noetic\x64\share\nodelet\cmake\nodelet-msg-extras.cmake C$:\opt\ros\noetic\x64\share\nodelet\cmake\nodeletConfig-version.cmake C$:\opt\ros\noetic\x64\share\nodelet\cmake\nodeletConfig.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVConfig-version.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVConfig.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVModules-release.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVModules.cmake C$:\opt\ros\noetic\x64\share\pluginlib\cmake\pluginlibConfig-version.cmake C$:\opt\ros\noetic\x64\share\pluginlib\cmake\pluginlibConfig.cmake C$:\opt\ros\noetic\x64\share\rosconsole\cmake\rosconsole-extras.cmake C$:\opt\ros\noetic\x64\share\rosconsole\cmake\rosconsoleConfig-version.cmake C$:\opt\ros\noetic\x64\share\rosconsole\cmake\rosconsoleConfig.cmake C$:\opt\ros\noetic\x64\share\roscpp\cmake\roscpp-msg-extras.cmake C$:\opt\ros\noetic\x64\share\roscpp\cmake\roscppConfig-version.cmake C$:\opt\ros\noetic\x64\share\roscpp\cmake\roscppConfig.cmake C$:\opt\ros\noetic\x64\share\roscpp_serialization\cmake\roscpp_serializationConfig-version.cmake C$:\opt\ros\noetic\x64\share\roscpp_serialization\cmake\roscpp_serializationConfig.cmake C$:\opt\ros\noetic\x64\share\roscpp_traits\cmake\roscpp_traitsConfig-version.cmake C$:\opt\ros\noetic\x64\share\roscpp_traits\cmake\roscpp_traitsConfig.cmake C$:\opt\ros\noetic\x64\share\rosgraph_msgs\cmake\rosgraph_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\rosgraph_msgs\cmake\rosgraph_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\rosgraph_msgs\cmake\rosgraph_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\roslib\cmake\roslib-extras.cmake C$:\opt\ros\noetic\x64\share\roslib\cmake\roslibConfig-version.cmake C$:\opt\ros\noetic\x64\share\roslib\cmake\roslibConfig.cmake C$:\opt\ros\noetic\x64\share\rospack\cmake\rospackConfig-version.cmake C$:\opt\ros\noetic\x64\share\rospack\cmake\rospackConfig.cmake C$:\opt\ros\noetic\x64\share\rospy\cmake\rospyConfig-version.cmake C$:\opt\ros\noetic\x64\share\rospy\cmake\rospyConfig.cmake C$:\opt\ros\noetic\x64\share\rostest\cmake\rostest-extras.cmake C$:\opt\ros\noetic\x64\share\rostest\cmake\rostestConfig-version.cmake C$:\opt\ros\noetic\x64\share\rostest\cmake\rostestConfig.cmake C$:\opt\ros\noetic\x64\share\rostime\cmake\rostimeConfig-version.cmake C$:\opt\ros\noetic\x64\share\rostime\cmake\rostimeConfig.cmake C$:\opt\ros\noetic\x64\share\sensor_msgs\cmake\sensor_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\sensor_msgs\cmake\sensor_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\sensor_msgs\cmake\sensor_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\smclib\cmake\smclibConfig-version.cmake C$:\opt\ros\noetic\x64\share\smclib\cmake\smclibConfig.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgs-msg-paths.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\xmlrpcpp\cmake\xmlrpcpp-extras.cmake C$:\opt\ros\noetic\x64\share\xmlrpcpp\cmake\xmlrpcppConfig-version.cmake C$:\opt\ros\noetic\x64\share\xmlrpcpp\cmake\xmlrpcppConfig.cmake CMakeCache.txt CMakeFiles\3.18.2\CMakeCCompiler.cmake CMakeFiles\3.18.2\CMakeCXXCompiler.cmake CMakeFiles\3.18.2\CMakeRCCompiler.cmake CMakeFiles\3.18.2\CMakeSystem.cmake catkin\catkin_generated\version\package.cmake catkin_generated\installspace\_setup_util.py catkin_generated\order_packages.cmake face_pkg\catkin_generated\face_pkg-msg-extras.cmake.develspace.in face_pkg\catkin_generated\face_pkg-msg-extras.cmake.installspace.in face_pkg\catkin_generated\ordered_paths.cmake face_pkg\catkin_generated\package.cmake face_pkg\cmake\face_pkg-genmsg.cmake video_stream_opencv\catkin_generated\ordered_paths.cmake video_stream_opencv\catkin_generated\package.cmake
+build build.ninja: RERUN_CMAKE | C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\share\face_pkg\cmake\face_pkg-msg-paths.cmake C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\CMakeLists.txt C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\face_pkg\CMakeLists.txt C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\face_pkg\package.xml C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\face_pkg\scripts\main.py C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\mjpeg_server\CMakeLists.txt C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\mjpeg_server\package.xml C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\video_stream_opencv\CMakeLists.txt C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\video_stream_opencv\package.xml C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeCInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeCXXInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeCommonLanguageInclude.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeGenericSystem.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeInitializeConfigs.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeLanguageInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeParseArguments.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeRCInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeSystemSpecificInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeSystemSpecificInitialize.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CheckCSourceCompiles.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CheckIncludeFile.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CheckLibraryExists.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Compiler\MSVC-C.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Compiler\MSVC-CXX.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\DartConfiguration.tcl.in C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindBoost.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindGTest.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindPackageHandleStandardArgs.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindPackageMessage.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindPythonInterp.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindThreads.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\GoogleTest.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows-MSVC-C.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows-MSVC-CXX.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows-MSVC.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\WindowsPaths.cmake C$:\opt\ros\noetic\x64\share\bond\cmake\bond-msg-extras.cmake C$:\opt\ros\noetic\x64\share\bond\cmake\bondConfig-version.cmake C$:\opt\ros\noetic\x64\share\bond\cmake\bondConfig.cmake C$:\opt\ros\noetic\x64\share\bondcpp\cmake\bondcppConfig-version.cmake C$:\opt\ros\noetic\x64\share\bondcpp\cmake\bondcppConfig.cmake C$:\opt\ros\noetic\x64\share\camera_calibration_parsers\cmake\camera_calibration_parsersConfig-version.cmake C$:\opt\ros\noetic\x64\share\camera_calibration_parsers\cmake\camera_calibration_parsersConfig.cmake C$:\opt\ros\noetic\x64\share\camera_info_manager\cmake\camera_info_managerConfig-version.cmake C$:\opt\ros\noetic\x64\share\camera_info_manager\cmake\camera_info_managerConfig.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\all.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\assert.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\atomic_configure_file.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkinConfig-version.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkinConfig.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_add_env_hooks.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_destinations.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_download.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_generate_environment.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_install_python.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_libraries.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_metapackage.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_package.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_package_xml.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_python_setup.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_symlink_install.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_workspace.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\custom_install.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\debug_message.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\em\order_packages.cmake.em C$:\opt\ros\noetic\x64\share\catkin\cmake\em\pkg.pc.em C$:\opt\ros\noetic\x64\share\catkin\cmake\em_expand.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\empy.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\find_program_required.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\interrogate_setup_dot_py.py C$:\opt\ros\noetic\x64\share\catkin\cmake\legacy.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\list_append_deduplicate.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\list_append_unique.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\list_insert_in_workspace_order.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\platform\lsb.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\platform\ubuntu.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\platform\windows.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\python.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\safe_execute_process.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\stamp.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\string_starts_with.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\_setup_util.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\env.bat.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\generate_cached_setup.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\local_setup.bat.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\order_packages.context.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\pkg.context.pc.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\pkgConfig-version.cmake.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\pkgConfig.cmake.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\python_win32_wrapper.cpp.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\rosinstall.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\script.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\setup.bat.in C$:\opt\ros\noetic\x64\share\catkin\cmake\test\catkin_download_test_data.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\test\gtest.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\test\nosetests.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\test\tests.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\tools\doxygen.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\tools\libraries.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\tools\rt.cmake C$:\opt\ros\noetic\x64\share\catkin\package.xml C$:\opt\ros\noetic\x64\share\class_loader\cmake\class_loader-extras.cmake C$:\opt\ros\noetic\x64\share\class_loader\cmake\class_loaderConfig-version.cmake C$:\opt\ros\noetic\x64\share\class_loader\cmake\class_loaderConfig.cmake C$:\opt\ros\noetic\x64\share\cpp_common\cmake\cpp_commonConfig-version.cmake C$:\opt\ros\noetic\x64\share\cpp_common\cmake\cpp_commonConfig.cmake C$:\opt\ros\noetic\x64\share\cv_bridge\cmake\cv_bridge-extras.cmake C$:\opt\ros\noetic\x64\share\cv_bridge\cmake\cv_bridgeConfig-version.cmake C$:\opt\ros\noetic\x64\share\cv_bridge\cmake\cv_bridgeConfig.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigure-extras.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigure-macros.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigure-msg-extras.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigureConfig-version.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigureConfig.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\setup_custom_pythonpath.bat.in C$:\opt\ros\noetic\x64\share\gencpp\cmake\gencpp-extras.cmake C$:\opt\ros\noetic\x64\share\gencpp\cmake\gencppConfig-version.cmake C$:\opt\ros\noetic\x64\share\gencpp\cmake\gencppConfig.cmake C$:\opt\ros\noetic\x64\share\geneus\cmake\geneus-extras.cmake C$:\opt\ros\noetic\x64\share\geneus\cmake\geneusConfig-version.cmake C$:\opt\ros\noetic\x64\share\geneus\cmake\geneusConfig.cmake C$:\opt\ros\noetic\x64\share\genlisp\cmake\genlisp-extras.cmake C$:\opt\ros\noetic\x64\share\genlisp\cmake\genlispConfig-version.cmake C$:\opt\ros\noetic\x64\share\genlisp\cmake\genlispConfig.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\genmsg-extras.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\genmsgConfig-version.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\genmsgConfig.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-genmsg.cmake.em C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-genmsg.context.in C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-msg-extras.cmake.in C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-msg-paths.cmake.develspace.in C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-msg-paths.cmake.installspace.in C$:\opt\ros\noetic\x64\share\gennodejs\cmake\gennodejs-extras.cmake C$:\opt\ros\noetic\x64\share\gennodejs\cmake\gennodejsConfig-version.cmake C$:\opt\ros\noetic\x64\share\gennodejs\cmake\gennodejsConfig.cmake C$:\opt\ros\noetic\x64\share\genpy\cmake\genpy-extras.cmake C$:\opt\ros\noetic\x64\share\genpy\cmake\genpyConfig-version.cmake C$:\opt\ros\noetic\x64\share\genpy\cmake\genpyConfig.cmake C$:\opt\ros\noetic\x64\share\geometry_msgs\cmake\geometry_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\geometry_msgs\cmake\geometry_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\geometry_msgs\cmake\geometry_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\image_transport\cmake\image_transportConfig-version.cmake C$:\opt\ros\noetic\x64\share\image_transport\cmake\image_transportConfig.cmake C$:\opt\ros\noetic\x64\share\message_filters\cmake\message_filtersConfig-version.cmake C$:\opt\ros\noetic\x64\share\message_filters\cmake\message_filtersConfig.cmake C$:\opt\ros\noetic\x64\share\message_generation\cmake\message_generationConfig-version.cmake C$:\opt\ros\noetic\x64\share\message_generation\cmake\message_generationConfig.cmake C$:\opt\ros\noetic\x64\share\message_runtime\cmake\message_runtimeConfig-version.cmake C$:\opt\ros\noetic\x64\share\message_runtime\cmake\message_runtimeConfig.cmake C$:\opt\ros\noetic\x64\share\nodelet\cmake\nodelet-msg-extras.cmake C$:\opt\ros\noetic\x64\share\nodelet\cmake\nodeletConfig-version.cmake C$:\opt\ros\noetic\x64\share\nodelet\cmake\nodeletConfig.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVConfig-version.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVConfig.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVModules-release.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVModules.cmake C$:\opt\ros\noetic\x64\share\pluginlib\cmake\pluginlibConfig-version.cmake C$:\opt\ros\noetic\x64\share\pluginlib\cmake\pluginlibConfig.cmake C$:\opt\ros\noetic\x64\share\rosconsole\cmake\rosconsole-extras.cmake C$:\opt\ros\noetic\x64\share\rosconsole\cmake\rosconsoleConfig-version.cmake C$:\opt\ros\noetic\x64\share\rosconsole\cmake\rosconsoleConfig.cmake C$:\opt\ros\noetic\x64\share\roscpp\cmake\roscpp-msg-extras.cmake C$:\opt\ros\noetic\x64\share\roscpp\cmake\roscppConfig-version.cmake C$:\opt\ros\noetic\x64\share\roscpp\cmake\roscppConfig.cmake C$:\opt\ros\noetic\x64\share\roscpp_serialization\cmake\roscpp_serializationConfig-version.cmake C$:\opt\ros\noetic\x64\share\roscpp_serialization\cmake\roscpp_serializationConfig.cmake C$:\opt\ros\noetic\x64\share\roscpp_traits\cmake\roscpp_traitsConfig-version.cmake C$:\opt\ros\noetic\x64\share\roscpp_traits\cmake\roscpp_traitsConfig.cmake C$:\opt\ros\noetic\x64\share\rosgraph_msgs\cmake\rosgraph_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\rosgraph_msgs\cmake\rosgraph_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\rosgraph_msgs\cmake\rosgraph_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\roslib\cmake\roslib-extras.cmake C$:\opt\ros\noetic\x64\share\roslib\cmake\roslibConfig-version.cmake C$:\opt\ros\noetic\x64\share\roslib\cmake\roslibConfig.cmake C$:\opt\ros\noetic\x64\share\rospack\cmake\rospackConfig-version.cmake C$:\opt\ros\noetic\x64\share\rospack\cmake\rospackConfig.cmake C$:\opt\ros\noetic\x64\share\rospy\cmake\rospyConfig-version.cmake C$:\opt\ros\noetic\x64\share\rospy\cmake\rospyConfig.cmake C$:\opt\ros\noetic\x64\share\rostest\cmake\rostest-extras.cmake C$:\opt\ros\noetic\x64\share\rostest\cmake\rostestConfig-version.cmake C$:\opt\ros\noetic\x64\share\rostest\cmake\rostestConfig.cmake C$:\opt\ros\noetic\x64\share\rostime\cmake\rostimeConfig-version.cmake C$:\opt\ros\noetic\x64\share\rostime\cmake\rostimeConfig.cmake C$:\opt\ros\noetic\x64\share\sensor_msgs\cmake\sensor_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\sensor_msgs\cmake\sensor_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\sensor_msgs\cmake\sensor_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\smclib\cmake\smclibConfig-version.cmake C$:\opt\ros\noetic\x64\share\smclib\cmake\smclibConfig.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgs-msg-paths.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\xmlrpcpp\cmake\xmlrpcpp-extras.cmake C$:\opt\ros\noetic\x64\share\xmlrpcpp\cmake\xmlrpcppConfig-version.cmake C$:\opt\ros\noetic\x64\share\xmlrpcpp\cmake\xmlrpcppConfig.cmake CMakeCache.txt CMakeFiles\3.18.2\CMakeCCompiler.cmake CMakeFiles\3.18.2\CMakeCXXCompiler.cmake CMakeFiles\3.18.2\CMakeRCCompiler.cmake CMakeFiles\3.18.2\CMakeSystem.cmake catkin\catkin_generated\version\package.cmake catkin_generated\installspace\_setup_util.py catkin_generated\order_packages.cmake face_pkg\catkin_generated\face_pkg-msg-extras.cmake.develspace.in face_pkg\catkin_generated\face_pkg-msg-extras.cmake.installspace.in face_pkg\catkin_generated\ordered_paths.cmake face_pkg\catkin_generated\package.cmake face_pkg\cmake\face_pkg-genmsg.cmake mjpeg_server\catkin_generated\ordered_paths.cmake mjpeg_server\catkin_generated\package.cmake video_stream_opencv\catkin_generated\ordered_paths.cmake video_stream_opencv\catkin_generated\package.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\share\face_pkg\cmake\face_pkg-msg-paths.cmake C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\CMakeLists.txt C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\face_pkg\CMakeLists.txt C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\face_pkg\package.xml C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\face_pkg\scripts\main.py C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\video_stream_opencv\CMakeLists.txt C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\video_stream_opencv\package.xml C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeCInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeCXXInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeCommonLanguageInclude.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeGenericSystem.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeInitializeConfigs.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeLanguageInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeParseArguments.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeRCInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeSystemSpecificInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeSystemSpecificInitialize.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CheckCSourceCompiles.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CheckIncludeFile.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CheckLibraryExists.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Compiler\MSVC-C.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Compiler\MSVC-CXX.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\DartConfiguration.tcl.in C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindGTest.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindPackageHandleStandardArgs.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindPackageMessage.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindPythonInterp.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindThreads.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\GoogleTest.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows-MSVC-C.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows-MSVC-CXX.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows-MSVC.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\WindowsPaths.cmake C$:\opt\ros\noetic\x64\share\bond\cmake\bond-msg-extras.cmake C$:\opt\ros\noetic\x64\share\bond\cmake\bondConfig-version.cmake C$:\opt\ros\noetic\x64\share\bond\cmake\bondConfig.cmake C$:\opt\ros\noetic\x64\share\bondcpp\cmake\bondcppConfig-version.cmake C$:\opt\ros\noetic\x64\share\bondcpp\cmake\bondcppConfig.cmake C$:\opt\ros\noetic\x64\share\camera_calibration_parsers\cmake\camera_calibration_parsersConfig-version.cmake C$:\opt\ros\noetic\x64\share\camera_calibration_parsers\cmake\camera_calibration_parsersConfig.cmake C$:\opt\ros\noetic\x64\share\camera_info_manager\cmake\camera_info_managerConfig-version.cmake C$:\opt\ros\noetic\x64\share\camera_info_manager\cmake\camera_info_managerConfig.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\all.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\assert.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\atomic_configure_file.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkinConfig-version.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkinConfig.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_add_env_hooks.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_destinations.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_download.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_generate_environment.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_install_python.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_libraries.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_metapackage.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_package.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_package_xml.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_python_setup.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_symlink_install.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_workspace.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\custom_install.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\debug_message.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\em\order_packages.cmake.em C$:\opt\ros\noetic\x64\share\catkin\cmake\em\pkg.pc.em C$:\opt\ros\noetic\x64\share\catkin\cmake\em_expand.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\empy.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\find_program_required.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\interrogate_setup_dot_py.py C$:\opt\ros\noetic\x64\share\catkin\cmake\legacy.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\list_append_deduplicate.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\list_append_unique.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\list_insert_in_workspace_order.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\platform\lsb.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\platform\ubuntu.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\platform\windows.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\python.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\safe_execute_process.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\stamp.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\string_starts_with.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\_setup_util.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\env.bat.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\generate_cached_setup.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\local_setup.bat.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\order_packages.context.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\pkg.context.pc.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\pkgConfig-version.cmake.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\pkgConfig.cmake.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\python_win32_wrapper.cpp.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\rosinstall.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\script.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\setup.bat.in C$:\opt\ros\noetic\x64\share\catkin\cmake\test\catkin_download_test_data.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\test\gtest.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\test\nosetests.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\test\tests.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\tools\doxygen.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\tools\libraries.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\tools\rt.cmake C$:\opt\ros\noetic\x64\share\catkin\package.xml C$:\opt\ros\noetic\x64\share\class_loader\cmake\class_loader-extras.cmake C$:\opt\ros\noetic\x64\share\class_loader\cmake\class_loaderConfig-version.cmake C$:\opt\ros\noetic\x64\share\class_loader\cmake\class_loaderConfig.cmake C$:\opt\ros\noetic\x64\share\cpp_common\cmake\cpp_commonConfig-version.cmake C$:\opt\ros\noetic\x64\share\cpp_common\cmake\cpp_commonConfig.cmake C$:\opt\ros\noetic\x64\share\cv_bridge\cmake\cv_bridge-extras.cmake C$:\opt\ros\noetic\x64\share\cv_bridge\cmake\cv_bridgeConfig-version.cmake C$:\opt\ros\noetic\x64\share\cv_bridge\cmake\cv_bridgeConfig.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigure-extras.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigure-macros.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigure-msg-extras.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigureConfig-version.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigureConfig.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\setup_custom_pythonpath.bat.in C$:\opt\ros\noetic\x64\share\gencpp\cmake\gencpp-extras.cmake C$:\opt\ros\noetic\x64\share\gencpp\cmake\gencppConfig-version.cmake C$:\opt\ros\noetic\x64\share\gencpp\cmake\gencppConfig.cmake C$:\opt\ros\noetic\x64\share\geneus\cmake\geneus-extras.cmake C$:\opt\ros\noetic\x64\share\geneus\cmake\geneusConfig-version.cmake C$:\opt\ros\noetic\x64\share\geneus\cmake\geneusConfig.cmake C$:\opt\ros\noetic\x64\share\genlisp\cmake\genlisp-extras.cmake C$:\opt\ros\noetic\x64\share\genlisp\cmake\genlispConfig-version.cmake C$:\opt\ros\noetic\x64\share\genlisp\cmake\genlispConfig.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\genmsg-extras.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\genmsgConfig-version.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\genmsgConfig.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-genmsg.cmake.em C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-genmsg.context.in C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-msg-extras.cmake.in C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-msg-paths.cmake.develspace.in C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-msg-paths.cmake.installspace.in C$:\opt\ros\noetic\x64\share\gennodejs\cmake\gennodejs-extras.cmake C$:\opt\ros\noetic\x64\share\gennodejs\cmake\gennodejsConfig-version.cmake C$:\opt\ros\noetic\x64\share\gennodejs\cmake\gennodejsConfig.cmake C$:\opt\ros\noetic\x64\share\genpy\cmake\genpy-extras.cmake C$:\opt\ros\noetic\x64\share\genpy\cmake\genpyConfig-version.cmake C$:\opt\ros\noetic\x64\share\genpy\cmake\genpyConfig.cmake C$:\opt\ros\noetic\x64\share\geometry_msgs\cmake\geometry_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\geometry_msgs\cmake\geometry_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\geometry_msgs\cmake\geometry_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\image_transport\cmake\image_transportConfig-version.cmake C$:\opt\ros\noetic\x64\share\image_transport\cmake\image_transportConfig.cmake C$:\opt\ros\noetic\x64\share\message_filters\cmake\message_filtersConfig-version.cmake C$:\opt\ros\noetic\x64\share\message_filters\cmake\message_filtersConfig.cmake C$:\opt\ros\noetic\x64\share\message_generation\cmake\message_generationConfig-version.cmake C$:\opt\ros\noetic\x64\share\message_generation\cmake\message_generationConfig.cmake C$:\opt\ros\noetic\x64\share\message_runtime\cmake\message_runtimeConfig-version.cmake C$:\opt\ros\noetic\x64\share\message_runtime\cmake\message_runtimeConfig.cmake C$:\opt\ros\noetic\x64\share\nodelet\cmake\nodelet-msg-extras.cmake C$:\opt\ros\noetic\x64\share\nodelet\cmake\nodeletConfig-version.cmake C$:\opt\ros\noetic\x64\share\nodelet\cmake\nodeletConfig.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVConfig-version.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVConfig.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVModules-release.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVModules.cmake C$:\opt\ros\noetic\x64\share\pluginlib\cmake\pluginlibConfig-version.cmake C$:\opt\ros\noetic\x64\share\pluginlib\cmake\pluginlibConfig.cmake C$:\opt\ros\noetic\x64\share\rosconsole\cmake\rosconsole-extras.cmake C$:\opt\ros\noetic\x64\share\rosconsole\cmake\rosconsoleConfig-version.cmake C$:\opt\ros\noetic\x64\share\rosconsole\cmake\rosconsoleConfig.cmake C$:\opt\ros\noetic\x64\share\roscpp\cmake\roscpp-msg-extras.cmake C$:\opt\ros\noetic\x64\share\roscpp\cmake\roscppConfig-version.cmake C$:\opt\ros\noetic\x64\share\roscpp\cmake\roscppConfig.cmake C$:\opt\ros\noetic\x64\share\roscpp_serialization\cmake\roscpp_serializationConfig-version.cmake C$:\opt\ros\noetic\x64\share\roscpp_serialization\cmake\roscpp_serializationConfig.cmake C$:\opt\ros\noetic\x64\share\roscpp_traits\cmake\roscpp_traitsConfig-version.cmake C$:\opt\ros\noetic\x64\share\roscpp_traits\cmake\roscpp_traitsConfig.cmake C$:\opt\ros\noetic\x64\share\rosgraph_msgs\cmake\rosgraph_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\rosgraph_msgs\cmake\rosgraph_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\rosgraph_msgs\cmake\rosgraph_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\roslib\cmake\roslib-extras.cmake C$:\opt\ros\noetic\x64\share\roslib\cmake\roslibConfig-version.cmake C$:\opt\ros\noetic\x64\share\roslib\cmake\roslibConfig.cmake C$:\opt\ros\noetic\x64\share\rospack\cmake\rospackConfig-version.cmake C$:\opt\ros\noetic\x64\share\rospack\cmake\rospackConfig.cmake C$:\opt\ros\noetic\x64\share\rospy\cmake\rospyConfig-version.cmake C$:\opt\ros\noetic\x64\share\rospy\cmake\rospyConfig.cmake C$:\opt\ros\noetic\x64\share\rostest\cmake\rostest-extras.cmake C$:\opt\ros\noetic\x64\share\rostest\cmake\rostestConfig-version.cmake C$:\opt\ros\noetic\x64\share\rostest\cmake\rostestConfig.cmake C$:\opt\ros\noetic\x64\share\rostime\cmake\rostimeConfig-version.cmake C$:\opt\ros\noetic\x64\share\rostime\cmake\rostimeConfig.cmake C$:\opt\ros\noetic\x64\share\sensor_msgs\cmake\sensor_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\sensor_msgs\cmake\sensor_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\sensor_msgs\cmake\sensor_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\smclib\cmake\smclibConfig-version.cmake C$:\opt\ros\noetic\x64\share\smclib\cmake\smclibConfig.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgs-msg-paths.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\xmlrpcpp\cmake\xmlrpcpp-extras.cmake C$:\opt\ros\noetic\x64\share\xmlrpcpp\cmake\xmlrpcppConfig-version.cmake C$:\opt\ros\noetic\x64\share\xmlrpcpp\cmake\xmlrpcppConfig.cmake CMakeCache.txt CMakeFiles\3.18.2\CMakeCCompiler.cmake CMakeFiles\3.18.2\CMakeCXXCompiler.cmake CMakeFiles\3.18.2\CMakeRCCompiler.cmake CMakeFiles\3.18.2\CMakeSystem.cmake catkin\catkin_generated\version\package.cmake catkin_generated\installspace\_setup_util.py catkin_generated\order_packages.cmake face_pkg\catkin_generated\face_pkg-msg-extras.cmake.develspace.in face_pkg\catkin_generated\face_pkg-msg-extras.cmake.installspace.in face_pkg\catkin_generated\ordered_paths.cmake face_pkg\catkin_generated\package.cmake face_pkg\cmake\face_pkg-genmsg.cmake video_stream_opencv\catkin_generated\ordered_paths.cmake video_stream_opencv\catkin_generated\package.cmake: phony
+build C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\devel\share\face_pkg\cmake\face_pkg-msg-paths.cmake C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\CMakeLists.txt C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\face_pkg\CMakeLists.txt C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\face_pkg\package.xml C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\face_pkg\scripts\main.py C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\mjpeg_server\CMakeLists.txt C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\mjpeg_server\package.xml C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\video_stream_opencv\CMakeLists.txt C$:\Users\mahta\OneDrive\Documents\GitHub\autism_Robot\src\video_stream_opencv\package.xml C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeCInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeCXXInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeCommonLanguageInclude.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeGenericSystem.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeInitializeConfigs.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeLanguageInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeParseArguments.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeRCInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeSystemSpecificInformation.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CMakeSystemSpecificInitialize.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CheckCSourceCompiles.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CheckIncludeFile.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\CheckLibraryExists.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Compiler\MSVC-C.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Compiler\MSVC-CXX.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\DartConfiguration.tcl.in C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindBoost.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindGTest.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindPackageHandleStandardArgs.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindPackageMessage.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindPythonInterp.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\FindThreads.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\GoogleTest.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows-MSVC-C.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows-MSVC-CXX.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows-MSVC.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\Windows.cmake C$:\opt\ros\noetic\x64\Lib\site-packages\cmake\data\share\cmake-3.18\Modules\Platform\WindowsPaths.cmake C$:\opt\ros\noetic\x64\share\bond\cmake\bond-msg-extras.cmake C$:\opt\ros\noetic\x64\share\bond\cmake\bondConfig-version.cmake C$:\opt\ros\noetic\x64\share\bond\cmake\bondConfig.cmake C$:\opt\ros\noetic\x64\share\bondcpp\cmake\bondcppConfig-version.cmake C$:\opt\ros\noetic\x64\share\bondcpp\cmake\bondcppConfig.cmake C$:\opt\ros\noetic\x64\share\camera_calibration_parsers\cmake\camera_calibration_parsersConfig-version.cmake C$:\opt\ros\noetic\x64\share\camera_calibration_parsers\cmake\camera_calibration_parsersConfig.cmake C$:\opt\ros\noetic\x64\share\camera_info_manager\cmake\camera_info_managerConfig-version.cmake C$:\opt\ros\noetic\x64\share\camera_info_manager\cmake\camera_info_managerConfig.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\all.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\assert.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\atomic_configure_file.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkinConfig-version.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkinConfig.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_add_env_hooks.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_destinations.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_download.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_generate_environment.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_install_python.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_libraries.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_metapackage.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_package.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_package_xml.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_python_setup.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_symlink_install.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\catkin_workspace.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\custom_install.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\debug_message.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\em\order_packages.cmake.em C$:\opt\ros\noetic\x64\share\catkin\cmake\em\pkg.pc.em C$:\opt\ros\noetic\x64\share\catkin\cmake\em_expand.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\empy.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\find_program_required.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\interrogate_setup_dot_py.py C$:\opt\ros\noetic\x64\share\catkin\cmake\legacy.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\list_append_deduplicate.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\list_append_unique.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\list_insert_in_workspace_order.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\platform\lsb.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\platform\ubuntu.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\platform\windows.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\python.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\safe_execute_process.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\stamp.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\string_starts_with.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\_setup_util.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\env.bat.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\generate_cached_setup.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\local_setup.bat.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\order_packages.context.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\pkg.context.pc.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\pkgConfig-version.cmake.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\pkgConfig.cmake.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\python_win32_wrapper.cpp.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\rosinstall.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\script.py.in C$:\opt\ros\noetic\x64\share\catkin\cmake\templates\setup.bat.in C$:\opt\ros\noetic\x64\share\catkin\cmake\test\catkin_download_test_data.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\test\gtest.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\test\nosetests.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\test\tests.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\tools\doxygen.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\tools\libraries.cmake C$:\opt\ros\noetic\x64\share\catkin\cmake\tools\rt.cmake C$:\opt\ros\noetic\x64\share\catkin\package.xml C$:\opt\ros\noetic\x64\share\class_loader\cmake\class_loader-extras.cmake C$:\opt\ros\noetic\x64\share\class_loader\cmake\class_loaderConfig-version.cmake C$:\opt\ros\noetic\x64\share\class_loader\cmake\class_loaderConfig.cmake C$:\opt\ros\noetic\x64\share\cpp_common\cmake\cpp_commonConfig-version.cmake C$:\opt\ros\noetic\x64\share\cpp_common\cmake\cpp_commonConfig.cmake C$:\opt\ros\noetic\x64\share\cv_bridge\cmake\cv_bridge-extras.cmake C$:\opt\ros\noetic\x64\share\cv_bridge\cmake\cv_bridgeConfig-version.cmake C$:\opt\ros\noetic\x64\share\cv_bridge\cmake\cv_bridgeConfig.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigure-extras.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigure-macros.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigure-msg-extras.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigureConfig-version.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\dynamic_reconfigureConfig.cmake C$:\opt\ros\noetic\x64\share\dynamic_reconfigure\cmake\setup_custom_pythonpath.bat.in C$:\opt\ros\noetic\x64\share\gencpp\cmake\gencpp-extras.cmake C$:\opt\ros\noetic\x64\share\gencpp\cmake\gencppConfig-version.cmake C$:\opt\ros\noetic\x64\share\gencpp\cmake\gencppConfig.cmake C$:\opt\ros\noetic\x64\share\geneus\cmake\geneus-extras.cmake C$:\opt\ros\noetic\x64\share\geneus\cmake\geneusConfig-version.cmake C$:\opt\ros\noetic\x64\share\geneus\cmake\geneusConfig.cmake C$:\opt\ros\noetic\x64\share\genlisp\cmake\genlisp-extras.cmake C$:\opt\ros\noetic\x64\share\genlisp\cmake\genlispConfig-version.cmake C$:\opt\ros\noetic\x64\share\genlisp\cmake\genlispConfig.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\genmsg-extras.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\genmsgConfig-version.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\genmsgConfig.cmake C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-genmsg.cmake.em C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-genmsg.context.in C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-msg-extras.cmake.in C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-msg-paths.cmake.develspace.in C$:\opt\ros\noetic\x64\share\genmsg\cmake\pkg-msg-paths.cmake.installspace.in C$:\opt\ros\noetic\x64\share\gennodejs\cmake\gennodejs-extras.cmake C$:\opt\ros\noetic\x64\share\gennodejs\cmake\gennodejsConfig-version.cmake C$:\opt\ros\noetic\x64\share\gennodejs\cmake\gennodejsConfig.cmake C$:\opt\ros\noetic\x64\share\genpy\cmake\genpy-extras.cmake C$:\opt\ros\noetic\x64\share\genpy\cmake\genpyConfig-version.cmake C$:\opt\ros\noetic\x64\share\genpy\cmake\genpyConfig.cmake C$:\opt\ros\noetic\x64\share\geometry_msgs\cmake\geometry_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\geometry_msgs\cmake\geometry_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\geometry_msgs\cmake\geometry_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\image_transport\cmake\image_transportConfig-version.cmake C$:\opt\ros\noetic\x64\share\image_transport\cmake\image_transportConfig.cmake C$:\opt\ros\noetic\x64\share\message_filters\cmake\message_filtersConfig-version.cmake C$:\opt\ros\noetic\x64\share\message_filters\cmake\message_filtersConfig.cmake C$:\opt\ros\noetic\x64\share\message_generation\cmake\message_generationConfig-version.cmake C$:\opt\ros\noetic\x64\share\message_generation\cmake\message_generationConfig.cmake C$:\opt\ros\noetic\x64\share\message_runtime\cmake\message_runtimeConfig-version.cmake C$:\opt\ros\noetic\x64\share\message_runtime\cmake\message_runtimeConfig.cmake C$:\opt\ros\noetic\x64\share\nodelet\cmake\nodelet-msg-extras.cmake C$:\opt\ros\noetic\x64\share\nodelet\cmake\nodeletConfig-version.cmake C$:\opt\ros\noetic\x64\share\nodelet\cmake\nodeletConfig.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVConfig-version.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVConfig.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVModules-release.cmake C$:\opt\ros\noetic\x64\share\opencv\OpenCVModules.cmake C$:\opt\ros\noetic\x64\share\pluginlib\cmake\pluginlibConfig-version.cmake C$:\opt\ros\noetic\x64\share\pluginlib\cmake\pluginlibConfig.cmake C$:\opt\ros\noetic\x64\share\rosconsole\cmake\rosconsole-extras.cmake C$:\opt\ros\noetic\x64\share\rosconsole\cmake\rosconsoleConfig-version.cmake C$:\opt\ros\noetic\x64\share\rosconsole\cmake\rosconsoleConfig.cmake C$:\opt\ros\noetic\x64\share\roscpp\cmake\roscpp-msg-extras.cmake C$:\opt\ros\noetic\x64\share\roscpp\cmake\roscppConfig-version.cmake C$:\opt\ros\noetic\x64\share\roscpp\cmake\roscppConfig.cmake C$:\opt\ros\noetic\x64\share\roscpp_serialization\cmake\roscpp_serializationConfig-version.cmake C$:\opt\ros\noetic\x64\share\roscpp_serialization\cmake\roscpp_serializationConfig.cmake C$:\opt\ros\noetic\x64\share\roscpp_traits\cmake\roscpp_traitsConfig-version.cmake C$:\opt\ros\noetic\x64\share\roscpp_traits\cmake\roscpp_traitsConfig.cmake C$:\opt\ros\noetic\x64\share\rosgraph_msgs\cmake\rosgraph_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\rosgraph_msgs\cmake\rosgraph_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\rosgraph_msgs\cmake\rosgraph_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\roslib\cmake\roslib-extras.cmake C$:\opt\ros\noetic\x64\share\roslib\cmake\roslibConfig-version.cmake C$:\opt\ros\noetic\x64\share\roslib\cmake\roslibConfig.cmake C$:\opt\ros\noetic\x64\share\rospack\cmake\rospackConfig-version.cmake C$:\opt\ros\noetic\x64\share\rospack\cmake\rospackConfig.cmake C$:\opt\ros\noetic\x64\share\rospy\cmake\rospyConfig-version.cmake C$:\opt\ros\noetic\x64\share\rospy\cmake\rospyConfig.cmake C$:\opt\ros\noetic\x64\share\rostest\cmake\rostest-extras.cmake C$:\opt\ros\noetic\x64\share\rostest\cmake\rostestConfig-version.cmake C$:\opt\ros\noetic\x64\share\rostest\cmake\rostestConfig.cmake C$:\opt\ros\noetic\x64\share\rostime\cmake\rostimeConfig-version.cmake C$:\opt\ros\noetic\x64\share\rostime\cmake\rostimeConfig.cmake C$:\opt\ros\noetic\x64\share\sensor_msgs\cmake\sensor_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\sensor_msgs\cmake\sensor_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\sensor_msgs\cmake\sensor_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\smclib\cmake\smclibConfig-version.cmake C$:\opt\ros\noetic\x64\share\smclib\cmake\smclibConfig.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgs-msg-extras.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgs-msg-paths.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgsConfig-version.cmake C$:\opt\ros\noetic\x64\share\std_msgs\cmake\std_msgsConfig.cmake C$:\opt\ros\noetic\x64\share\xmlrpcpp\cmake\xmlrpcpp-extras.cmake C$:\opt\ros\noetic\x64\share\xmlrpcpp\cmake\xmlrpcppConfig-version.cmake C$:\opt\ros\noetic\x64\share\xmlrpcpp\cmake\xmlrpcppConfig.cmake CMakeCache.txt CMakeFiles\3.18.2\CMakeCCompiler.cmake CMakeFiles\3.18.2\CMakeCXXCompiler.cmake CMakeFiles\3.18.2\CMakeRCCompiler.cmake CMakeFiles\3.18.2\CMakeSystem.cmake catkin\catkin_generated\version\package.cmake catkin_generated\installspace\_setup_util.py catkin_generated\order_packages.cmake face_pkg\catkin_generated\face_pkg-msg-extras.cmake.develspace.in face_pkg\catkin_generated\face_pkg-msg-extras.cmake.installspace.in face_pkg\catkin_generated\ordered_paths.cmake face_pkg\catkin_generated\package.cmake face_pkg\cmake\face_pkg-genmsg.cmake mjpeg_server\catkin_generated\ordered_paths.cmake mjpeg_server\catkin_generated\package.cmake video_stream_opencv\catkin_generated\ordered_paths.cmake video_stream_opencv\catkin_generated\package.cmake: phony
 
 
 #############################################
