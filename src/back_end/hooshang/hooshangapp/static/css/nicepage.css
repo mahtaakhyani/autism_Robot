@@ -18458,6 +18458,7 @@ a.pswp__share--download:hover {
 }
 .u-repeater {
   display: grid;
+  justify-items: center;
   grid-template-columns: repeat(3, 33.33333333%);
 }
 .u-repeater-item {
@@ -18474,6 +18475,7 @@ a.pswp__share--download:hover {
 .u-products:not(.u-repeater) {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .u-list:not(.u-repeater) .u-repeater,
 .u-blog:not(.u-repeater) .u-repeater,

@@ -24,12 +24,12 @@
 
 .u-section-1 .u-list-1 {
   width: 333px;
-  margin: 11px auto 0;
+  margin: 11px auto 50px;
 }
 
 .u-section-1 .u-repeater-1 {
-  grid-gap: 10px 30px;
-  grid-template-columns: calc(33.3333% - 6.66667px) calc(33.3333% - 6.66667px) calc(33.3333% - 6.66667px);
+  grid-gap: 5%;
+  grid-template-columns: calc(30% - 6.66667px) calc(30% - 6.66667px) calc(30% - 6.66667px);
   min-height: 179px;
 }
 
@@ -38,10 +38,11 @@
 }
 
 .u-section-1 .u-btn-1 {
-  font-size: 20px !important;
+  font-size: 15px !important;
   border-style: solid;
   margin: 2px auto 0;
-  padding: 20px 19px 20px 18px;
+  padding: 19px 11px 19px 11px;
+  min-width: 5.5rem;
  
 }
 

@@ -8,16 +8,13 @@ class EmotionModel(models.Model):
     face_video_url = models.CharField(max_length=200, blank=True, default="http://172.18.133.241:3000/mahta.mp4", null=False)
     sound = models.ForeignKey(Song, on_delete=models.CASCADE, blank=True, null=True)
     choices_tuple = (
-        ('bi-emoji-laugh','😂'),
-        ('bi-emoji-neutral','🙄'),
-        ('bi-emoji-laughing','😄'),
-        ('bi-emoji-frown','🙁'),
-        ('bi-emoji-surprised','😳'),
-        ('bi-emoji-sunglasses','😎'),
-        ('bi-emoji-angry','😡'),
-        ('bi-emoji-smile','😊'),
-
+        ('😂','😂'), ('🙄','🙄'), ('😄','😄'),
+        ('🙁','🙁'), ('😱','😱'), ('😎','😎'),
+        ('😡','😡'), ('😅','😅'),('😐','😐'),
+        ('🤩','🤩'), ('😊','😊'), ('🤭','🤭'),
+        ('😧','😧'), ('😳','😳'),  ('😌','😌'),
     )
+
     interface_button_emoji = models.CharField(max_length=25,choices=choices_tuple)
 
     def __str__(self):

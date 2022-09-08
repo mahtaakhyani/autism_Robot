@@ -51,6 +51,7 @@ class FaceImpression():
         self.mood.auto_imit = False
         rospy.loginfo(self.mood)
         if data.auto_imit:
+            
             self.initiate_camera()
             self.pub.publish(self.mood)
         else:

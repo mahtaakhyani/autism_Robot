@@ -1,3 +1,4 @@
+from email.policy import default
 import json
 from pathlib import Path
 import sys
@@ -31,12 +32,18 @@ class MainViewTemp(APIView):
             return TemplateResponse(request, 
             'Modified_files/Page-1.html',
              {'emotions':emdb,
-                'voices':sdb})
+                'voices':sdb}) #Sending the data to the template for rendering
 
-#------------------------------- Emotion handling --------------------------
+#------------------------------- Emotion handling ----------------------------------------
 class CoreReqHandler(APIView):
 
         default_exp = ''
+        data = {'face' : '',
+                        'face_url': '',	
+                        'sound' : '',
+                        'status' :500,
+                        'message' : 'No data received'
+                    } #Default data to be sent to the client if no data is received and prevent errors
             
         @classmethod
         def get(cls,request):
@@ -47,7 +54,10 @@ class CoreReqHandler(APIView):
             must contain the name of an emotion in the form of String data.
             e.g. "(i.e. /reqpub?face=normal or laugh,upset,surprise or shy)"
               '''
-            cls.default_exp = request.GET.get('face')
+            if request.GET.get('face'):
+                cls.default_exp = request.GET.get('face')
+            else:
+                pass
             cls.exp_fetched_db = serializer.data.keys()
             cls.sound_file = request.GET.get('sound')
             cls.face_video_url = request.GET.get('face_video_url')
@@ -130,7 +140,8 @@ class EmotionCommandController(APIView):
         data = {
             "face": self.api_response_data['face'],
             "sound": self.api_response_data['sound'],
-            "status": self.api_response_data['status']
+            "status": self.api_response_data['status'],
+            "message": self.api_response_data['message'],
         }
         # print(self.requested_expression)
         '''
