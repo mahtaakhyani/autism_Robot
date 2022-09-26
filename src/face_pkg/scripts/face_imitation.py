@@ -7,7 +7,7 @@ from deepface import DeepFace
 
 
 class FaceDetection():  
-    def __init__(self,frame):
+    def __init__(self,frame=None):
         self.frame_msgs = frame
         self.cv_bridge = CvBridge()
         # rospy.init_node('webcam', anonymous=False)
@@ -22,17 +22,18 @@ class FaceDetection():
 
     def main(self):
         self.video=cv2.VideoCapture(0)  #requesting the input from the webcam or camera
-
+        self.frame_in_cv2 = self.video.read()[1]  #reading the input from the webcam or camera
         while cv2.VideoCapture(0).isOpened():  #checking if are getting video feed and using it
-            self.frame_in_cv2 = self.cv_bridge.imgmsg_to_cv2(
-            self.frame_msgs, desired_encoding='passthrough')
+            # self.frame_in_cv2 = self.cv_bridge.imgmsg_to_cv2(
+            # self.frame_msgs, desired_encoding='passthrough')
             # Transform to grayscale,
             # available encodings: http://docs.ros.org/jade/api/sensor_msgs/html/image__encodings_8h_source.html
-            if "rgb" in self.frame_msgs.encoding:
-                gray = cv2.cvtColor(self.frame_in_cv2, cv2.COLOR_RGB2GRAY)
-            elif "bgr" in self.frame_msgs.encoding:
-                gray = cv2.cvtColor(self.frame_in_cv2, cv2.COLOR_BGR2GRAY)
+            # if "rgb" in self.frame_msgs.encoding:
+            #     gray = cv2.cvtColor(self.frame_in_cv2, cv2.COLOR_RGB2GRAY)
+            # elif "bgr" in self.frame_msgs.encoding:
+            #     gray = cv2.cvtColor(self.frame_in_cv2, cv2.COLOR_BGR2GRAY)
 
+            gray = cv2.cvtColor(self.frame_in_cv2, cv2.COLOR_BGR2GRAY)
             face=self.face_cascade.detectMultiScale(gray,scaleFactor=1.1,minNeighbors=5)
 
             for x,y,w,h in face:

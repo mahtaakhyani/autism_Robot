@@ -4,6 +4,10 @@
  * Copyright 2014-2021 Froala Labs
  */
 
+span >input {
+  font-size: 50%;
+}
+
 .fr-clearfix::after {
   clear: both;
   display: block;
@@ -1021,14 +1025,18 @@ ol {
   position: absolute;
   background-color:rgb(19, 199, 10) ; 
   font-size: 0%;
-  width: 40px;
-  height: 40px;
+  width: 27px;
+  height: 28px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
-.play_btn.active {
+.play_btn.active,
+.play_btn:hover {
   background-color:#ee5009;
 }
+
+
 .u-btn {
   /*display: inline-block;*/
   display: table;
@@ -5526,6 +5534,7 @@ ul.u-text li:last-child {
 .u-backlink span {
   font-size: 0.8rem;
 }
+
 .u-backlink .u-link {
   text-decoration: underline;
 }
@@ -18489,6 +18498,13 @@ a.pswp__share--download:hover {
 .u-products:not(.u-repeater) .u-list-control {
   flex: 0;
 }
+
+.dest_list li {
+  margin-top: inherit !important;
+  background-color: whitesmoke;
+  height: 2.5rem;
+}
+
 .u-table table {
   width: 100%;
   border-collapse: collapse;
@@ -36408,7 +36424,7 @@ a.u-link.u-text-hover-grey-90:hover {
           border-color: #332c29 !important;
           color: #000000 !important;
           background-color: #ffbb00 !important;
-          font-size: 20px !important;
+          font-size: 20px;
         }
 
         .u-button-style.u-border-custom-color-7:hover,

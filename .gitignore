@@ -7,3 +7,4 @@ src/back_end/hooshang/db.sqlite3
 src/video_stream_opencv
 src/web_video_server
 *.yaml
+*.pyc

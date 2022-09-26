@@ -2,18 +2,18 @@
 // ---------------------------------
 var face_url_id = '';
 var sound_url_val = '';
-var host = 'localhost'
+var host = 'localhost';
 var port = '5353';
 
 // - - - Django Server - - - 
 var django_base_url = 'http://' + host + ':' + port ;
-var request_current_exp = django_base_url + '/reqemo';  //URL has been set in 'hooshangapp/urls.py'
-var publish_new_exp = django_base_url + '/reqpub'; //URL has been set in 'hooshangapp/urls.py'
+var request_current_exp =  '/reqemo';  //URL has been set in 'hooshangapp/urls.py'
+var publish_new_exp =  '/reqpub'; //URL has been set in 'hooshangapp/urls.py'
 
 // - - - ROS - - -
 // Workspace
 var rosbridge_port = '9090';
-var robot_ws = 'ws://'+host+':'+rosbridge_port;	// Setting the websocket url for the ROS environment
+var robot_ws = 'ws://'+host+':'+ rosbridge_port;	// Setting the websocket url for the ROS environment
 // Topics
 var publish_exp_topic = '/web_exp_publisher';
 var publish_motion_topic = '/web_motion_publisher';
@@ -24,6 +24,9 @@ var listen_motion_topic = '/cmd_vel_listener';
 var exp_msg_type = 'face_pkg/Exp';
 var motion_msg_type = 'geometry_msgs/Twist';
 var camera_img_msg_type = 'sensor_msgs/Image';
+
+// ------ Other functions ------
+var auto_imit_val = false;
 
 // ---------------------------------------------- END OF VARIABLE DECLARATION -----------------------------------------------
 // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -122,17 +125,22 @@ autoexp_Topic.subscribe(function(message) {
       face: msgd
     },
     success: function(response) {
+      var sound_url = response.sound_url;
       // Playing the recognized emotion's sound and video file
-      document.getElementById("vidsrc").innerHTML = '<source src="'+ response.face_url+'" type="video/mp4">';
-      document.getElementById("vidsoundsrc").innerHTML = '<source src="'+ response.sound_url+'" type="audio/mp3">';
-      
-      document.getElementById("vidsrc").load()
+      document.getElementById("vidsrc").innerHTML = '<source src="'+ response.face_url+'" type="video/mp4">'; 
       document.getElementById("vidsrc").play()
-      document.getElementById("vidsoundsrc").play() 
+      if (sound_url != 'No assigned sound found') {
+        document.getElementById("vidsoundsrc").innerHTML = '<source src="'+ sound_url+'" type="audio/mp3">';
+        document.getElementById("vidsoundsrc").play();
+        } else {
+          document.getElementById("vidsoundsrc").pause();
+          document.getElementById("vidsoundsrc").currentTime = 0;
+          document.getElementById("vidsoundsrc").innerHTML = '<source src="" type="audio/mp3">';};
+ 
+      console.log(response);
     }
   })
   document.getElementById("msg").innerHTML = msgd;
-  console.log(response);
 });
 
 
@@ -145,7 +153,13 @@ var face_url_id = '';
 function exp_face(element) {
   var face_url_id = element.id;
   var face_name_val = element.value;
+
+
   document.getElementById("msg").innerHTML = face_name_val;
+
+  if (element.id == 'auto') {
+    auto_imit_val = true;
+  }
   
   
   $.ajax({
@@ -157,7 +171,15 @@ function exp_face(element) {
     success: function(response) {
       var sound_url = response.sound_url;
       document.getElementById("vidsrc").innerHTML = '<source src="'+ response.face_url+'" type="video/mp4">';
-      document.getElementById("vidsoundsrc").innerHTML = '<source src="'+ sound_url+'" type="audio/mp3">';
+      if (sound_url == 'No assigned sound found' | face_url_id == 'auto') {
+        document.getElementById("vidsoundsrc").pause();
+        document.getElementById("vidsoundsrc").currentTime = 0;
+        document.getElementById("vidsoundsrc").innerHTML = '<source src="" type="audio/mp3">';
+      }
+      else {
+        document.getElementById("vidsoundsrc").innerHTML = '<source src="'+ sound_url+'" type="audio/mp3">';
+        document.getElementById("vidsoundsrc").play();
+      };
       var ids =   [face_url_id, sound_url];
       update_exp(ids);  // Returning the id of the button clicked 
                         // and it's relative sound recived as a response from the server
@@ -175,9 +197,13 @@ function exp_face(element) {
 // Taking in the user's commanded sound and passing on the url of the sound file to update_exp function.
 // -----------------
 function exp_sound(element) {
+  playAudio(element)
+  document.getElementById("vidsoundsrc").pause()
+  document.getElementById("vidsoundsrc").currentTime = 0;
   var sound_url_val = element.value;
   document.getElementById("msg_sound").innerHTML = sound_url_val;
   document.getElementById("vidsoundsrc").innerHTML = '<source src="'+ sound_url_val+'" type="audio/mp3">';
+  document.getElementById("vidsoundsrc").play();
   var ids =   [face_url_id, sound_url_val];
   return update_exp(ids); // returning the id of the button clicked to be used in the 'exp' function.
 
@@ -208,13 +234,21 @@ function update_exp(ids) {
 
       document.getElementById("vidsrc").play();
       
-      document.getElementById("vidsoundsrc").play();
       // Playing the new requested video and sound file
       console.log(response);
     }
   }) // logging the response in browser's console
 
-}
+  var exp_msg = new ROSLIB.Message({
+    emotion : ids[0],
+    auto_imit: auto_imit_val,
+    action: 'face expression'
+   });
+   exp_Topic.publish(exp_msg); // Publishing the new emotion to the robot
+   auto_imit_val = false; // Resetting the auto_imit_val to false to prevent auto-imitating the emotion
+  }
+  ids = []; // Resetting the ids array to prevent updating the video file when sound updates
+  
 // <--- END OF UPDATE_EXP FUNCTION --->
 
 
@@ -267,15 +301,13 @@ function motion(element) {
 // Audio Player for the web interface
 // -----------------
 function playAudio(input) { 
-  var file = input.id;
-  var x = document.getElementById(file);
-  if (x.paused == false) {
-    x.pause();
-    $(".play_btn").removeClass("active");
+  $(".play_btn")[0].currentTime = 0;
+  
+  if ($(input).hasClass("active") ) {
+    $(input).removeClass("active");
     
   } 
   else {
-    x.play();
     $(".play_btn").removeClass("active");
     $(input).addClass("active"); 
        
@@ -289,14 +321,29 @@ function playAudio(input) {
     ev.preventDefault();
   }
   
-  function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
+  var state_var = '';
+  function drag(ev, state) {
+    state_var = state; 
   }
   
   function drop(ev) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+  //   if ($(this).find("input id=*clone")){
+  //     $(document.getElementById(state_var)).appendTo(".dest_list").replaceWith(function() { 
+  //     return "<li draggable='true' ondragstart='drag(event,this.id)'>" + this.innerHTML + "</li>"; 
+  // });
+  //   }
+  //   else {
+    $(document.getElementById(state_var)).clone().appendTo(".dest_list").replaceWith(function() { 
+      // $(this).find("p").css();
+      $(this).css('display', 'inline-grid');
+      $(this).find("input").removeClass("u-radius-50").css('font-size',' 0rem').css( 'min-width', '0.5rem');
+      $(this).find("input").attr("id", state_var + "_clone");
+      $('#'+state_var + "_clone\*").css('border-radius','0%').css('width','10%').css('margin','-20px').css("height","inherit");
+      $(".play_btn").css('margin','0');
+      return "<li draggable='true' ondragstart='drag(event,this.id)'>" + this.innerHTML + "</li>"; 
+  });
+
   }
 
   
