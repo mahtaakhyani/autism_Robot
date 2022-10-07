@@ -108,8 +108,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/face_pkg/cmake_install.cmake")
-  include("C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/mjpeg_server/cmake_install.cmake")
-  include("C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/video_stream_opencv/cmake_install.cmake")
 
 endif()
 

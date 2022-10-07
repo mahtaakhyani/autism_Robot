@@ -257,6 +257,21 @@ EMPY_EXECUTABLE:FILEPATH=EMPY_EXECUTABLE-NOTFOUND
 //Empy script
 EMPY_SCRIPT:STRING=C:/opt/ros/noetic/x64/lib/site-packages/em.py
 
+//Path to a library.
+ESD_LIBRARY:FILEPATH=ESD_LIBRARY-NOTFOUND
+
+//Path to a library.
+ESTBASE_LIBRARY:FILEPATH=ESTBASE_LIBRARY-NOTFOUND
+
+//Path to a library.
+ESTOOLS_LIBRARY:FILEPATH=ESTOOLS_LIBRARY-NOTFOUND
+
+//Path to a library.
+ESTSTRING_LIBRARY:FILEPATH=ESTSTRING_LIBRARY-NOTFOUND
+
+//Path to a file.
+EST_INCLUDE_DIR:PATH=EST_INCLUDE_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for GMock.
 GMock_DIR:PATH=GMock_DIR-NOTFOUND
 
@@ -280,6 +295,9 @@ LSB_RELEASE_EXECUTABLE:FILEPATH=LSB_RELEASE_EXECUTABLE-NOTFOUND
 
 //Path to a program.
 NOSETESTS:FILEPATH=C:/opt/ros/noetic/x64/Scripts/nosetests.exe
+
+//The directory containing a CMake configuration file for OGRE.
+OGRE_DIR:PATH=C:/opt/ros/noetic/x64/share/ogre
 
 //The directory containing a CMake configuration file for OpenCV.
 OpenCV_DIR:PATH=C:/opt/ros/noetic/x64/share/opencv
@@ -341,6 +359,9 @@ catkin_DIR:PATH=C:/opt/ros/noetic/x64/share/catkin/cmake
 //The directory containing a CMake configuration file for class_loader.
 class_loader_DIR:PATH=C:/opt/ros/noetic/x64/share/class_loader/cmake
 
+//The directory containing a CMake configuration file for cmake_modules.
+cmake_modules_DIR:PATH=C:/opt/ros/noetic/x64/share/cmake_modules/cmake
+
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=C:/opt/ros/noetic/x64/share/cpp_common/cmake
 
@@ -377,11 +398,17 @@ genpy_DIR:PATH=C:/opt/ros/noetic/x64/share/genpy/cmake
 //The directory containing a CMake configuration file for geometry_msgs.
 geometry_msgs_DIR:PATH=C:/opt/ros/noetic/x64/share/geometry_msgs/cmake
 
+//Value Computed by CMake
+homer_robot_face_BINARY_DIR:STATIC=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/build/homer_robot_face-master/homer_robot_face-master
+
+//Value Computed by CMake
+homer_robot_face_SOURCE_DIR:STATIC=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/homer_robot_face-master/homer_robot_face-master
+
 //The directory containing a CMake configuration file for image_transport.
 image_transport_DIR:PATH=C:/opt/ros/noetic/x64/share/image_transport/cmake
 
 //Path to a library.
-lib:FILEPATH=C:/opt/ros/noetic/x64/Lib/class_loader.lib
+lib:FILEPATH=C:/opt/ros/noetic/x64/Lib/rostime.lib
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=C:/opt/ros/noetic/x64/share/message_filters/cmake
@@ -579,7 +606,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MT
 CMAKE_MT-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_COMPILER
@@ -630,7 +657,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[C:/opt/ros/noetic/x64][v4.3.0()]
 //Details about finding PY_em
 FIND_PACKAGE_MESSAGE_DETAILS_PY_em:INTERNAL=[C:\opt\ros\noetic\x64\lib\site-packages\em.py][v()]
 //Details about finding PythonInterp
-FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[C:/opt/ros/noetic/x64/python.exe][v3.8.3()]
+FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[C:/opt/ros/noetic/x64/python.exe][v3.8.3(3)]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 GTEST_BOTH_LIBRARIES:INTERNAL=C:/opt/ros/noetic/x64/Lib/gtest.lib;C:/opt/ros/noetic/x64/Lib/gtest_main.lib

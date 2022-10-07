@@ -21,7 +21,7 @@
 #### Additionaly, you can online stream a video or audio by sending the url of the stream server to the androind app, just like you would do with a local file. (It is recommended to use a local server for streaming though for faster response time and less bandwidth usage.) 
 
 ### The app is capable of playing any video or audio file that is supported by the android device (e.g. mp4, mp3, wav, etc.) and any video or audio stream that is supported by the android device (e.g. rtsp, rtmp, etc.) 
-#### *NOTE* *This can be a little tricky if using a 4.0.3 android device because it does not support some of the newer streaming protocols.*
+#### *NOTE* *This can be a little tricky if using a 4.4.0>= android device because it does not support some of the newer streaming protocols.*
 
 
 # Web server run and debug*************************************************************

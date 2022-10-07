@@ -1,0 +1,8 @@
+prefix=C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel
+
+Name: homer_robot_face
+Description: Description of homer_robot_face
+Version: 1.0.30
+Cflags: -IC:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel/include
+Libs: -L${prefix}/lib 
+Requires: roscpp message_runtime std_msgs sensor_msgs
