@@ -75,7 +75,7 @@ def shape_to_np(dlib_shape, dtype="int"):
     # Return the list of (x,y) coordinates:
     return coordinates
 # Name of the two shape predictors:
-p = "c:\\Users\\mahta\\OneDrive\\Documents\\GitHub\\autism_Robot\\src\\deep_fake\\shape_predictor_68_face_landmarks.dat"
+p = "c:\\Users\\mahta\\Documents\\GitHub\\autism_Robot\\src\\deep_fake\\shape_predictor_68_face_landmarks.dat"
 # p = "shape_predictor_5_face_landmarks.dat"
 
 # Initialize frontal face detector and shape predictor:

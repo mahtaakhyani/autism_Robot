@@ -1,3 +1,5 @@
+import time
+from cv2 import rotate
 import cv2
 import numpy as np
 import os
@@ -33,24 +35,24 @@ ext = '.jpg'
 # BOTTOM_OUTER_LIP = features_dir + 'right_brow' + ext
 # BOTTOM_INNER_LIP = features_dir + 'right_brow' + ext
 # JAWLINE_POINTS = features_dir + 'right_brow' + ext
-img = "C:\\Users\\mahta\\OneDrive\\Documents\\GitHub\\autism_Robot\\src\\deep_fake\\logo.png"
+path = "C:\\Users\\mahta\\Documents\\GitHub\\autism_Robot\\src\\deep_fake\\shape_predictor_68_face_landmarks.dat"
+img = "C:\\Users\\mahta\\Documents\\GitHub\\autism_Robot\\src\\deep_fake\\Untitled-1.png"
 # Object class to insert logo
 class Object:
     def __init__(self, start_x=100, start_y=100, size=50):
         self.logo_org = cv2.imread(img)
         self.size = size
-        self.logo = cv2.resize(self.logo_org, (size, size))
+        self.logo = cv2.resize(self.logo_org, (self.size, self.size))
         self.img2gray = cv2.cvtColor(self.logo, cv2.COLOR_BGR2GRAY)
         # Converting image to a binary image 
         # ( black and white only image).  
         _, logo_mask = cv2.threshold(self.img2gray, 1, 255, cv2.THRESH_BINARY)
         self.logo_mask = logo_mask
+        # print(self.logo_mask)
         self.on_mask = False
         self.coordinates = self.extract_edges()
-        self.x = self.coordinates[0]
-        self.y = self.coordinates[1]
+        self.x , self.y = self.coordinates
 
-        
 
     def extract_edges(self):
         img2 = self.logo_org
@@ -76,17 +78,10 @@ class Object:
             approx = cv2.approxPolyDP(cnt, 0.009 * cv2.arcLength(cnt, True), True) 
 
             # draws boundary of contours. 
-            cv2.drawContours(img2, [approx], 0, (0, 0, 255), 2) 
+            img2 = cv2.drawContours(img2, [approx], 0, (0, 0, 255), 2) 
 
             # Used to flatted the array containing 
             # the co-ordinates of the vertices. 
-            M = cv2.moments(cnt)
-            if M['m00'] != 0:
-                self.cx = int(M['m10']/M['m00'])
-                self.cy = int(M['m01']/M['m00'])
-                cv2.circle(self.logo, (self.cx, self.cy), 7, (0, 0, 255), -1)
-            
-            print(self.cx,self.cy)
             n = approx.ravel() 
             i = 0
 
@@ -95,21 +90,52 @@ class Object:
                     x = n[i] 
                     y = n[i + 1] 
                     coordinates.append((x,y))
+                    
+        # cv2.imshow('img2', img2)
+        return (coordinates[0][0], coordinates[0][1])
 
-        return (self.cx,self.cy)
+    def fit(self, shape = [RIGHT_BROW]):
+        max_x = shape.max(axis=0)[0]
+        max_y = shape.max(axis=0)[1]
+        min_x = shape.min(axis=0)[0]
+        min_y = shape.min(axis=0)[1]
+        return self.angle_between((max_x, max_y), (min_x, min_y))
+        
+    def angle_between(self, p1, p2):
+        xDiff = p2[0] - p1[0]
+        yDiff = p2[1] - p1[1]
+
+        return np.degrees(np.arctan2(yDiff, xDiff))
+            
+
 
 
     def insert_object(self, frame):
-        roi = frame[self.y:self.y + self.size, self.x:self.x + self.size]
-        roi[np.where(self.logo_mask)] = 0
-        roi += self.logo
-        roi = cv2.addWeighted(roi, .5, self.logo, .5, 1)
-
-    def find_templates(self , sensitivity=0.5):
-
-        template = cv2.imread(img, cv2.IMREAD_COLOR)
+        roi = frame[self.y-int(self.size/2):self.y + int(self.size/2), self.x-int(self.size/2):self.x + int(self.size/2)]
+        (h, w) = self.logo.shape[:2]
+        self.rotation_radius = 45
+        # rotate our image by 45 degrees around the center of the image
+        self.x, self.y = self.find_templates(roi, 0.9)
+        roi = roi[10:h-10, 10:w-10]
+        M = cv2.getRotationMatrix2D((self.x, self.y), 45, 1.0)
+        rotated = cv2.warpAffine(self.logo, M, (w, h))
+        rotated = rotated[10:h-10, 10:w-10]
+        # fill the empty corners after rotation to white
+        blank = np.zeros(rotated.shape[:3],
+                        dtype='uint8')
+        blank += rotated
+        roi[np.where(blank,False,True)] = 0
+        cv2.imshow("Rotated by 45 Degrees", blank)
+        # reshape rotated image 2d matrix to 3d
+        # remove roi background to transparent
+        print(rotated.shape)
+        roi += blank
+        roi = cv2.addWeighted(roi, .5, blank, .5, 1)
         
-        self.logo_org = template
+        
+    def find_templates(self,framed_logo, sensitivity=0.9):
+
+        template = framed_logo
         h, w = template.shape[:2]
 
         print('h', h, 'w', w)
@@ -117,8 +143,13 @@ class Object:
         method = cv2.TM_CCORR_NORMED
 
         threshold = 0.90
-
-        res = cv2.matchTemplate(self.logo_mask, template, method)
+        
+        try:
+            res = cv2.matchTemplate(self.logo, template, method)
+        except:
+            for i in range(5):
+                time.sleep(1)
+                res = cv2.matchTemplate(self.logo, template, method)
         res_h, res_w = res.shape[:2]
 
         # fake out max_val for first run through loop
@@ -126,37 +157,36 @@ class Object:
         centers = []
         while max_val > sensitivity:
             min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
-            if max_val > sensitivity:
-                centers.append( (max_loc[0] + w//2, max_loc[1] + h//2) )
+            centers.append( (max_loc[0] + w//2, max_loc[1] + h//2) )
 
-                x1 = max(max_loc[0] - w//2, 0)
-                y1 = max(max_loc[1] - h//2, 0)
+            x1 = max(max_loc[0] - w//2, 0)
+            y1 = max(max_loc[1] - h//2, 0)
 
-                x2 = min(max_loc[0] + w//2, res_w)
-                y2 = min(max_loc[1] + h//2, res_h)
+            x2 = min(max_loc[0] + w//2, res_w)
+            y2 = min(max_loc[1] + h//2, res_h)
 
-                res[y1:y2, x1:x2] = 0
+            res[y1:y2, x1:x2] = 0
+        mean_x = int(np.mean([x for x, y in centers]))
+        mean_y = int(np.mean([y for x, y in centers]))
+        # cv2.circle(template, (mean_x,mean_y), 7, (0, 0, 255), -1)
+        cv2.imwrite('res.png', template)
+        return (mean_x, mean_y)
 
-                image = cv2.rectangle(image,(max_loc[0],max_loc[1]), (max_loc[0]+w+1, max_loc[1]+h+1), (0,255,0) )
-
-        print(centers)
-
-        cv2.imwrite('output.png', image)
-
-    find_templates("enemy_logo.png", 0.90)
+    
 
 
     def update_position(self, mask,image):
         height, width = mask.shape
-        np_shape_display = mask[[RIGHT_TOP_EYELID][0]]
+        # set self.size to match the size of the mask
+        self.size = height
+        np_shape_display = mask[[18]]
         points = np.array(np_shape_display, dtype=np.int32)
-        mapped_points = points
-        print(self.x,self.y,points)
-        cv2.imshow('blank',self.logo)
-        for (x,y) in mapped_points:
+        self.rotation_radius = self.fit(points)
+        print(self.rotation_radius)
+        for (x,y) in points:
             self.x = x
             self.y = y
-        cv2.circle(image, (self.x, self.y), 7, (0, 0, 255), -1)
+
 
 # background_subtractor = cv2.createBackgroundSubtractorMOG2()
 # This will create an object

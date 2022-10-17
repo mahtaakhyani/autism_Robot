@@ -8,3 +8,5 @@ src/video_stream_opencv
 src/web_video_server
 *.yaml
 *.pyc
+*.dat
+*.tar
