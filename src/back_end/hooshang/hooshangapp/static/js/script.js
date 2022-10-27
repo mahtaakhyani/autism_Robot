@@ -3,12 +3,14 @@
 var face_url_id = '';
 var sound_url_val = '';
 var host = 'localhost';
-var port = '5353';
+var port = '8000';
+var android_port = 8080;
 
 // - - - Django Server - - - 
 var django_base_url = 'http://' + host + ':' + port ;
 var request_current_exp =  '/reqemo';  //URL has been set in 'hooshangapp/urls.py'
 var publish_new_exp =  '/reqpub'; //URL has been set in 'hooshangapp/urls.py'
+var android_server_url = 'http://' + host + ':' + android_port + '/android_server';
 
 // - - - ROS - - -
 // Workspace
@@ -153,8 +155,7 @@ var face_url_id = '';
 function exp_face(element) {
   var face_url_id = element.id;
   var face_name_val = element.value;
-
-
+  
   document.getElementById("msg").innerHTML = face_name_val;
 
   if (element.id == 'auto') {
@@ -221,6 +222,9 @@ function update_exp(ids) {
   
   // Sending a GET request to the server to set a new emotion
   // -----------------
+  $.ajax({
+    type: "GET",
+    url: android_server_url}); // Sending the request to the server to ask for changes in the robot's facial expression
   $.ajax({
     type: "GET",
     url: publish_new_exp,
@@ -335,10 +339,14 @@ function playAudio(input) {
   //   }
   //   else {
     $(document.getElementById(state_var)).clone().appendTo(".dest_list").replaceWith(function() { 
-      // $(this).find("p").css();
+      $(this).find("p").addClass("sclone_p");
       $(this).css('display', 'inline-grid');
       $(this).find("input").removeClass("u-radius-50").css('font-size',' 0rem').css( 'min-width', '0.5rem');
       $(this).find("input").attr("id", state_var + "_clone");
+      var del_btn = document.createElement("i");
+      del_btn.setAttribute("class","bi bi-x-lg del_btn");
+      del_btn.setAttribute("onclick","clear_item(this)");
+      $(this).append(del_btn);
       $('#'+state_var + "_clone\*").css('border-radius','0%').css('width','10%').css('margin','-20px').css("height","inherit");
       $(".play_btn").css('margin','0');
       return "<li draggable='true' ondragstart='drag(event,this.id)'>" + this.innerHTML + "</li>"; 
@@ -346,4 +354,29 @@ function playAudio(input) {
 
   }
 
+  function auto_run(){
+    // click all buttons that end with "clone" in order with a delay of 1 second
+      $(".dest_list li input[id$='clone']").each(function(i) {
+        $(this).removeClass("active");
+        $(this).delay(5000 * i).queue(function() {
+          $(this).addClass("active");
+          exp_face(this);
+          });
+
+      });
+    }
+
+function clean(){
+  $(".dest_list").empty();
+}
+function clear_item(item){
+  $(item).parent().remove();
+}
+  
+  
+$(document).ready(function(){
+  $(".close").click(function(){
+    $("#myAlert").alert("close");
+  });
+});
   

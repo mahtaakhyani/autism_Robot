@@ -14,11 +14,14 @@
    <script class="u-script" type="text/javascript" src=" {% static 'js/nicepage.js' %} " defer=""></script>
    <script class="u-script" type="text/javascript" src=" {% static 'js/script.js' %} " defer=""></script>
    <script src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelement-and-player.min.js"></script>
    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
    <link rel="stylesheet" href=" {% static 'font-awesome-4.7.0/css/font-awesome.min.css' %} ">
    <link rel="stylesheet" href=" {% static 'icons-1.5.0/font/bootstrap-icons.css' %} ">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script type="text/javascript" type="text/javascript">
     
     
@@ -71,13 +74,11 @@
         <div class=" u-layout-col u-clearfix u-expanded-width-xs u-gutter-14 u-layout-spacing-left-right u-layout-wrap u-layout-wrap-2">
         <div class="u-gutter-0 u-layout">
           <div class="u-layout-col">
-            <div class="u-container-style u-layout-cell u-radius-24 u-shape-round u-size-30 u-white u-layout-cell-3">
-              <div class="u-border-1 u-border-white u-container-layout u-container-layout-12">
-                <h4 class="u-align-center u-text u-text-4">Move</h4>
-                <p class="u-text u-text-5">Use the arrow keys to move the robot.<br>
-                  <br>Use WASD keys to tilt the head up/left/down/right relatively.
-                </p>
-              </div>
+            <div>
+                <div class="alert alert-info alert-dismissible" id="myAlert">
+                  <a href="#" class="close">&times;</a>
+                  <strong>Move The Robot!  </strong>Use the arrow keys to move the robot. Use WASD keys to tilt the head up/left/down/right relatively.
+                </div>
             </div>
             <div class="u-expanded-width u-tab-links-align-left u-tabs u-tabs-1">
               <ul class="u-border-2 u-border-grey-75 u-custom-color-7 u-tab-list u-unstyled u-tab-list-1" role="tablist">
@@ -137,6 +138,7 @@
                     u-none u-radius-50 u-btn-1" 
                      style=" width: -webkit-fill-available !important;">Admin Panel</button></a>
             </div>
+
             <div class="u-size-30">
               <div class="u-layout-row">
                 <div class="u-align-center u-container-style u-layout-cell u-radius-16 u-shape-round u-size-60 u-white u-layout-cell-1">
@@ -148,17 +150,17 @@
                         
                         {% for emotion in emotions %}{% if emotion %}
                         <div id="{{emotion}}" class="u-align-center u-container-style u-list-item u-repeater-item" id="{{emotion.face}}"  draggable="true" ondragstart="drag(event,this.id)">
-                          <div class="u-container-layout u-similar-container u-container-layout-3">
-                            <span class="u-icon u-text-custom-color-7 u-icon-1">
+                          <div class="u-icon u-text-custom-color-7 u-icon-1 u-container-layout u-similar-container u-container-layout-3">
+                            <!-- <span class="u-icon u-text-custom-color-7 u-icon-1"> -->
                               <p class="bi"> {{emotion.interface_button_emoji}}</p>
                             <input type="button"
                              id={{emotion.face_video_url}} 
                              onclick="exp_face(this);"
                              value="{{emotion}}" 
-                             style=""
+                             style="margin: 14px auto 0px;"
                              class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
                             </input>
-                            </span>
+                            <!-- </span> -->
                           </div>
                         </div>
                         {% endif %} {% endfor %}
@@ -173,6 +175,27 @@
                              style="font-size: 50%; background-color: #ff0000 !important ; color: aliceblue !important;"
                              class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
                           </input>
+                            
+                          </div>
+                        </div>
+                        <div class="u-align-center u-container-style u-list-item u-repeater-item">
+                          <div class="u-container-layout u-similar-container u-container-layout-7">
+                            <!-- add -->
+                            <a href="/adminhooshangapp/emotionmodel/add/" 
+                            target="_blank" 
+                            onclick="window.open('/adminhooshangapp/emotionmodel/add/', 
+                         'add new emotion model', 
+                         'width=600,height=500','toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no'); 
+                            return false;"
+                            class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1"
+                            style="    padding: 0;
+                            min-width: auto;
+                            font-size: 2rem;
+                            background: #d0cdcd40 !important;
+                            border: 0rem  !important;
+                        ">
+                            <i class="bi bi-plus-circle-dotted"></i>
+                          </a>
                             
                           </div>
                         </div>
@@ -204,10 +227,11 @@
                       </ul>
                       <div class="u-tab-content" ondrop="drop(event)" ondragover="allowDrop(event)">
                         <div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-3d31" role="tabpanel" aria-labelledby="link-tab-3d31">
-                          <div class="u-container-layout u-container-layout-9">
+                          <div class="u-container-layout u-container-layout-9 scrollable">
                             <ul class="u-custom-font u-custom-list u-file-icon u-font-pt-sans u-indent-0 u-text u-text-3">
                               {% for sound in voices %}
-                                <li class="u-align-left " style="padding-bottom: 3%;"  id="robot_audio{{sound.id}}" draggable="true" ondragstart="drag(event,this.id)">
+                              <div class="u-icon u-text-custom-color-7 u-container-layout u-similar-container u-container-layout-3">
+                                <li class="u-align-left " style="padding-bottom: 0.5%;"  id="robot_audio{{sound.id}}" draggable="true" ondragstart="drag(event,this.id)">
                                   <audio id="robot_audio{{sound.id}}" class="fc-media" style="width: 100%;">
                                     <source src="{% if sound.audio_file %}{{sound.audio_file}}{% else %}{{sound.url}}{% endif %}"
                                            type="audio/mp3"/>
@@ -217,14 +241,30 @@
                                    class="play_btn"
                                    onclick="exp_sound(this);" type="button"></input>
                                 
-                                   &emsp;&emsp; {{sound}}
+                                   <p class=".u-section-1 .u-icon-1  sp"> {{sound}}</p>
                                 </li>
+                                </div>
                              {% endfor %}
+                             <li class="u-align-left " style="padding-bottom: 0.5%;">
+                              <a href="/adminsoundsapp/song/add/" 
+                                target="_blank" 
+                                onclick="window.open('/adminsoundsapp/song/add/', 
+                                  'add new emotion model', 
+                                  'width=600,height=500','toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no'); 
+                                return false;"
+                                class="play_btn"
+                                style="    padding: 4px;
+                                min-width: auto;
+                                font-size: 2rem;
+                                background: #d0cdcd40 !important;">
+                                <i class="bi bi-plus-circle-dotted"></i>
+                              </a>
+                            </li>
                             </ul>
                           </div>
                         </div>
                         <div class="u-container-style u-tab-pane u-white u-tab-pane-1" id="tab-3d32" role="tabpanel" aria-labelledby="link-tab-3d32">
-                          <div class="u-container-layout u-container-layout-9">
+                          <div class="u-container-layout u-container-layout-9 scrollable">
                             <ul class="u-custom-font u-custom-list u-file-icon u-font-pt-sans u-indent-0 u-text u-text-3">
                               {% for sound in voices %}
                                 <li class="u-align-left " style="padding-bottom: 3%;">
@@ -237,6 +277,22 @@
                                    &emsp;&emsp; -----
                                 </li>
                              {% endfor %}
+                            <!-- add -->
+                            <li class="u-align-left " style="padding-bottom: 3%;">
+                              <a href="/adminhooshangapp/emotionmodel/add/" 
+                                target="_blank" 
+                                onclick="window.open('/adminhooshangapp/emotionmodel/add/', 
+                                  'add new emotion model', 
+                                  'width=600,height=500','toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no'); 
+                                return false;"
+                                class="play_btn"
+                                style="    padding: 4px;
+                                min-width: auto;
+                                font-size: 2rem;
+                                background: #d0cdcd40 !important;">
+                                <i class="bi bi-plus-circle-dotted"></i>
+                              </a>
+                            </li>
                             </ul>
                           </div>
                         </div>
@@ -275,24 +331,28 @@
                 </ul>
                 <div class="u-tab-content"  ondrop="drop(event)" ondragover="allowDrop(event)">
                   <div class="u-container-style  u-layout-cell u-radius-16 u-shape-round u-size-30 u-uploaded-video u-video u-video-contain u-video-1 u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-3d34" role="tabpanel" aria-labelledby="link-tab-3d34">
-                    <div class="u-absolute-hcenter u-align-left u-background-video u-border-6 u-border-white u-expanded u-left-0" style="">
+                    <div class="u-absolute-hcenter u-align-left u-background-video u-border-6 u-border-white u-expanded u-left-0  scrollable" style="">
+                      <button class="auto_run btn btn-primary" onclick="auto_run();">Auto Run</button>
+                      <button class="clean_all btn btn-primary" onclick="clean();">Clear All</button>
                       <ul class="dest_list">
                       </ul>
                     </div>
                   </div>
                   <div class="u-container-layout u-container-layout-13"></div>
                 </div>
-                <div class="u-tab-content" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="u-tab-content scrollable" ondrop="drop(event)" ondragover="allowDrop(event)">
                   <div class="u-container-style  u-layout-cell u-radius-16 u-shape-round u-size-30 u-uploaded-video u-video u-video-contain u-video-1 u-tab-pane u-white u-tab-pane-1" id="tab-3d35" role="tabpanel" aria-labelledby="link-tab-3d35">
                     <div class="u-absolute-hcenter u-align-left u-background-video u-border-6 u-border-white u-expanded u-left-0" style="">
-                      
+                      <button class="auto_run btn btn-primary" onclick="auto_run();">Auto Run</button>
+                      <button class="clean_all btn btn-primary" onclick="clean();">Clear All</button>
                     </div>
                   </div>
                 </div>
-                <div class="u-tab-content" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="u-tab-content scrollable" ondrop="drop(event)" ondragover="allowDrop(event)">
                   <div class="u-container-style  u-layout-cell u-radius-16 u-shape-round u-size-30 u-uploaded-video u-video u-video-contain u-video-1 u-tab-pane u-white u-tab-pane-1" id="tab-3d36" role="tabpanel" aria-labelledby="link-tab-3d36">
                     <div class="u-absolute-hcenter u-align-left u-background-video u-border-6 u-border-white u-expanded u-left-0" style="">
-                      
+                      <button class="auto_run btn btn-primary" onclick="auto_run();">Auto Run</button>
+                      <button class="clean_all btn btn-primary" onclick="clean();">Clear All</button>
                     </div>
                   </div>
                 </div>

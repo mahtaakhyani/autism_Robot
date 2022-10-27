@@ -1386,5 +1386,5 @@ url("./fonts/bootstrap-icons.woff?856008caa5eb66df68595e734e59580d") format("wof
 .bi-skype::before { content: "\f656"; }
 .bi-slash-lg::before { content: "\f657"; }
 .bi-translate::before { content: "\f658"; }
-.bi-x-lg::before { content: "\f659"; }
+.bi-x-lg::before {content: "\f659";margin-right: 1px;}
 .bi-safe::before { content: "\f65a"; }

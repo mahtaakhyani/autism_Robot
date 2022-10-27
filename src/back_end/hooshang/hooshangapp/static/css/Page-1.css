@@ -1,4 +1,8 @@
- .u-section-1 {
+.scrollable {
+  overflow: auto;
+}
+
+.u-section-1 {
   background-image: none;
   min-height: 950px;
 }
@@ -38,16 +42,18 @@
 }
 
 .u-section-1 .u-btn-1 {
-  font-size: 15px ;
+  font-size: 15px;
   border-style: solid;
   margin: 2px auto 0;
   padding: 19px 11px 19px 11px;
   min-width: 5.5rem;
- 
 }
 
 .u-section-1 .u-icon-1 {
   font-size: 1.5em;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
 }
 
 .u-section-1 .u-container-layout-3 {

@@ -550,6 +550,7 @@ textarea {
 ul,
 ol {
   padding-left: 20px;
+  /* margin-top: -1px !important; */
 }
 /* Fade effect */
 /* Over effect */
@@ -1023,7 +1024,7 @@ ol {
   display: flex;
   justify-content: center;
   position: absolute;
-  background-color:rgb(19, 199, 10) ; 
+  background-color:rgb(19, 199, 10);
   font-size: 0%;
   width: 27px;
   height: 28px;
@@ -18503,6 +18504,42 @@ a.pswp__share--download:hover {
   margin-top: inherit !important;
   background-color: whitesmoke;
   height: 2.5rem;
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* align-items: flex-end; */
+}
+
+.dest_list li input {
+  background-color: white !important;
+}
+.dest_list li input.active {
+  background-color: #00eaff !important;
+}
+#myalert {
+  position:fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  z-index:9999;
+  border-radius:0px;
+  font-size: small;
+}
+.sp.sclone_p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 14%;
+  padding-right: 90px;
+}
+
+.bi.bi-x-lg.del_btn {
+  display: inline-flex;
+  align-items: center;
+  padding-right: 20px;
+}
+.bi.bi-x-lg.del_btn:hover {
+  color: #FF0000 !important;
 }
 
 .u-table table {
@@ -18547,7 +18584,7 @@ a.pswp__share--download:hover {
 }
 .u-custom-list li {
   position: relative;
-  margin-left: 1.4em;
+  /* margin-left: 1.4em; */
 }
 .u-custom-list .u-list-icon {
   display: inline-block;
@@ -18691,7 +18728,7 @@ a.pswp__share--download:hover {
 .u-tab-link .u-icon {
   position: relative;
   display: inline;
-  line-height: inherit;
+  line-height: 1;
   font-size: 1em;
   fill: currentColor;
   vertical-align: middle;
@@ -21423,7 +21460,7 @@ h6 {
 .u-button-style.u-active-none.active,
 li.active > .u-button-style.u-active-none {
   color: inherit !important;
-  background-color: transparent !important;
+  /* background-color: transparent !important; */
 }
 .u-button-style.u-border-none,
 .u-button-style.u-border-hover-none:hover,
@@ -36725,100 +36762,11 @@ a.u-link.u-text-hover-grey-90:hover {
         .u-body
         {
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        --theme-sheet-width-xl: 1140px;
+--theme-sheet-width-xl: 1140px;
         --theme-sheet-width-lg: 940px;
         --theme-sheet-width-md: 720px;
         --theme-sheet-width-sm: 540px;
         --theme-sheet-width-xs: 340px;
-        
-        
-        
-        
-        
-        
         }
 
         /** common-rules **/
@@ -36895,17 +36843,22 @@ a.u-link.u-text-hover-grey-90:hover {
         p.u-small-text
         {
         font-size: 0.875rem;
-        margin-top: 20px;
+        /* margin-top: 20px; */
         margin-bottom: 20px;
         }
         p:not(.u-text-variant)
         {
-        margin-top: 20px;
-        margin-bottom: 20px;
+        /* margin-top: 10px; */
+        /* margin-bottom: 20px; */
+        text-align: center;
+        /* display: inline-flex; */
+        /* flex-direction: column-reverse; */
+        /* align-items: center; */
+        /* justify-content: center; */
         }
         .u-btn
         {
-        margin-top: 20px;
+        /* margin-top: 20px; */
         margin-bottom: 20px;
         }
         blockquote
