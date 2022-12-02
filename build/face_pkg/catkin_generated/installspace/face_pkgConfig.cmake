@@ -67,14 +67,14 @@ set(face_pkg_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(face_pkg_SOURCE_PREFIX C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/face_pkg)
-  set(face_pkg_DEVEL_PREFIX C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel)
+  set(face_pkg_SOURCE_PREFIX C:/Users/Mahta/Documents/GitHub/autism_Robot/src/face_pkg)
+  set(face_pkg_DEVEL_PREFIX C:/Users/Mahta/Documents/GitHub/autism_Robot/devel)
   set(face_pkg_INSTALL_PREFIX "")
   set(face_pkg_PREFIX ${face_pkg_DEVEL_PREFIX})
 else()
   set(face_pkg_SOURCE_PREFIX "")
   set(face_pkg_DEVEL_PREFIX "")
-  set(face_pkg_INSTALL_PREFIX C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/install)
+  set(face_pkg_INSTALL_PREFIX C:/Users/Mahta/Documents/GitHub/autism_Robot/install)
   set(face_pkg_PREFIX ${face_pkg_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/install/lib;c:/opt/ros/noetic/x64/lib)
+    foreach(path C:/Users/Mahta/Documents/GitHub/autism_Robot/install/lib;c:/opt/ros/noetic/x64/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -19,5 +19,6 @@ from django.urls.conf import include
 
 urlpatterns = [
     path('admin', admin.site.urls),
-    path('',include('hooshangapp.urls'))
+    path('',include('hooshangapp.urls')),
+    path('parrot',include('parrot_control.urls'))
 ]

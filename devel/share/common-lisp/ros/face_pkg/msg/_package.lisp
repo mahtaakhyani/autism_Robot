@@ -5,5 +5,9 @@
    "ACTIONHEADER"
    "<EXP>"
    "EXP"
+   "<MOTOR>"
+   "MOTOR"
+   "<TRANS>"
+   "TRANS"
   ))
 

@@ -67,14 +67,14 @@ set(face_pkg_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(face_pkg_SOURCE_PREFIX C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/face_pkg)
-  set(face_pkg_DEVEL_PREFIX C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel)
+  set(face_pkg_SOURCE_PREFIX C:/Users/Mahta/Documents/GitHub/autism_Robot/src/face_pkg)
+  set(face_pkg_DEVEL_PREFIX C:/Users/Mahta/Documents/GitHub/autism_Robot/devel)
   set(face_pkg_INSTALL_PREFIX "")
   set(face_pkg_PREFIX ${face_pkg_DEVEL_PREFIX})
 else()
   set(face_pkg_SOURCE_PREFIX "")
   set(face_pkg_DEVEL_PREFIX "")
-  set(face_pkg_INSTALL_PREFIX C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/install)
+  set(face_pkg_INSTALL_PREFIX C:/Users/Mahta/Documents/GitHub/autism_Robot/install)
   set(face_pkg_PREFIX ${face_pkg_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(face_pkg_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel/include " STREQUAL " ")
+if(NOT "C:/Users/Mahta/Documents/GitHub/autism_Robot/devel/include " STREQUAL " ")
   set(face_pkg_INCLUDE_DIRS "")
-  set(_include_dirs "C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel/include")
+  set(_include_dirs "C:/Users/Mahta/Documents/GitHub/autism_Robot/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel/include " ST
         message(FATAL_ERROR "Project 'face_pkg' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'face_pkg' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in 'C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/src/face_pkg/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'face_pkg' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in 'C:/Users/Mahta/Documents/GitHub/autism_Robot/src/face_pkg/${idir}'.  ${_report}")
     endif()
     _list_append_unique(face_pkg_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel/lib;c:/opt/ros/noetic/x64/lib)
+    foreach(path C:/Users/Mahta/Documents/GitHub/autism_Robot/devel/lib;c:/opt/ros/noetic/x64/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

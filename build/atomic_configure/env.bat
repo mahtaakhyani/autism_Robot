@@ -6,6 +6,6 @@ if "%1"=="" (
   echo "Calling env.bat without arguments is not supported anymore. Instead spawn a subshell and source a setup file manually."
   exit 1
 ) else (
-  call "C:/Users/mahta/OneDrive/Documents/GitHub/autism_Robot/devel/setup.bat"
+  call "C:/Users/Mahta/Documents/GitHub/autism_Robot/devel/setup.bat"
   %*
 )

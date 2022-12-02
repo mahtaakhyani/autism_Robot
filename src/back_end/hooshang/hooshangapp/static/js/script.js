@@ -192,8 +192,45 @@ function exp_face(element) {
 
 }
 
+var csrftoken = $.cookie('csrftoken');
 
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
 
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+var csrf = document.querySelector('meta[name="csrf-token"]').content;
+function parr_b(element) {
+  document.getElementById("pb_msg").innerHTML = element.value;
+  dta=JSON.stringify({
+    // Updating sound and video urls based on returned data from exp_face and exp_sound functions
+    id: element.id,
+    tag: element.id,
+    '_token': csrf
+  })
+  $.ajax({
+    type: "POST",
+    contentType : 'application/json',
+    url: 'parrot/',
+    data: dta,
+    success: function(response) {
+      // Playing the new requested video and sound file
+      console.log(response);
+    },
+    error: function(response) {
+    console.log(response);// logging the response in browser's console
+}}) 
+}
+function parr_r(element) {
+  document.getElementById("pr_msg").innerHTML = element.value;
+}
 
 // Taking in the user's commanded sound and passing on the url of the sound file to update_exp function.
 // -----------------
@@ -209,8 +246,6 @@ function exp_sound(element) {
   return update_exp(ids); // returning the id of the button clicked to be used in the 'exp' function.
 
 }
-
-
 
 
 // <------------- UPDATE_EXP FUNCTION ------------->
@@ -332,13 +367,15 @@ function playAudio(input) {
   
   function drop(ev) {
     ev.preventDefault();
+    var drop_id = ev.target.id;
   //   if ($(this).find("input id=*clone")){
   //     $(document.getElementById(state_var)).appendTo(".dest_list").replaceWith(function() { 
   //     return "<li draggable='true' ondragstart='drag(event,this.id)'>" + this.innerHTML + "</li>"; 
   // });
   //   }
   //   else {
-    $(document.getElementById(state_var)).clone().appendTo(".dest_list").replaceWith(function() { 
+
+    $(document.getElementById(state_var)).clone().appendTo(".dest_list"+drop_id).replaceWith(function() { 
       $(this).find("p").addClass("sclone_p");
       $(this).css('display', 'inline-grid');
       $(this).find("input").removeClass("u-radius-50").css('font-size',' 0rem').css( 'min-width', '0.5rem');
@@ -371,12 +408,8 @@ function clean(){
 }
 function clear_item(item){
   $(item).parent().remove();
-}
+} 
   
   
-$(document).ready(function(){
-  $(".close").click(function(){
-    $("#myAlert").alert("close");
-  });
-});
+
   
