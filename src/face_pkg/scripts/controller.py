@@ -2,6 +2,7 @@ import dyna
 import rospy
 import time
 import dyna.motors as mot
+import motor_driver as md
 from face_pkg.msg import Trans,Motor
 
 
@@ -30,7 +31,7 @@ class MotorsController():
         if self.speed <= 0:
             mot.stop()
         else:    
-            mot.move(self.speed,self.theta,0)
+            md.set_cmd_vel(self.speed,self.theta)
 
 
 

@@ -9,15 +9,22 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
    <link rel="stylesheet" href=" {% static 'css/nicepage.css' %} " media="screen">
+   <link rel="stylesheet" href=" {% static 'css/styleui.css' %} " media="screen">
    <link rel="stylesheet" href=" {% static 'css/Page-1.css' %} " media="screen">
    <script class="u-script" type="text/javascript" src=" {% static 'js/jquery.js' %} " defer=""></script>
    <script class="u-script" type="text/javascript" src=" {% static 'js/nicepage.js' %} " defer=""></script>
    <script class="u-script" type="text/javascript" src=" {% static 'js/script.js' %} " defer=""></script>
+   <script class="u-script" type="text/javascript" src=" {% static 'js/joystick/webui.js' %} " defer=""></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.6/interact.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenLite.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/plugins/CSSPlugin.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/easing/EasePack.min.js"></script>
    <script class="u-script" type="text/javascript" src="{% static 'carhartl-jquery-cookie-v1.4.1-0-g7f88a4e/carhartl-jquery-cookie-92b7715/jquery.cookie.js' %}"></script>
    <script src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelement-and-player.min.js"></script>
+   <script src="https://static.robotwebtools.org/keyboardteleopjs/current/keyboardteleop.min.js"></script>
    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
    <link rel="stylesheet" href=" {% static 'font-awesome-4.7.0/css/font-awesome.min.css' %} ">
@@ -126,18 +133,6 @@
       <div class="u-layout-row" style="margin-right: -20%;">
         <div class="u-size-30 u-layout-col u-clearfix u-expanded-width-xs u-gutter-14 u-layout-spacing-left-right u-layout-wrap u-layout-wrap-2">
         <div class="u-layout-col" style="width: max-content;">
-            <div class="u-layout-row">
-                <div class="u-layout-row">
-                  <a href="/admin"  style="width: -webkit-fill-available;">
-                    <button type="submit" 
-                    class="button u-align-center u-border-3
-                    u-border-custom-color-7
-                      u-border-hover-palette-1-light-1
-                      u-btn u-btn-round u-button-style
-                        u-none u-radius-50 u-btn-1" 
-                        style="width:-webkit-fill-available;">Admin Panel</button></a>
-                </div>
-            </div>
             <div class="u-layout-row">
               <div class="u-size-42 u-layout-col">
                 <div class="u-size-30">
@@ -482,8 +477,6 @@
                           </ul>
                         </div>
                       </div>
-                      <div class="u-container-layout u-container-layout-13"></div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -492,9 +485,83 @@
     </div>
     <div>
       <div class="alert alert-info alert-dismissible" id="myAlert">
-        <a href="#" class="close" onclick="$(this).parent().hide()">&times;</a>
+        <a href="#" class="close" onclick="$(this).parent().fadeOut(250);">&times;</a>
         <strong>Move The Robot!  </strong>Use the arrow keys to move the robot. Use WASD keys to tilt the head up/left/down/right relatively.
       </div>
+      <nav class="c-circle-menu js-menu">
+        <div id="joycontainer" class=" joystick-container u-container-layout u-container-layout-13" style="position: fixed;">
+          <div id="joystick">
+            <div class="draggable" id="knob"></div>
+          </div>
+        
+          <div id="console">
+            <h>Active Actuator: <span id="actValue">0</span><br>
+              Force: <span id="powerValue">0</span><br>
+            Direction: <span id="dirValue">-</span></h><br>
+            Linear Velocity: <span id="linValue"></span>%</h><br>
+            Angular Velocity: <span id="angValue"></span>%</h>
+          </div>
+      
+    </div>
+        <button class="c-circle-menu__toggle js-menu-toggle">
+          <span>Toggle</span>
+        </button>
+        <ul class="c-circle-menu__items">
+          <li class="c-circle-menu__item">
+            <a href="#" class="c-circle-menu__link">
+              <i class="bi bi-power" style="
+              color: white;
+              font-size: -webkit-xxx-large;
+              left: 19px !important;
+              position: absolute;
+              top: 20px;" ></i>
+            </a>
+          </li>
+          <li class="c-circle-menu__item">
+            <a href="#" class="c-circle-menu__link">
+              <i class="bi bi-exclude" style="
+              color: white;
+              font-size: -webkit-xxx-large;
+              left: 19px !important;
+              position: absolute;
+              top: 20px;"></i>
+            </a>
+          </li>
+          <li class="c-circle-menu__item">
+            <a href="#" class="c-circle-menu__link js-toggle" onclick="cssCircleMenuchild()">
+              <i class="bi bi-controller" style="
+              color: white;
+              font-size: -webkit-xxx-large;
+              left: 19px !important;
+              position: absolute;
+              top: 20px;"></i>
+            </a>
+          </li>
+          <li class="c-circle-menu__item">
+            <a href="/admin" class="c-circle-menu__link">
+              <i class="bi bi-sliders" style="
+                color: white;
+                font-size: -webkit-xxx-large;
+                left: 19px !important;
+                position: absolute;
+                top: 20px;
+            "></i>
+            </a>
+          </li>
+          <li class="c-circle-menu__item">
+            <a href="#" class="c-circle-menu__link">
+              <i class="bi bi-house-fill" style="
+              color: white;
+              font-size: -webkit-xxx-large;
+              left: 19px !important;
+              position: absolute;
+              top: 15px;
+          "></i>
+            </a>
+          </li>
+        </ul>
+        <div class="c-circle-menu__mask js-menu-mask"></div>
+      </nav>
   </div>
     </section>
     

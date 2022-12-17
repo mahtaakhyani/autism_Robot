@@ -24,7 +24,7 @@ class motors:
         self.DXL2_ID                     = 16   #foot                 
         self.DXL3_ID                     = 28   #foot
 
-        self.DXL4_ID                     = 4    #head up_down  toque 350   (posiotion 445 - 600)
+        self.DXL4_ID                     = 3    #head up_down  toque 350   (posiotion 445 - 600)
         self.DXL5_ID                     = 18   #head left_right  toque 200   (posiotion 780 - 220)
         
         self.DXL6_ID                     = 13    #right hand  toque 200   (posiotion 10 - 1020)
@@ -98,6 +98,8 @@ class motors:
         self.groupSyncWrite.addParam(self.DXL1_ID, zero)
         self.groupSyncWrite.txPacket()
         self.groupSyncWrite.clearParam()
+
+        self.head(600, 0)   #PAAK SHAVAD!!!!
 
 
 
@@ -208,4 +210,5 @@ class motors:
     
 
     
-
+if __name__ == "__main__":
+    motors()
