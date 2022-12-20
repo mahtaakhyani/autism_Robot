@@ -1,7 +1,7 @@
 .joystick-container{
   z-index: 100;
   opacity: 0;  
-  bottom: 200px;
+  bottom: 400px;
   -webkit-transition: opacity, -webkit-transform;
   transition: opacity, -webkit-transform;
   transition: transform, opacity;

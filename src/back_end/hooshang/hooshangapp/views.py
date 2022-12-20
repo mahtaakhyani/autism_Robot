@@ -185,4 +185,19 @@ class EmotionModelViewDB(APIView):
             "sound_url": reqed_soundsrc_url,
          } ,status=201)
 
+# ----------------------------------------- IP handling ----------------------------------
+# Sending the local IP address of the Jetson Nano to the client (i.e. the web interface) on page load.
+# This is done to make the server needless of any static IP address or dependent on the network router.
+# NOTE: This is not a secure way of handling IP addresses and is only used for the sake of simplicity and ONLY for trusted networks.
+# Using a DNS server is mandatory for this project to be deployed or used on a public network.
+# -----------------------------------------------------------------------------------------
+class IPUpdater(APIView):
+
+    def get(self,request):
+        user_ip_address = request.META.get('HTTP_X_FORWARDED_FOR')
+        if user_ip_address:
+            ip = user_ip_address.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+        return JsonResponse(data={"ip": ip}, status=200)
    

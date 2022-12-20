@@ -1,21 +1,52 @@
-// SETTING GLOBAL VARIABLES
+// sleep time expects milliseconds
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+// Fetching server ip address ---------------------
+// -----------------------------------------------
+
+function get_ip() {
+  $.ajax({
+    type: "GET",
+    url: request_server_ip, 
+    success: function(response) {
+      host = response.ip;
+      console.log('Settings have successfully set [Jetson local ip address = '+host+']');
+    },
+    error: function(error) {
+      console.log(error, "IP address could not be fetched. Setting IP address to 'localhost'");
+      host = 'localhost';
+
+    },
+    // while the function is running, the page will be in a loading state
+    beforeSend: function() {
+      console.log("Loading server IP...");
+    },
+    // when the function is completed, the page will be in a normal state
+    complete: function() {
+      console.log("Fetching server IP Done");
+      set_variables(host);
+
+    }
+  });
+}
+
+
+// SETTING STATIC GLOBAL VARIABLES
 // ---------------------------------
+var host;
+var port = '5353';
+var android_port = 8080;
 var face_url_id = '';
 var sound_url_val = '';
-var host = 'localhost';
-var port = '8000';
-var android_port = 8080;
-
+var auto_imit_val = false;
 // - - - Django Server - - - 
-var django_base_url = 'http://' + host + ':' + port ;
-var request_current_exp =  '/reqemo';  //URL has been set in 'hooshangapp/urls.py'
-var publish_new_exp =  '/reqpub'; //URL has been set in 'hooshangapp/urls.py'
-var android_server_url = 'http://' + host + ':' + android_port + '/android_server';
-
-// - - - ROS - - -
-// Workspace
-var rosbridge_port = '9090';
-var robot_ws = 'ws://'+host+':'+ rosbridge_port;	// Setting the websocket url for the ROS environment
+var request_server_ip = '/reqip'; //URL has been set in 'hooshangapp/urls.py'
+var django_base_url;
+var request_current_exp;
+var publish_new_exp;
+var android_server_url;  
 // Topics
 var publish_exp_topic = '/web_exp_publisher';
 var publish_motion_topic = '/web_motion_publisher';
@@ -26,10 +57,31 @@ var listen_motion_topic = '/cmd_vel_listener';
 var exp_msg_type = 'face_pkg/Exp';
 var motion_msg_type = 'geometry_msgs/Twist';
 var camera_img_msg_type = 'sensor_msgs/Image';
+// - - - ROS - - -
+var robot_ws;
 
-// ------ Other functions ------
-var auto_imit_val = false;
+// SETTING DYNAMIC GLOBAL VARIABLES
+// ---------------------------------
+function set_variables(host) {
+    // - - - Django Server - - - 
+    django_base_url = 'http://' + host + ':' + port ;
+    request_current_exp =  '/reqemo';  //URL has been set in 'hooshangapp/urls.py'
+    publish_new_exp =  '/reqpub'; //URL has been set in 'hooshangapp/urls.py'
+    android_server_url = 'http://' + host + ':' + android_port + '/android_server';
+    console.log('Android Server is listening on: '+android_server_url+
+                '\nAsking the server for latest emotion, then sending status, both on: /reqcli');
+    
+    
+    // - - - ROS - - -
+    // Workspace
+   rosbridge_port = '9090';
+   robot_ws = 'ws://'+host+':'+ rosbridge_port;	// Setting the websocket url for the ROS environment
+  console.log('ROS WebBridge socket is listening on: '+robot_ws+
+              '\n\nActiveTopics:\n'+publish_exp_topic+' to publish selected emotion on\nand '
+                +listen_exp_topic+' to listen for the recognized emotion from the robot (i.e. Auto mode)'+
+                '\n/head_cmd_vel to publish motion commands on');
 
+  }
 // ---------------------------------------------- END OF VARIABLE DECLARATION -----------------------------------------------
 // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -60,14 +112,19 @@ ros.on('close', function() {
   console.log('Connection to websocket server closed.');
 });
 
-
+// On page load, below settings will be applied or executed.
 window.addEventListener('load', (event) => {
+  get_ip();
+  sleep(3000).then(() => {  // wait 3 seconds
   console.log('page is fully loaded');
+  });
+  // Creating the camera subscriber ------------------
   var cam_reciever = new ROSLIB.Topic({
     ros : ros,
     name : camera_img_topic,
     messageType : camera_img_msg_type
   });
+
   
   cam_reciever.subscribe(function(msg) {
     console.log('Received message on ' + cam_reciever.name);
@@ -77,13 +134,13 @@ window.addEventListener('load', (event) => {
     var image = new Image();
     image.src = `data:image/png;base64,${msg.data}`;
     ctx.drawImage(image, 0, 0);
-}); 
-    var el = '.js-menu';
-    var myMenu = cssCircleMenu(el);
+  }); 
+  
+  // Creating the circular menu ---------------------
+  var el = '.js-menu';
+  var myMenu = cssCircleMenu(el);
+  
 });
-
-
-
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // <---------------------------------------------- EMOTION HANDLING SECTION---------------------------------------->	
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -256,12 +313,12 @@ function exp_sound(element) {
 // (Updating sounds and facial expressions after clicking on a button)
 // -----------------
 function update_exp(ids) {
-  
   // Sending a GET request to the server to set a new emotion
   // -----------------
   $.ajax({
     type: "GET",
-    url: android_server_url}); // Sending the request to the server to ask for changes in the robot's facial expression
+    url: android_server_url}); // Sending the request to the android server to let it know that the user has requested a new emotion
+  
   $.ajax({
     type: "GET",
     url: publish_new_exp,
@@ -455,4 +512,3 @@ function cssCircleMenu(el) {
     }
   };
 
-  

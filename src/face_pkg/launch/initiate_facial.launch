@@ -3,16 +3,9 @@
 <!-- Emotion interactions node -->
     <node pkg="face_pkg" type="main.py" name="face_exp_handler" output="screen"/>
 
-<!-- Bridging between ROS and HTML interface node -->
-    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
-        <arg name="unregister_timeout" value="100"/>
-    </include>
 <!-- Streaming a video from the ROS server to the client -->
     <!-- <include file="$(find video_stream_opencv)/launch/camera.launch">
         <arg name="video_stream_provider" value="0" />
         <arg name="visualize" value="false" />
     </include> -->
-
-<!-- Changing rosbridge node's topic name from default to "web_interface" -->
-    <remap from="rosbridge_websocket" to="web_interface"/>
 </launch>

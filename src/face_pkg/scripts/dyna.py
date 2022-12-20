@@ -1,8 +1,9 @@
+#!/usr/bin/env python3
 from dynamixel_sdk import *
 import math
 import time
 
-class motors:
+class motors():
     def __init__(self):
         # Control table address
         self.ADDR_MX_TORQUE_ENABLE      = 24               # Control table address is different in Dynamixel model
@@ -31,7 +32,7 @@ class motors:
         self.DXL7_ID                     = 14   #left hand  toque 200   (posiotion 10 - 1020)
 
         self.BAUDRATE                    = 1000000             # Dynamixel default baudrate : 57600
-        self.DEVICENAME                  = 'COM2'    # Check which port is being used on your controller
+        self.DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used on your controller
                                                         # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
 
         self.TORQUE_ENABLE               = 1                 # Value for enabling the torque
@@ -99,7 +100,7 @@ class motors:
         self.groupSyncWrite.txPacket()
         self.groupSyncWrite.clearParam()
 
-        self.head(600, 0)   #PAAK SHAVAD!!!!
+        # self.head(600, 0)   #PAAK SHAVAD!!!!
 
 
 
@@ -142,8 +143,9 @@ class motors:
 
 
     def head(self, pos, dir):
-
-        if dir == 0:
+        # dir is pan or tilt
+        # pos is the position
+        if dir == 0: 
             pos = self.constrain(pos, 445, 600)
             self.packetHandler.write2ByteTxRx(self.portHandler, self.DXL4_ID, self.ADDR_MX_GOAL_POSITION, pos)
         elif dir == 1:

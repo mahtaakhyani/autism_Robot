@@ -490,10 +490,36 @@
       </div>
       <nav class="c-circle-menu js-menu">
         <div id="joycontainer" class=" joystick-container u-container-layout u-container-layout-13" style="position: fixed;">
-          <div id="joystick">
-            <div class="draggable" id="knob"></div>
+          
+          <div class="buttons">
+            <hr>
+            <button class="button-circle button-A">A</button>
+            <button class="button-circle button-B">B</button>
+            <button class="button-circle button-X">X</button>
+            <button class="button-circle button-Y">Y</button>
+            <hr>
+            <button class="button-axes axes-U">
+              <i class="arrow arrow-up"></i>
+            </button>
+            <button class="button-axes axes-D">
+              <i class="arrow arrow-down"></i>
+            </button>
+            <button class="button-axes axes-L">
+              <i class="arrow arrow-left"></i>
+            </button>
+            <button class="button-axes axes-R">
+              <i class="arrow arrow-right"></i>
+            </button>
+            <hr>
+            <button class="button-bar button-BL">BL</button>
+            <button class="button-bar button-BR">BR</button>
+            <hr>
+            <button class="button-bar-mini button-SELECT">SELECT</button>
+            <button class="button-bar-mini button-START">START</button>
+            <div id="joystick">
+              <div class="draggable" id="knob"></div>
+            </div>
           </div>
-        
           <div id="console">
             <h>Active Actuator: <span id="actValue">0</span><br>
               Force: <span id="powerValue">0</span><br>
@@ -501,8 +527,8 @@
             Linear Velocity: <span id="linValue"></span>%</h><br>
             Angular Velocity: <span id="angValue"></span>%</h>
           </div>
-      
-    </div>
+          
+        </div>
         <button class="c-circle-menu__toggle js-menu-toggle">
           <span>Toggle</span>
         </button>

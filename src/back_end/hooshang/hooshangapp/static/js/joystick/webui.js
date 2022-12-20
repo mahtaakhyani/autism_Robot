@@ -5,67 +5,13 @@
 // var publishImmidiately = true;
 // var robot_WS;
 // var joystick;
-// var teleop;
-// var ros;
+var teleop;
+var ros;
+var motor = '';
 // var joystick;
 // var linear_x
 // var linear_y
 // var angular_z;
-// function moveAction(linear, angular) {
-//     if (linear !== 0 && angular !== 0) {
-//         twist.linear.x = linear;
-//         twist.angular.z = angular;
-//         console.log(twist.linear.x , twist.angular.z);
-//         $('#vlx').text(linear.toFixed(2));
-//         $('#vaz').text(angular.toFixed(2));
-//         if (linear > 0) {$("#dx").text('Front')};
-//         if (linear < 0) {$("#dx").text('Back')};
-//         if (angular > 0) {$("#dy").text('Left')};
-//         if (angular < 0) {$("#dy").text('Right');};
-//     } else {
-//         twist.linear.x = 0;
-//         twist.angular.z = 0;
-//         $("#dx").text('Stopped');
-//         $("#dy").text('Stopped');
-//         $('#vlx').text(linear);
-//         $('#vaz').text(angular);
-//     }
-//     cmdVel.publish(twist);
-// }
-// function initVelocityPublisher() {
-//     // Init message with zero values.
-//     twist = new ROSLIB.Message({
-//         linear: {
-//             x: 0,
-//             y: 0,
-//             z: 0
-//         },
-//         angular: {
-//             x: 0,
-//             y: 0,
-//             z: 0
-//         }
-//     })
-//     // Init topic object
-//     cmdVel = new ROSLIB.Topic({
-//         ros: ros,
-//         name: '/cmd_vel_wheel',
-//         messageType: 'geometry_msgs/Twist'
-//     });
-//     // Register publisher within ROS system
-//     cmdVel.advertise();
-// }
-// function initTeleopKeyboard() {
-//     // Use w, s, a, d keys to drive your robot
-
-//     // Check if keyboard controller was aready created
-//     if (teleop == null) {
-//         // Initialize the teleop.
-//         teleop = new KEYBOARDTELEOP.Teleop({
-//             ros: ros,
-//             topic: '/cmd_vel_wheel'
-//         });
-//     }
 
 //     // Add event listener for slider moves
 //     // robotSpeedRange = document.getElementById("robot-speed");
@@ -73,55 +19,7 @@
 //     //     teleop.scale = robotSpeedRange.value / 100
 //     // }
 // }
-function createJoystick() {
-    // Check if joystick was aready created
-    if (joystick == null) {
-        joystickContainer = document.getElementById('joystick');
-        // joystck configuration, if you want to adjust joystick, refer to:
-        // https://yoannmoinet.github.io/nipplejs/
-        var options = {
-            zone: document.getElementById('joystickArea'),
-            position: { left: 50 + '%', top: 50 + '%' },
-            mode: 'static',
-            size: 100,
-            color: ' radial-gradient(whitesmoke, #2f2121)',
-            restJoystick: true,
-            restOpacity: '.8'
-        };
-        // box-shadow: 0 2px 5px rgb(0 0 0 / 30%), 3px 5px 10px rgb(0 0 0 / 15%);
-        // background: radial-gradient(whitesmoke, #2f2121)
 
-        joystick = nipplejs.create(options);
-        // event listener for joystick move
-        joystick.on('move', function (evt, nipple) {
-            // nipplejs returns direction is screen coordiantes
-            // we need to rotate it, that dragging towards screen top will move robot forward
-            var direction = nipple.angle.degree - 90;
-            if (direction > 180) {
-                direction = -(450 - nipple.angle.degree);
-            }
-            // convert angles to radians and scale linear and angular speed
-            // adjust if youwant robot to drvie faster or slower
-            var lin = Math.cos(direction / 57.29) * nipple.distance * 0.005;
-            var ang = Math.sin(direction / 57.29) * nipple.distance * 0.05;
-            // nipplejs is triggering events when joystic moves each pixel
-            // we need delay between consecutive messege publications to 
-            // prevent system from being flooded by messages
-            // events triggered earlier than 50ms after last publication will be dropped 
-            if (publishImmidiately) {
-                publishImmidiately = false;
-                moveAction(lin, ang);
-                setTimeout(function () {
-                    publishImmidiately = true;
-                }, 50);
-            }
-        });
-        // event litener for joystick release, always send stop message
-        joystick.on('end', function () {
-            moveAction(0, 0);
-        });
-    }
-}
 
 // window.onload = function () {
 //     createJoystick()};
@@ -171,7 +69,6 @@ function createJoystick() {
 //   });
 
 function load_joystick(){
-
 	var joystick = document.getElementById("joystick"),
 			    knob = document.getElementById("knob"),
 			target_x = joystick.clientWidth/2-knob.clientWidth/2,
@@ -220,53 +117,61 @@ function load_joystick(){
 
 		// translate the element
 		target.style.webkitTransform = target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
-		updatePositionAttributes(target,x,y);
-
+    
 		// update text display
     var xy = '';
     var yz = '';
     var actn ='';
     var acth ='';
     var dist = Math.sqrt(Math.pow(x-joystick.clientWidth/4,2)+Math.pow(y-joystick.clientHeight/4,2));
+    dist = 445+x*3.87;
     var angle = Math.atan2(y-joystick.clientHeight/4,x-joystick.clientWidth/4);
     var lin = Math.cos(angle / 57.29) * dist * 0.005;
     var ang = Math.sin(angle / 57.29) * dist * 0.05;
-
+    
     if (Math.abs(x-joystick.clientWidth/4) < 1.0) {
       xy = '';
       actn = ' ';
       lin = '0';
       ang = '0';
+      motor = 0; //neck=0
     }
     else if (x-joystick.clientWidth/4 > 0) {
       xy = 'right';
       actn = ' neck(CW)';
+      motor = 0; //neck=0
     }
     else {
       xy = 'left';
       actn = ' neck(CCW)';
+      motor = 0; //neck=0
     }
     if (Math.abs(y-joystick.clientWidth/4) < 1.0) {
       yz = '';
       acth = ' ';
+      motor = 0; //head=1
     }
     else if (y-joystick.clientHeight/4 < 0) {
       acth += ' head(CCW)';
       yz = 'up';
+      motor = 0; //head=1
     }
     else {
       yz = 'down';
       acth += ' head(CW)';
+      motor = 0; //head=1
     }
-
+    
     panSpan.innerHTML = actn+acth;
     dirSpan.innerHTML = (xy+' '+yz);
 		tiltSpan.innerHTML = (Math.abs(y-joystick.clientHeight/4));
-    linspeedSpan.innerHTML = (lin*100).toFixed(2);
+    linspeedSpan.innerHTML = (dist).toFixed(2);
     angspeedSpan.innerHTML = (ang*100).toFixed(2);
     
+    updatePositionAttributes(target,x,y);
+    moveAction(lin,ang,motor);
 	}
-
+  
 	function updatePositionAttributes(element,x,y){
 		target.setAttribute('data-x', x);
 		target.setAttribute('data-y', y);
@@ -274,7 +179,184 @@ function load_joystick(){
 
 };
 
+function moveAction(linear, angular, motor_number) {
+    // Init message with zero values.
+  movemsg = new ROSLIB.Message({
+        joint: 'head',
+        motor: 0,
+        pose: 0
+    })
 
+  if (linear !== 0 && angular !== 0) {
+      movemsg.motor = motor_number;
+      movemsg.pose = linear*1225;
+
+        // Init topic object
+      cmdVel = new ROSLIB.Topic({
+        ros: ros,
+        name: '/head_cmd_vel',
+        messageType: 'face_pkg/Motor'
+     });
+      // Register publisher within ROS system
+      cmdVel.advertise();
+      console.log(movemsg);
+      // Publish message to ROS.
+      cmdVel.publish(movemsg);
+}
+}
+
+function initTeleopKeyboard() {
+  // Use w, s, a, d keys to drive your robot
+
+  // Check if keyboard controller was aready created
+  if (teleop == null) {
+      // Initialize the teleop.
+      teleop = new KEYBOARDTELEOP.Teleop({
+          ros: ros,
+          topic: '/cmd_vel_wheel'
+      });
+  }
+}
+
+
+
+
+// --------------------- Gamepad ---------------------
+var gamepad = {
+  connected: false,
+  timestamp: null,
+  buttons: [],
+  axes: []
+}
+
+var buttonMap = [
+  'A','B',null,'X','Y',null,'BL','BR',null,null,'SELECT','START'
+];
+
+var axesMap = [
+  'U','D','L','R'
+];
+
+
+var pollGamePad = function(){
+  
+  var p1 = navigator.getGamepads()[0];
+
+  if(!p1 || (!p1.connected && gamepad.connected)){
+    onDisconnect();
+    return window.requestAnimationFrame(pollGamePad);
+  }
+  
+  if(p1.connected && !gamepad.connected)
+    onConnect();
+  
+  if(!p1 || !p1.timestamp || p1.timestamp===gamepad.timestamp) 
+    return window.requestAnimationFrame(pollGamePad);
+
+  //check buttons
+  var buttons = _.map(p1.buttons, function(b){ return b.pressed });
+  _.each(buttons, function(value, index){
+    var isChange = (value!==gamepad.buttons[index]);
+    if(isChange){
+      if(value)
+        onButtonDown(index);
+      else
+        onButtonUp(index);
+    }
+  })
+
+  //check axes
+  var axes = _.map(p1.axes, function(b){ return b });
+  _.each(axes, function(value, index){
+    var isChange = (value!==gamepad.axes[index]);
+    if(isChange){
+      //trim residual decimals only {-1,0,1}
+      value = parseInt(value);
+      if(!index){
+        
+        if(value<0){
+          onAxesDown(2);
+          onAxesUp(3);
+        }
+        else if(value>0){
+          onAxesDown(3)
+          onAxesUp(2)
+        }
+        else{
+          onAxesUp(2);
+          onAxesUp(3);
+        }
+
+      }
+      else{
+
+        if(value<0){
+          onAxesDown(0);
+          onAxesUp(1);
+        }
+        else if(value>0){
+          onAxesDown(1);
+          onAxesUp(0);
+        }
+        else{
+          onAxesUp(0);
+          onAxesUp(1);
+        }
+        
+        
+      }
+      /*if(value)
+        onButtonDown(index);
+      else
+        onButtonUp(index);
+        */
+      //onAxesChange(index);
+    }
+  })  
+  
+  //update gamepad object
+  gamepad.timestamp = p1.timestamp;
+  gamepad.buttons = buttons;
+  gamepad.axes = axes;
+  
+  //chain next update
+  window.requestAnimationFrame(pollGamePad);
+    
+}
+
+
+var onButtonDown = function(index){
+  $('.button-'+buttonMap[index]).addClass('active');
+}
+
+var onButtonUp = function(index){
+  $('.button-'+buttonMap[index]).removeClass('active');
+}
+
+var onAxesDown = function(index){
+  $('.axes-'+axesMap[index]).addClass('active');
+}
+
+var onAxesUp = function(index){
+  $('.axes-'+axesMap[index]).removeClass('active');
+}
+
+var onAxesChange = function(index){
+  
+  if(index){
+    
+  }
+  //console.log('axis down '+index);
+  console.log(index+' -> '+navigator.getGamepads()[0].axes[index]);
+}
+
+var onConnect = function(index){
+  $('.status').text('CONNECTED!');
+}
+
+var onDisconnect = function(index){
+  $('.status').text('NOT CONNECTED');
+}
 
 
 
@@ -283,6 +365,7 @@ function cssCircleMenuchild() {
   $("#joycontainer").toggleClass('active');
   if ($("#joycontainer").hasClass('active')) {
     load_joystick();
+    pollGamePad();
   } 
 }
 

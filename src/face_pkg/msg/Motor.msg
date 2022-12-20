@@ -1,4 +1,5 @@
 uint32 seq
 time stamp
-uint32 motor
-uint32 pose
+string joint
+float32 motor
+float32 pose
