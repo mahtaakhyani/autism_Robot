@@ -76,14 +76,35 @@ function set_variables(host) {
     // Workspace
    rosbridge_port = '9090';
    robot_ws = 'ws://'+host+':'+ rosbridge_port;	// Setting the websocket url for the ROS environment
-  console.log('ROS WebBridge socket is listening on: '+robot_ws+
-              '\n\nActiveTopics:\n'+publish_exp_topic+' to publish selected emotion on\nand '
+  console.log('ROSBridge websocket is listening on: '+robot_ws+
+              '\n\nActiveTopics:\n'+publish_exp_topic+' to publish selected emotion on\n '
                 +listen_exp_topic+' to listen for the recognized emotion from the robot (i.e. Auto mode)'+
                 '\n/head_cmd_vel to publish motion commands on');
 
   }
 // ---------------------------------------------- END OF VARIABLE DECLARATION -----------------------------------------------
 // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Log Side Menu
+// -----------------
+var $logmenu = document.querySelector('.logmenu');
+console.stdlog = console.log.bind(console);
+console.logs = [];
+console.log = function(){
+    console.logs.push(Array.from(arguments));
+    console.stdlog.apply(console, arguments);
+}
+$logmenu.addEventListener('click', function(e) {
+  var item = document.createElement('li');
+  item.setAttribute('id','item');
+  $('#log').add(item);
+  $('#log').toggle('display');
+  document.getElementById("log").innerHTML = console.logs.slice(-1) + '\n'+console.logs.slice(-2);
+} )
+
+
+
+
 
 //Changing tabs
 // -----------------
@@ -115,7 +136,7 @@ ros.on('close', function() {
 // On page load, below settings will be applied or executed.
 window.addEventListener('load', (event) => {
   get_ip();
-  sleep(3000).then(() => {  // wait 3 seconds
+  sleep(6000).then(() => {  // wait 3 seconds
   console.log('page is fully loaded');
   });
   // Creating the camera subscriber ------------------

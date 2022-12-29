@@ -18608,13 +18608,40 @@ a.pswp__share--download:hover {
           transition-timing-function: cubic-bezier(0.35, -0.59, 0.47, 0.97);
 }
 
+.c-circle-menu__link > i {
+  color: white;
+  position: absolute;
+}
+
+@media (min-width: 480px) {
+  .c-circle-menu__link > i {
+    font-size: -webkit-xxx-large;
+    font-size: -moz-xxx-large;
+    font-size: -ms-xxx-large;
+    font-size: -o-xxx-large;
+    font-size: xxx-large;
+    left: 19px !important;
+    top: 20px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .c-circle-menu__link > i {
+    left: 9px !important;
+    top: 8px;
+    font-size: 2rem;
+  }
+
+}
+
 @media (min-width: 480px) and (min-height: 480px) {
   .c-circle-menu__item {
     width: 86px;
     height: 86px;
     border-radius: 48px;
     box-shadow: -2px 4px 20px 0px #111111;
-  }
+  } 
 }
 
 .c-circle-menu__item:hover {
@@ -18918,6 +18945,173 @@ a.pswp__share--download:hover {
           transition-delay: 0s, 0.3s;
 }
 
+/* --------------------------------------------------------------- */
+/* log sidebar menu */
+/* --------------------------------------------------------------- */
+
+.logmenu {
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+  display: inline-block;
+  cursor: pointer;
+  pointer-events: none;
+  bottom: 20px;
+  left: 20px;
+  width: min-content;
+  position: relative;
+	float: left;
+}
+.logmenu:hover {
+  pointer-events: all;
+  color: #000;
+}
+.label {
+  display: inline-block;
+  cursor: pointer;
+  pointer-events: all;
+}
+.spacer {
+  display: inline-block;
+  width: 80px;
+  margin-left: 15px;
+  margin-right: 15px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+.spacer:before {
+  content: "";
+  position: absolute;
+  border-bottom: 1px solid #ffffff;
+  height: 1px;
+  width: 0%;
+  transition: width 0.25s ease;
+  transition-delay: 0.7s;
+}
+.item {
+  position: relative;
+  display: inline-block;
+  margin-right: 30px;
+  cursor: default;
+  top: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease, top 0.5s ease;
+  transition-delay: 0;
+}
+
+ul#log {
+  padding: 7px;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 146px;
+  border: 1px dashed;
+  background: #09ffb0a6;
+  display: none;
+}
+
+#log li.item {
+	border-bottom: 1px solid black;
+	list-style: none;
+	padding: 22.5;
+	line-height: 44;
+	background-color: #EEE;
+	cursor: pointer;
+	
+}:hover {
+	 background-color: rgba(0, 0, 0, 0.27);
+ }
+
+ #log li.item:nth-child(5):last-child {
+			position: relative;
+			z-index: 1;
+		}
+	#log li.item:nth-last-child(2):after {
+			content: '';
+			cursor: s-resize;
+			background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #FFF 100%);
+			height: 45px;
+		}
+	
+
+
+span {
+  transition: color 0.5s ease;
+}
+.logmenu .item:hover span {
+  color: #ff0000;
+}
+.logmenu:hover .spacer:before {
+  width: 100%;
+  transition-delay: 0s;
+}
+.logmenu:hover .item {
+  opacity: 1;
+  top: 0px;
+}
+.item:nth-child(1) {
+  transition-delay: 0.45s;
+}
+.item:nth-child(2) {
+  transition-delay: 0.4s;
+}
+.item:nth-child(3) {
+  transition-delay: 0.35s;
+}
+.item:nth-child(4) {
+  transition-delay: 0.3s;
+}
+.item:nth-child(5) {
+  transition-delay: 0.25s;
+}
+.item:nth-child(6) {
+  transition-delay: 0.2s;
+}
+.item:nth-child(7) {
+  transition-delay: 0.15s;
+}
+.item:nth-child(8) {
+  transition-delay: 0.1s;
+}
+.item:nth-child(9) {
+  transition-delay: 0.05s;
+}
+.item:nth-child(10) {
+  transition-delay: 0s;
+}
+.logmenu:hover .item:nth-child(1) {
+  transition-delay: 0.25s;
+}
+.logmenu:hover .item:nth-child(2) {
+  transition-delay: 0.3s;
+}
+.logmenu:hover .item:nth-child(3) {
+  transition-delay: 0.35s;
+}
+.logmenu:hover .item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.logmenu:hover .item:nth-child(5) {
+  transition-delay: 0.45s;
+}
+.logmenu:hover .item:nth-child(6) {
+  transition-delay: 0.5s;
+}
+.logmenu:hover .item:nth-child(7) {
+  transition-delay: 0.55s;
+}
+.logmenu:hover .item:nth-child(8) {
+  transition-delay: 0.6s;
+}
+.logmenu:hover .item:nth-child(9) {
+  transition-delay: 0.65s;
+}
+.logmenu:hover .item:nth-child(10) {
+  transition-delay: 0.7s;
+}
+
+
+
 /* -----------------------------------------------------------------------------
 
   The Mask Component
@@ -18975,9 +19169,8 @@ a.pswp__share--download:hover {
   color: #6C7073;
   font-weight: 600;
   border-radius: 2em;
-  /* width: 2em;
-  height: 2em; */
   font-size: 2em;
+  width: 50px;
   outline: none;
   border-bottom: 0.15em solid rgba(0,0,0,0.5);
 }
@@ -19606,13 +19799,20 @@ a.pswp__share--download:hover {
 }
 .u-cart-blocks-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 44% 50%;
   grid-gap: 30px;
   position: relative;
+  width: 354px;
+  justify-items: right;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content:center; */
+  /* overflow: overlay; */
+  /* user-select: none; */
 }
 @media (max-width: 767px) {
   .u-cart-blocks-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 34% 50%;
   }
   .u-cart-form .u-btn-submit {
     flex-grow: 0;

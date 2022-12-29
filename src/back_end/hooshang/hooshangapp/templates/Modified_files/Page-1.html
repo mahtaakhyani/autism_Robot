@@ -25,8 +25,6 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelement-and-player.min.js"></script>
    <script src="https://static.robotwebtools.org/keyboardteleopjs/current/keyboardteleop.min.js"></script>
-   <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-   <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
    <link rel="stylesheet" href=" {% static 'font-awesome-4.7.0/css/font-awesome.min.css' %} ">
    <link rel="stylesheet" href=" {% static 'icons-1.5.0/font/bootstrap-icons.css' %} ">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -484,42 +482,18 @@
       </div>
     </div>
     <div>
+      <div class="logmenu">
+        <div class="label log">See log</div>
+        <div class="spacer"></div>
+        <ul id="log"><li class="item"></li></ul>
+      </div>
       <div class="alert alert-info alert-dismissible" id="myAlert">
         <a href="#" class="close" onclick="$(this).parent().fadeOut(250);">&times;</a>
         <strong>Move The Robot!  </strong>Use the arrow keys to move the robot. Use WASD keys to tilt the head up/left/down/right relatively.
       </div>
       <nav class="c-circle-menu js-menu">
-        <div id="joycontainer" class=" joystick-container u-container-layout u-container-layout-13" style="position: fixed;">
+        <div id="joycontainer" class=" joystick-container u-container-layout-13 no-select" style="position: fixed;">
           
-          <div class="buttons">
-            <hr>
-            <button class="button-circle button-A">A</button>
-            <button class="button-circle button-B">B</button>
-            <button class="button-circle button-X">X</button>
-            <button class="button-circle button-Y">Y</button>
-            <hr>
-            <button class="button-axes axes-U">
-              <i class="arrow arrow-up"></i>
-            </button>
-            <button class="button-axes axes-D">
-              <i class="arrow arrow-down"></i>
-            </button>
-            <button class="button-axes axes-L">
-              <i class="arrow arrow-left"></i>
-            </button>
-            <button class="button-axes axes-R">
-              <i class="arrow arrow-right"></i>
-            </button>
-            <hr>
-            <button class="button-bar button-BL">BL</button>
-            <button class="button-bar button-BR">BR</button>
-            <hr>
-            <button class="button-bar-mini button-SELECT">SELECT</button>
-            <button class="button-bar-mini button-START">START</button>
-            <div id="joystick">
-              <div class="draggable" id="knob"></div>
-            </div>
-          </div>
           <div id="console">
             <h>Active Actuator: <span id="actValue">0</span><br>
               Force: <span id="powerValue">0</span><br>
@@ -527,7 +501,31 @@
             Linear Velocity: <span id="linValue"></span>%</h><br>
             Angular Velocity: <span id="angValue"></span>%</h>
           </div>
-          
+          <div class="u-cart-blocks-container u-columns-3">
+            <div class="buttons u-columns-3">
+              <hr>
+              <button class="button-circle button-A">A</button>
+              <button class="button-circle button-B">B</button>
+              <button class="button-circle button-X">X</button>
+              <button class="button-circle button-Y">Y</button>
+              <hr>
+              <button class="button-axes axes-U">
+                <i class="arrow arrow-up"></i>
+              </button>
+              <button class="button-axes axes-D">
+                <i class="arrow arrow-down"></i>
+              </button>
+              <button class="button-axes axes-L">
+                <i class="arrow arrow-left"></i>
+              </button>
+              <button class="button-axes axes-R">
+                <i class="arrow arrow-right"></i>
+              </button>
+            </div>
+            <div id="joystick" class="u-columns-3">
+              <div class="draggable" id="knob"></div>
+            </div>
+          </div>
         </div>
         <button class="c-circle-menu__toggle js-menu-toggle">
           <span>Toggle</span>
@@ -535,54 +533,27 @@
         <ul class="c-circle-menu__items">
           <li class="c-circle-menu__item">
             <a href="#" class="c-circle-menu__link">
-              <i class="bi bi-power" style="
-              color: white;
-              font-size: -webkit-xxx-large;
-              left: 19px !important;
-              position: absolute;
-              top: 20px;" ></i>
+              <i class="bi bi-power"></i>
             </a>
           </li>
           <li class="c-circle-menu__item">
             <a href="#" class="c-circle-menu__link">
-              <i class="bi bi-exclude" style="
-              color: white;
-              font-size: -webkit-xxx-large;
-              left: 19px !important;
-              position: absolute;
-              top: 20px;"></i>
+              <i class="bi bi-exclude"></i>
             </a>
           </li>
           <li class="c-circle-menu__item">
             <a href="#" class="c-circle-menu__link js-toggle" onclick="cssCircleMenuchild()">
-              <i class="bi bi-controller" style="
-              color: white;
-              font-size: -webkit-xxx-large;
-              left: 19px !important;
-              position: absolute;
-              top: 20px;"></i>
+              <i class="bi bi-controller"></i>
             </a>
           </li>
           <li class="c-circle-menu__item">
             <a href="/admin" class="c-circle-menu__link">
-              <i class="bi bi-sliders" style="
-                color: white;
-                font-size: -webkit-xxx-large;
-                left: 19px !important;
-                position: absolute;
-                top: 20px;
-            "></i>
+              <i class="bi bi-sliders"></i>
             </a>
           </li>
           <li class="c-circle-menu__item">
             <a href="#" class="c-circle-menu__link">
-              <i class="bi bi-house-fill" style="
-              color: white;
-              font-size: -webkit-xxx-large;
-              left: 19px !important;
-              position: absolute;
-              top: 15px;
-          "></i>
+              <i class="bi bi-house-fill"></i>
             </a>
           </li>
         </ul>
