@@ -4,6 +4,8 @@ import time
 import mediapipe as mp
 import numpy as np
 
+from .matrix import gridding as gd
+
 
 
 class MeshDetector():
@@ -15,14 +17,20 @@ class MeshDetector():
 		self.left_hand_landmarks = (results.left_hand_landmarks, mp_holistic.HAND_CONNECTIONS)
 		self.pose_landmarks = (results.pose_landmarks, mp_holistic.POSE_CONNECTIONS)
 
+		# Adding simple gridding system to each frame for furthur analysis
+		self.image = self.pointing(image)
+
 		# Draw landmarks and connections between them
-		self.draw(image, self.face_landmarks, thickness=1, color=(125,125,125))
-		self.draw(image, self.right_hand_landmarks, radius=5)
-		self.draw(image, self.left_hand_landmarks, radius=5)
-		self.draw(image, self.pose_landmarks, thickness=1, radius=2, color=(0,255,255))
+		self.draw(self.image, self.face_landmarks, thickness=1, color=(125,125,125))
+		self.draw(self.image, self.right_hand_landmarks, radius=5)
+		self.draw(self.image, self.left_hand_landmarks, radius=5)
+		self.draw(self.image, self.pose_landmarks, thickness=1, radius=2, color=(0,255,255))
+		# Returning the processed image back to the main module
+		# self.feedback(image)
+		# cv2.imshow('f',image)
+	def pointing(self, image):
 
-
-	# def pointing(self):
+		return image
 		
 
 
@@ -45,8 +53,11 @@ class MeshDetector():
 				circle_radius=radius
 			)
 			)
+			return image
 
 	
+	def feedback(self):
+		return self.image
 
 if __name__ == "__main__":
 	MeshDetector()
