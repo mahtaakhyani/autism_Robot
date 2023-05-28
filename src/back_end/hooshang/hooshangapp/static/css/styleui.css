@@ -1,7 +1,7 @@
 .joystick-container{
   z-index: 100;
   opacity: 0;
-  bottom: 37px;
+  bottom: 311px;
   -webkit-transition: opacity, -webkit-transform;
   transition: opacity, -webkit-transform;
   transition: transform, opacity;
@@ -17,8 +17,8 @@
 .joystick-container.active{
   transition: ease-in-out 0.5s;
   opacity: 1;
-  -webkit-transform: translate3d(305px, -200px, 28px);;
-		  transform: translate3d(305px, -200px, 28px);;
+  -webkit-transform: translate3d(160px, -44px, 28px);
+  transform: translate3d(160px, -44px, 28px);
   -webkit-transition-timing-function: cubic-bezier(0.35, 0.03, 0.47, 1.59);
   transition-timing-function: cubic-bezier(0.35, 0.03, 0.47, 1.59);
 }
@@ -26,11 +26,11 @@
 #joystick {
 	width: 150px;
 	height: 150px;
-  background: #ffffff;
-  /* margin: 20px auto; */
-  position: absolute;
-  border-radius: 148px;
-  box-shadow: inset 0px -1px 20px 1px #000000e0;
+	background: #ffffff;
+	margin: 20px auto;
+	position: absolute;
+	border-radius: 148px;
+	box-shadow: inset 0px -1px 20px 1px #000000e0;
 }
 #knob {
 	cursor: move;
@@ -42,7 +42,7 @@
 	-moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.75);
 	background: #8acaff;
-	background: -moz-radial-gradient(center, ellipse cover,  #8acaff 10%,#1b7d92 101%); 
+	background: -moz-radial-gradient(center, ellipse cover,  #8acaff 10%,#1b7d92 101%);
 	background: -webkit-radial-gradient(center, ellipse cover, #8acaff 10%,#1b7d92 101%);
 	background: radial-gradient(ellipse at center, #8acaff 10%,#1b7d92 101%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8acaff', endColorstr='#1b7d92',GradientType=1 );

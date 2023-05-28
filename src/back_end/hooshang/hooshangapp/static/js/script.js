@@ -50,7 +50,7 @@ var android_server_url;
 // Topics
 var publish_exp_topic = '/web_exp_publisher';
 var publish_motion_topic = '/web_motion_publisher';
-var camera_img_topic = '/camera/rgb/image_raw';
+var camera_img_topic = '/camera/image_raw';
 var listen_exp_topic = '/py_exp_publisher';
 var listen_motion_topic = '/cmd_vel_listener';
 // Messages
@@ -99,8 +99,8 @@ $logmenu.addEventListener('click', function(e) {
   item.setAttribute('id','item');
   $('#log').add(item);
   $('#log').toggle('display');
-  document.getElementById("log").innerHTML = console.logs.slice(-1) + '\n'+console.logs.slice(-2);
-} )
+  document.getElementById("log").innerHTML = console.logs.slice(-3) + '\n'+console.logs.slice(-2);
+} );
 
 
 
@@ -138,7 +138,7 @@ window.addEventListener('load', (event) => {
   get_ip();
   sleep(6000).then(() => {  // wait 3 seconds
   console.log('page is fully loaded');
-  });
+  });})
   // Creating the camera subscriber ------------------
   var cam_reciever = new ROSLIB.Topic({
     ros : ros,
@@ -157,14 +157,10 @@ window.addEventListener('load', (event) => {
     ctx.drawImage(image, 0, 0);
   }); 
   
-  // Creating the circular menu ---------------------
-  var el = '.js-menu';
-  var myMenu = cssCircleMenu(el);
-  
-});
-// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// <---------------------------------------------- EMOTION HANDLING SECTION---------------------------------------->	
-// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// // <---------------------------------------------- EMOTION HANDLING SECTION---------------------------------------->	
+// // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 // Creating and Publishing the first emotion control message on the pre-defined(initiated through 'main.py') Topic /exp
@@ -221,7 +217,7 @@ autoexp_Topic.subscribe(function(message) {
  
       console.log(response);
     }
-  })
+  });
   document.getElementById("msg").innerHTML = msgd;
 });
 
@@ -294,7 +290,7 @@ function parr_b(element) {
     id: element.id,
     tag: element.id,
     '_token': csrf
-  })
+  });
   $.ajax({
     type: "POST",
     contentType : 'application/json',
@@ -306,7 +302,7 @@ function parr_b(element) {
     },
     error: function(response) {
     console.log(response);// logging the response in browser's console
-}}) 
+}});
 }
 function parr_r(element) {
   document.getElementById("pr_msg").innerHTML = element.value;
@@ -328,7 +324,7 @@ function exp_sound(element) {
 }
 
 
-// <------------- UPDATE_EXP FUNCTION ------------->
+// // <------------- UPDATE_EXP FUNCTION ------------->
 
 //Handling the facial expression buttons events through both the Django server and the ROS environment
 // (Updating sounds and facial expressions after clicking on a button)
@@ -368,21 +364,21 @@ function update_exp(ids) {
   }
   ids = []; // Resetting the ids array to prevent updating the video file when sound updates
   
-// <--- END OF UPDATE_EXP FUNCTION --->
+// // <--- END OF UPDATE_EXP FUNCTION --->
 
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// <----------------------------------------- END OF EMOTION HANDLING ----------------------------------------->
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// // <----------------------------------------- END OF EMOTION HANDLING ----------------------------------------->
+// // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// <----------------------------------------------- MOTION HANDLING --------------------------------------------->
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// // <----------------------------------------------- MOTION HANDLING --------------------------------------------->
+// // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// -----------------
-// Listening to the /cmd_vel topic to get the robot's current velocity commanded through keyboard teleoperation.
-// -----------------
+// // -----------------
+// // Listening to the /cmd_vel topic to get the robot's current velocity commanded through keyboard teleoperation.
+// // -----------------
 
 var motion_Topic = new ROSLIB.Topic({
   ros : ros,
@@ -399,9 +395,9 @@ motion_Topic.subscribe(function(message) {
   
 });
 
-// -----------------
-// Publishing manual movement commands from the user interface(not from the keyboard) on /cmd_vel_web topic
-// -----------------
+// // -----------------
+// // Publishing manual movement commands from the user interface(not from the keyboard) on /cmd_vel_web topic
+// // -----------------
 var motion_Topic = new ROSLIB.Topic({
   ros : ros,
   name : publish_motion_topic,
@@ -416,36 +412,36 @@ function motion(element) {
 }
 
 
-// -----------------
-// Audio Player for the web interface
-// -----------------
-function playAudio(input) { 
-  $(".play_btn")[0].currentTime = 0;
+// // -----------------
+// // Audio Player for the web interface
+// // -----------------
+// function playAudio(input) { 
+//   $(".play_btn")[0].currentTime = 0;
   
-  if ($(input).hasClass("active") ) {
-    $(input).removeClass("active");
+//   if ($(input).hasClass("active") ) {
+//     $(input).removeClass("active");
     
-  } 
-  else {
-    $(".play_btn").removeClass("active");
-    $(input).addClass("active"); 
+//   } 
+//   else {
+//     $(".play_btn").removeClass("active");
+//     $(input).addClass("active"); 
        
 
-    }
-  }
+//     }
+//   }
 
 
 
-  function allowDrop(ev) {
+function allowDrop(ev) {
     ev.preventDefault();
   }
   
-  var state_var = '';
-  function drag(ev, state) {
+var state_var = '';
+function drag(ev, state) {
     state_var = state; 
   }
   
-  function drop(ev) {
+function drop(ev) {
     ev.preventDefault();
     var drop_id = ev.target.id;
   //   if ($(this).find("input id=*clone")){
@@ -489,47 +485,3 @@ function clean(){
 function clear_item(item){
   $(item).parent().remove();
 } 
-  
-
-function cssCircleMenu(el) {
-    var $menu = document.querySelector(el);
-    var $menuToggle = $menu ? $menu.querySelector('.js-menu-toggle') : undefined;
-    var $menuMask = $menu ? $menu.querySelector('.js-menu-mask') : undefined;
-
-    if (!$menu || !$menuToggle || !$menuMask) {
-      throw new Error('Invalid elements, check the structure.');
-    } else {
-      init();
-    }
-
-    return {
-      openMenu: openMenu,
-      closeMenu: closeMenu
-    };
-
-    function init() {
-      $menuToggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        toggleMenu();
-      });
-    }
-
-    function toggleMenu() {
-      $menuToggle.classList.contains('is-active')
-        ? closeMenu()
-        : openMenu();
-    }
-
-    function openMenu() {
-      $menu.classList.add('is-active');
-      $menuToggle.classList.add('is-active');
-      $menuMask.classList.add('is-active');
-    }
-
-    function closeMenu() {
-      $menu.classList.remove('is-active');
-      $menuToggle.classList.remove('is-active');
-      $menuMask.classList.remove('is-active');
-    }
-  };
-

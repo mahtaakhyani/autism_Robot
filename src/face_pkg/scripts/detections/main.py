@@ -12,15 +12,28 @@ import write_to_file as wf
 from Gaze_estimation.gaze import GazePosition, GazeTracking, HeadPosition
 from Pose_estimation.matrix import draw_grid as gd
 from Pose_estimation.matrix import gridding as gdplt
+import pyflowchart as pfc
+import glob2 as glob
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+p = os.path.dirname(os.path.abspath(__file__)) + '\\**\\*.py'
 
-
+for i in glob.glob(p,recursive=True):
+    # print([i if '.py' in i else ''])
+    if '.py' in i:
+        try:
+            with open(i) as f:
+                code = f.read()
+                flowchart = pfc.Flowchart.from_code(code, inner=True, simplify=True)
+                with open('file.txt','a') as fs:
+                    fs.write(flowchart.flowchart())
+            
+            print(flowchart.flowchart())
+        except: pass
 
 mp_face_mesh = mp.solutions.face_mesh  # initialize the face mesh model
 mp_holistic = mp.solutions.holistic
 mp_drawing = mp.solutions.drawing_utils
-
 
 gaze = GazeTracking()
 dominant_emotion = emo.FaceDetection()  
@@ -42,7 +55,7 @@ headers = [
     'head tilt',
     'elapsed time'
 ]
-
+# اینا رو همشون با این هدرا توی مسیج های روبات بفرستیم. یه مسیج جدید تعریف کنم که اینا رو به علاوه زمان شامل بشه که منظم بشه دریافتشون کرد به ازای هر دسته فریم.
 def add_list_to_frame(data,y0,dy=25,dtype="list",color="(255,255,255)"): # The function to enumerate through multiple objects to write in lines on the frame
     for i,item in enumerate(data):
         y = y0 + i*dy

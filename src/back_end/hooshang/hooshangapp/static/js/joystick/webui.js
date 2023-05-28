@@ -8,6 +8,7 @@
 var teleop;
 var ros;
 var motor = '';
+
 // var joystick;
 // var linear_x
 // var linear_y
@@ -168,7 +169,7 @@ function load_joystick(){
     linspeedSpan.innerHTML = (dist).toFixed(2);
     angspeedSpan.innerHTML = (ang*100).toFixed(2);
     
-    updatePositionAttributes(target,x,y);
+    // updatePositionAttributes(target,x,y);
     moveAction(lin,ang,motor);
 	}
   
@@ -176,6 +177,41 @@ function load_joystick(){
 		target.setAttribute('data-x', x);
 		target.setAttribute('data-y', y);
 	}
+  var isMouseDown,initX,initY,height = draggable.offsetHeight,width = draggable.offsetWidth;
+
+draggable.addEventListener('mousedown', function(e) {
+  isMouseDown = true;
+  document.body.classList.add('no-select');
+  initX = e.offsetX;
+  initY = e.offsetY;
+})
+
+document.addEventListener('mousemove', function(e) {
+  if (isMouseDown) {
+    var cx = e.clientX - initX,
+        cy = e.clientY - initY;
+    if (cx < 0) {
+      cx = 0;
+    }
+    if (cy < 0) {
+      cy = 0;
+    }
+    if (window.innerWidth - e.clientX + initX < width) {
+      cx = window.innerWidth - width;
+    }
+    if (e.clientY > window.innerHeight - height+ initY) {
+      cy = window.innerHeight - height;
+    }
+    draggable.style.left = cx + 'px';
+    draggable.style.top = cy + 'px';
+  }
+})
+
+draggable.addEventListener('mouseup', function() {
+  isMouseDown = false;
+  document.body.classList.remove('no-select');
+})
+
 
 };
 
@@ -360,44 +396,56 @@ var onDisconnect = function(index){
 
 
 
-var isMouseDown,initX,initY,height = draggable.offsetHeight,width = draggable.offsetWidth;
 
-draggable.addEventListener('mousedown', function(e) {
-  isMouseDown = true;
-  document.body.classList.add('no-select');
-  initX = e.offsetX;
-  initY = e.offsetY;
-})
 
-document.addEventListener('mousemove', function(e) {
-  if (isMouseDown) {
-    var cx = e.clientX - initX,
-        cy = e.clientY - initY;
-    if (cx < 0) {
-      cx = 0;
+  // Creating the circular menu ---------------------
+  var el = '.js-menu';
+  var myMenu = cssCircleMenu(el);
+  function cssCircleMenu(el) {
+    var $menu = document.querySelector(el); 
+    var $menuToggle = $menu ? $menu.querySelector('.js-menu-toggle') : undefined;
+    var $menuMask = $menu ? $menu.querySelector('.js-menu-mask') : undefined;
+
+    if (!$menu || !$menuToggle || !$menuMask) { 
+      throw new Error('Invalid elements, check the structure.');
+    } else {
+      init();
     }
-    if (cy < 0) {
-      cy = 0;
+
+    return {
+      openMenu: openMenu,
+      closeMenu: closeMenu
+    };
+
+    function init() {
+      $menuToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleMenu();
+      });
     }
-    if (window.innerWidth - e.clientX + initX < width) {
-      cx = window.innerWidth - width;
+
+    function toggleMenu() {
+      $menuToggle.classList.contains('is-active')
+        ? closeMenu()
+        : openMenu();
     }
-    if (e.clientY > window.innerHeight - height+ initY) {
-      cy = window.innerHeight - height;
+
+    function openMenu() {
+      $menu.classList.add('is-active');
+      $menuToggle.classList.add('is-active');
+      $menuMask.classList.add('is-active');
     }
-    draggable.style.left = cx + 'px';
-    draggable.style.top = cy + 'px';
-  }
-})
 
-draggable.addEventListener('mouseup', function() {
-  isMouseDown = false;
-  document.body.classList.remove('no-select');
-})
+    function closeMenu() {
+      $menu.classList.remove('is-active');
+      $menuToggle.classList.remove('is-active');
+      $menuMask.classList.remove('is-active');
+    }
+  };
 
 
 
-function cssCircleMenuchild() {
+function gameCircleMenuchild() {
   $("#joycontainer").toggleClass('active');
   if ($("#joycontainer").hasClass('active')) {
     load_joystick();

@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['r_0',['r',['../classhp_1_1_h_p.html#aa8e846facefa7144cb83373260e26316',1,'hp.HP.r()'],['../classlistener__node_1_1m2wr_simulation.html#ab6bd5d6dc7b156235361b391c66f7fc6',1,'listener_node.m2wrSimulation.r()'],['../namespacestt.html#a939e145a9ffe2247d0ed0a888b1bc743',1,'stt.r()']]],
+  ['read_5fonly_5ffields_1',['read_only_fields',['../classparrot__control_1_1serializers_1_1_command_category_serializer_1_1_meta.html#ad47d84159729ee7cb279a33117fb2e85',1,'parrot_control.serializers.CommandCategorySerializer.Meta.read_only_fields()'],['../classparrot__control_1_1serializers_1_1_parrot_command_serializer_1_1_meta.html#a69ecda00fb33460fd1d592114ec5aac0',1,'parrot_control.serializers.ParrotCommandSerializer.Meta.read_only_fields()']]],
+  ['real_5fangular_5fspeed_5fz_2',['real_angular_speed_z',['../classlistener__node_1_1m2wr_simulation.html#a4d335bac53440d0fc74731b4f49167ad',1,'listener_node::m2wrSimulation']]],
+  ['real_5flinear_5fspeed_5fx_3',['real_linear_speed_x',['../classlistener__node_1_1m2wr_simulation.html#a2bea086604a27c763a8ff1da59198c24',1,'listener_node::m2wrSimulation']]],
+  ['red_5fparrot_5fids_4',['red_parrot_ids',['../namespaceparrot__gateway.html#a448e7aa20866e9cc161fa539704f0276',1,'parrot_gateway']]],
+  ['red_5fparrot_5fvoice_5fpath_5fpostfix_5',['red_parrot_voice_path_postfix',['../classparrot__control_1_1models_1_1_command_config.html#a054e5992ae9a01af5e10dfec1fe0b92c',1,'parrot_control::models::CommandConfig']]],
+  ['red_5fparrot_5fvoice_5fpath_5fprefix_6',['red_parrot_voice_path_prefix',['../classparrot__control_1_1models_1_1_command_config.html#a22a7f6b997b36fd23f4a8d4c35a6ea83',1,'parrot_control::models::CommandConfig']]],
+  ['ref_5fdb_7',['ref_db',['../classhp_1_1_h_p.html#ad79b29286c77b0e50d179d46f4a3f4ca',1,'hp::HP']]],
+  ['refine_5fface_5flandmarks_8',['refine_face_landmarks',['../namespacemain.html#a1251f26b41a6023bdc81d2169c135ba4',1,'main']]],
+  ['relative_9',['relative',['../namespacehelpers.html#a87a745562f1d80f1d8fce9735108280c',1,'helpers']]],
+  ['relativet_10',['relativeT',['../namespacehelpers.html#ae9a7e611fcb70ba7800b5bbdd078ef08',1,'helpers']]],
+  ['required_11',['required',['../namespacemidi2voice_1_1____main____.html#aa0a9c9db3546be8e81ec894720f09076',1,'midi2voice::__main__']]],
+  ['response_5fdata_12',['response_data',['../classhooshangapp_1_1views_1_1_emotion_command_controller.html#a92db2f40a6d3b482f6b28b16c3f5a398',1,'hooshangapp::views::EmotionCommandController']]],
+  ['results_13',['results',['../namespacemain.html#a3a6f208c41cf098dee2ac3fc4e435815',1,'main']]],
+  ['right_5fcenter_14',['right_center',['../classgaze_1_1_gaze_position.html#a3ad7134702bc954115f18380c4836753',1,'gaze::GazePosition']]],
+  ['right_5fcorner_15',['right_corner',['../classgaze_1_1_gaze_position.html#a5c410d0e0365b3873d85ada2411419bd',1,'gaze::GazePosition']]],
+  ['right_5fhand_16',['right_hand',['../namespacecontroller_01copy.html#afa99bf3a7e9dca333555043cfc445ff9',1,'controller copy']]],
+  ['right_5fhand_5flandmarks_17',['right_hand_landmarks',['../classpose_1_1_mesh_detector.html#ab87b08797c6969d7d95dcc7167f05789',1,'pose::MeshDetector']]],
+  ['right_5fpupil_18',['right_pupil',['../classgaze_1_1_gaze_tracking.html#a8263a5f6473eac619f83f2bcb176b88b',1,'gaze.GazeTracking.right_pupil()'],['../classgaze_1_1_gaze_tracking.html#a6ada521433cbcb2e739c684659a2ee34',1,'gaze.GazeTracking.right_pupil()']]],
+  ['root_5furlconf_19',['ROOT_URLCONF',['../namespacehooshang_1_1settings.html#a610b1cfc89f607f0539f50b71eb269da',1,'hooshang::settings']]],
+  ['rotation_20',['rotation',['../namespacelstm.html#ae94a1e6f52a888a0c7924d404bd743df',1,'lstm']]],
+  ['rotation_5fvector_21',['rotation_vector',['../classgaze_1_1_gaze_tracking.html#a0975ffd7109e4a646c603c700798b7f1',1,'gaze.GazeTracking.rotation_vector()'],['../classgaze_1_1_head_position.html#a2bdf558efcb17033f4436a8545372875',1,'gaze.HeadPosition.rotation_vector()']]]
+];

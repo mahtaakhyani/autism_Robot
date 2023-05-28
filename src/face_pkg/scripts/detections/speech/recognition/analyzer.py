@@ -6,6 +6,7 @@
 - Shimmer
 - HNR (harmonics-to-noise ratio)
 - Estimated speaking rate
+and save them to a CSV file for further analysis.
 """
 
 import os
@@ -20,7 +21,6 @@ from parselmouth.praat import call
 from tabulate import tabulate
 
 import clustering
-import ttstest
 file_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(file_dir)
 

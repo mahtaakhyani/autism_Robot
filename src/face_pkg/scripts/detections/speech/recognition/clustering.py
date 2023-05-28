@@ -8,7 +8,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 
+'''
+clustering.py is a module for clustering the data and predicting the emotion of the user based on the dataset provided.
+It chooses the best algorithm for the data based on the user's choice and in case of using knn, it optimizes the algorithm for the best result by changing the number of neighbors.
 
+'''
 
 class Classification():
     def __init__(self, file_name="datasets.xlsx", sheet= "speech_emotion_analyzer", result ='Index'):
