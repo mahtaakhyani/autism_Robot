@@ -52,9 +52,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'hooshangapp',
-    'soundsapp',
-    'parrot_control',
+    'main',
+    'soundHandler',
+    'serialHandler',
+    'setupWizard'
 ]
 
 
@@ -68,7 +69,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'hooshang.urls'
+ROOT_URLCONF = 'interface_backend.urls'
 
 TEMPLATES = [
     {
@@ -91,7 +92,7 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'parrot_control/templates'),
 )
 
-WSGI_APPLICATION = 'hooshang.wsgi.application'
+WSGI_APPLICATION = 'interface_backend.wsgi.application'
 
 
 # Database

@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from hooshangapp import models
+from main import models
 
 
 # Hooshang dynamixels-grouped movement(Head - hands - transition) serilizing

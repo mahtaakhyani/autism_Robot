@@ -1,12 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
-from soundsapp.models import Song
+# from soundsapp.models import Song
 
 # Create your models here.
 class EmotionModel(models.Model):
     face = models.CharField(max_length= 25, blank=True, default= "normal", null=False, unique=True) #Types : normal , laugh, upset, surprise, shy
     face_video_url = models.CharField(max_length=200, blank=True, default="http://172.18.133.241:3000/mahta.mp4", null=False)
-    sound = models.ForeignKey(Song, on_delete=models.CASCADE, blank=True, null=True)
+    # sound = models.ForeignKey(Song, on_delete=models.CASCADE, blank=True, null=True)
     choices_tuple = (
         ('😂','😂'), ('🙄','🙄'), ('😄','😄'),
         ('🙁','🙁'), ('😱','😱'), ('😎','😎'),
