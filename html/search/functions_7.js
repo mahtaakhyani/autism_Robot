@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['gazedirection_0',['gazedirection',['../classgaze_1_1_gaze_tracking.html#a6e7e301241bd4212d92be18361188256',1,'gaze::GazeTracking']]],
+  ['generate_5fsubs_1',['generate_subs',['../classedge__tts_1_1submaker_1_1_sub_maker.html#a3fd433727561a86db8c2f9c6935944a6',1,'edge_tts::submaker::SubMaker']]],
+  ['generate_5fvoice_5fspecification_2',['generate_voice_specification',['../namespacemidi2voice_1_1midi2xml.html#aa1069e8ba371e7870610a9887ea424c4',1,'midi2voice::midi2xml']]],
+  ['get_3',['get',['../classhooshangapp_1_1views_1_1_main_view_temp.html#a133edb38c9f578909dcfb901543a415d',1,'hooshangapp.views.MainViewTemp.get()'],['../classhooshangapp_1_1views_1_1_core_req_handler.html#a09c4aebbc5c8c081da2b12e2e675f397',1,'hooshangapp.views.CoreReqHandler.get()'],['../classhooshangapp_1_1views_1_1_emotion_command_controller.html#aac66c060b342bd0d8be22c5e7886939a',1,'hooshangapp.views.EmotionCommandController.get()'],['../classhooshangapp_1_1views_1_1_emotion_model_view_d_b.html#a97ce7e5ae2ef2463be4266f23c739a43',1,'hooshangapp.views.EmotionModelViewDB.get()'],['../classhooshangapp_1_1views_1_1_i_p_updater.html#aaf0ff3cfbad1448ee693a0fcfbeac9de',1,'hooshangapp.views.IPUpdater.get()'],['../classparrot__control_1_1models_1_1_command_config.html#a50fac2dfb90afb6020d139035ee92404',1,'parrot_control.models.CommandConfig.get()'],['../classparrot__control_1_1views_1_1_main_parrot_view_temp.html#af72b5c2a647ac6d75b65a8d4d891c50b',1,'parrot_control.views.MainParrotViewTemp.get()'],['../classparrot__control_1_1views_1_1_parrot_command_controller.html#ab5a3ff38e07ebc790e35c2507bbe071b',1,'parrot_control.views.ParrotCommandController.get()']]],
+  ['get_5f2d_5fpoints_4',['get_2d_points',['../classgaze_1_1_head_position.html#a68ed5b16c6ca24543a0a3085220f3e83',1,'gaze::HeadPosition']]],
+  ['get_5fbatch_5',['get_batch',['../namespaceread__data.html#a4c60e04071162c2ac4ac11cb697f46b2',1,'read_data']]],
+  ['get_5fbatch_5fnpz_6',['get_batch_npz',['../namespaceread__data.html#a16281a077f51aff485571b44d05d72c1',1,'read_data']]],
+  ['get_5ffaceboxes_7',['get_faceboxes',['../classhead__rpy_1_1_face_detector.html#a0756c7acbd306e9542674c289de1bb9d',1,'head_rpy::FaceDetector']]],
+  ['get_5fheaders_5fand_5fdata_8',['get_headers_and_data',['../namespaceedge__tts_1_1communicate.html#a30946d0fe6fbd069aae7a258fc10e45e',1,'edge_tts::communicate']]],
+  ['get_5fparrot_5fpublisher_9',['get_parrot_publisher',['../classros_1_1_r_o_s.html#a9f1f95c08ce53633026c8349d9a935b2',1,'ros::ROS']]],
+  ['get_5fparrot_5fpublishers_5fcount_10',['get_parrot_publishers_count',['../classros_1_1_r_o_s.html#a8b1d29b6652599ce6126f8c97e4d8833',1,'ros::ROS']]],
+  ['get_5fparrot_5fstd_5fid_11',['get_parrot_std_id',['../namespaceparrot__gateway.html#a93984fbb604369058280f72f385020eb',1,'parrot_gateway']]],
+  ['get_5fqueryset_12',['get_queryset',['../classparrot__control_1_1admin_1_1_blue_parrot_command_admin.html#a72595417990f8710b0e4a5a1a9afcff0',1,'parrot_control.admin.BlueParrotCommandAdmin.get_queryset()'],['../classparrot__control_1_1admin_1_1_red_parrot_command_admin.html#a649eca14a6b8993771b620d7027eae6d',1,'parrot_control.admin.RedParrotCommandAdmin.get_queryset()']]],
+  ['get_5fspectrograms_13',['get_spectrograms',['../namespacewavprepro.html#a2dff2b6aa7caa86bec4cb0aa7b8f7c53',1,'wavprepro']]],
+  ['get_5fsquare_5fbox_14',['get_square_box',['../classhead__rpy_1_1_mark_detector.html#a433459a93aee0374e9813d1b99969b11',1,'head_rpy::MarkDetector']]],
+  ['get_5ftranscript_15',['get_transcript',['../namespaceanalyzer.html#a769fd1e280d8c04fde21a0dd6559cc89',1,'analyzer']]],
+  ['gotodegree_16',['gotodegree',['../classdynatest_1_1_dynamixel.html#ad3c95da9f72f101bb7c3574b2d2f1744',1,'dynatest::Dynamixel']]],
+  ['gpt2_5ffa_17',['gpt2_fa',['../classhazmtest_1_1_fars_g_p_t2.html#a1b5457c0f803d52bbb6d7a7e1103f50a',1,'hazmtest::FarsGPT2']]],
+  ['gpt2_5ffa_5fpoetry_18',['gpt2_fa_poetry',['../classhazmtest_1_1_fars_g_p_t2.html#aa4ed6924272ae0f0ad55960a0ed28c47',1,'hazmtest::FarsGPT2']]],
+  ['gridding_19',['gridding',['../namespacematrix.html#a93a511aded206871dbb9c6eba70a3fdc',1,'matrix']]],
+  ['griffin_5flim_20',['griffin_lim',['../namespacewavprepro.html#afcf195afe9c13b0dab0250e790d346b3',1,'wavprepro']]]
+];

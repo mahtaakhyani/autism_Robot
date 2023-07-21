@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+<!-- Emotion interactions node -->
+    <node pkg="face_pkg" type="main.py" name="face_exp_handler" output="screen"/>
+
+<!-- Streaming a video from the ROS server to the client -->
+    <!-- <include file="$(find video_stream_opencv)/launch/camera.launch">
+        <arg name="video_stream_provider" value="0" />
+        <arg name="visualize" value="false" />
+    </include> -->
+</launch>

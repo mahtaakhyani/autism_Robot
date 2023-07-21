@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['image_2dalt_2emd_0',['image-alt.md',['../image-alt_8md.html',1,'']]],
+  ['image_2dfill_2emd_1',['image-fill.md',['../image-fill_8md.html',1,'']]],
+  ['image_2emd_2',['image.md',['../image_8md.html',1,'']]],
+  ['images_2emd_3',['images.md',['../images_8md.html',1,'']]],
+  ['inbox_2dfill_2emd_4',['inbox-fill.md',['../inbox-fill_8md.html',1,'']]],
+  ['inbox_2emd_5',['inbox.md',['../inbox_8md.html',1,'']]],
+  ['inboxes_2dfill_2emd_6',['inboxes-fill.md',['../inboxes-fill_8md.html',1,'']]],
+  ['inboxes_2emd_7',['inboxes.md',['../inboxes_8md.html',1,'']]],
+  ['info_2dcircle_2dfill_2emd_8',['info-circle-fill.md',['../info-circle-fill_8md.html',1,'']]],
+  ['info_2dcircle_2emd_9',['info-circle.md',['../info-circle_8md.html',1,'']]],
+  ['info_2dlg_2emd_10',['info-lg.md',['../info-lg_8md.html',1,'']]],
+  ['info_2dsquare_2dfill_2emd_11',['info-square-fill.md',['../info-square-fill_8md.html',1,'']]],
+  ['info_2dsquare_2emd_12',['info-square.md',['../info-square_8md.html',1,'']]],
+  ['info_2emd_13',['info.md',['../info_8md.html',1,'']]],
+  ['input_2dcursor_2dtext_2emd_14',['input-cursor-text.md',['../input-cursor-text_8md.html',1,'']]],
+  ['input_2dcursor_2emd_15',['input-cursor.md',['../input-cursor_8md.html',1,'']]],
+  ['instagram_2emd_16',['instagram.md',['../instagram_8md.html',1,'']]],
+  ['intersect_2emd_17',['intersect.md',['../intersect_8md.html',1,'']]]
+];

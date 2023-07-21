@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+<!-- Emotion interactions node -->
+    <include file="$(find face_pkg)/launch/initiate_facial.launch"/>
+
+<!-- Bridging between ROS and HTML interface node -->
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+        <arg name="unregister_timeout" value="100"/>
+    </include>
+<!-- Changing rosbridge node's topic name from default to "web_interface" -->
+    <remap from="rosbridge_websocket" to="web_interface"/>
+<!-- Streaming a video from the ROS server to the client -->
+    <!-- <include file="$(find video_stream_opencv)/launch/camera.launch">
+        <arg name="video_stream_provider" value="0" />
+        <arg name="visualize" value="false" />
+    </include> -->
+    <node pkg="face_pkg" type="controller.py" name="motors_controller" output="screen"/>
+
+</launch>
