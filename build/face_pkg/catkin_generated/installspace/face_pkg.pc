@@ -1,8 +1,0 @@
-prefix=C:/Users/Mahta/Documents/GitHub/autism_Robot/install
-
-Name: face_pkg
-Description: Description of face_pkg
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime

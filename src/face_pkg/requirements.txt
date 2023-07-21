@@ -1,2 +1,0 @@
-deepface==0.0.75
-rospkg==1.4.0

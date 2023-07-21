@@ -1,6 +1,0 @@
-<launch>
-    <node name="blue_parrot" pkg="multi_parrot_blue" type="blue_parrot.py" output="screen"/>
-    <node name="blue_audio_player" pkg="multi_parrot_blue" type="blue_audio_player.py" output="screen"/>
-    <node name="blue_serial_handler" pkg="multi_parrot_blue" type="blue_serial_handler.py" output="screen"/>
-
-</launch>
