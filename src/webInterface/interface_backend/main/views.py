@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import sys
 import requests
-# Create your views here."\move.py""\hooshang\hooshangapp\views.py"
+# Create your views here."\move.py""\interface_backend\interface_backendapp\views.py"
 from django.http import HttpResponse, request, JsonResponse, StreamingHttpResponse
 from django.core.files.storage import Storage
 from django.shortcuts import render
@@ -12,7 +12,8 @@ from django.views.generic import TemplateView
 from django.template.response import TemplateResponse
 from rest_framework.request import Request
 from rest_framework.views import APIView
-from rest_framework.response import Response    
+from rest_framework.response import Response   
+
 
 ws_dir = str(Path(__file__).resolve().parent.parent.parent)
 sys.path.insert(0, ws_dir)

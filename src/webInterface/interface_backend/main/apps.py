@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class HooshangappConfig(AppConfig):
+class interface_backendConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'hooshangapp'
+    name = 'interface_backend'

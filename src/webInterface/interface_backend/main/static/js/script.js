@@ -42,7 +42,7 @@ var face_url_id = '';
 var sound_url_val = '';
 var auto_imit_val = false;
 // - - - Django Server - - - 
-var request_server_ip = '/reqip'; //URL has been set in 'hooshangapp/urls.py'
+var request_server_ip = '/reqip'; //URL has been set in 'interface_backendapp/urls.py'
 var django_base_url;
 var request_current_exp;
 var publish_new_exp;
@@ -65,8 +65,8 @@ var robot_ws;
 function set_variables(host) {
     // - - - Django Server - - - 
     django_base_url = 'http://' + host + ':' + port ;
-    request_current_exp =  '/reqemo';  //URL has been set in 'hooshangapp/urls.py'
-    publish_new_exp =  '/reqpub'; //URL has been set in 'hooshangapp/urls.py'
+    request_current_exp =  '/reqemo';  //URL has been set in 'interface_backendapp/urls.py'
+    publish_new_exp =  '/reqpub'; //URL has been set in 'interface_backendapp/urls.py'
     android_server_url = 'http://' + host + ':' + android_port + '/android_server';
     console.log('Android Server is listening on: '+android_server_url+
                 '\nAsking the server for latest emotion, then sending status, both on: /reqcli');

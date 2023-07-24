@@ -3,20 +3,20 @@ from rest_framework import serializers
 from main import models
 
 
-# Hooshang dynamixels-grouped movement(Head - hands - transition) serilizing
-# class HooshangDynaSerializerHead(serializers.ModelSerializer):
+# interface_backend dynamixels-grouped movement(Head - hands - transition) serilizing
+# class interface_backendDynaSerializerHead(serializers.ModelSerializer):
 
 #     class Meta:
 #         model = models.EmotionModel
 #         fields = ('id','pos_up','pos_right')
 
-# class HooshangDynaSerializerHands(serializers.ModelSerializer):
+# class interface_backendDynaSerializerHands(serializers.ModelSerializer):
 
 #     class Meta:
 #         model = models.EmotionModel
 #         fields = ('id','right_hand','left_hand')
 
-# class HooshangDynaSerializer(serializers.ModelSerializer):
+# class interface_backendDynaSerializer(serializers.ModelSerializer):
 
 #     class Meta:
 #         model = models.EmotionModel

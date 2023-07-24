@@ -20,7 +20,7 @@ class EmotionModel(models.Model):
     def __str__(self):
         return self.face
 
-    # dynatype = models.ForeignKey(HooshangCommandsDyna, on_delete=models.CASCADE)
+    # dynatype = models.ForeignKey(interface_backendCommandsDyna, on_delete=models.CASCADE)
     # movement = models.BooleanField(blank=False , null=False, default= False)
     
     # dir = models.IntegerField(blank=False, null=False, default=0) # 0 or 1 as: (up - right) or (down - left) --> For both Head & Hands commands
