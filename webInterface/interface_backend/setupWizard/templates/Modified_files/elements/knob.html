@@ -1,0 +1,241 @@
+<html>
+    <head>
+        <style>
+        #wrap {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        }
+
+        #wrap #level-circle {
+        display: block;
+        width: 50%;
+        height: 50%;
+        position: absolute;
+        border-radius: 50%;
+        z-index: -2;
+        font-weight: bold;
+        font-size: 100%;
+        }
+        #level-circle:before {
+        content: "MIN";
+        display: flex;
+        width: 23%;
+        height: 100%;
+        position: absolute;
+        bottom: 84%;
+        right: 77%;
+        align-items: flex-end;
+        justify-content: flex-start;
+        box-shadow: -2px 4px 0px -3px #c1c1c1, inset 0px -1px 0px #676767;
+        }
+        #level-circle:after {
+        content: "MAX";
+        display: flex;
+        width: 23%;
+        height: 100%;
+        position: absolute;
+        bottom: 84%;
+        left: 77%;
+        align-items: flex-end;
+        justify-content: flex-end;
+        box-shadow: 2px 4px 0px -3px #c1c1c1, inset 0px -1px 0px #676767;
+        }
+        #labRat {
+        width: 40%;
+        height: 40%;
+        position: relative;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        background: radial-gradient(
+            ellipse at center,
+            rgb(235, 235, 235) 34%,
+            #fff 35%,
+            rgb(238, 238, 238) 35%,
+            rgb(210, 210, 210) 51%,
+            #bbb 67%,
+            #000 100%
+        );
+        box-shadow: 0 3px 1px -2px #0006;
+        }
+        #knobTr {
+            content: "";
+            background: linear-gradient( to top, rgb(235, 235, 235) 10%, rgb(235, 235, 235) 11%, rgb(235, 235, 235) 11%, #444 14% );
+            width: 5%;
+            height: 40%;
+            border-radius: 0;
+            position: absolute;
+            top: 20%;
+            margin-top: -10%;
+            display: flex;
+            justify-content: center;
+            box-shadow: 7px -2px 5px -5px #999, -7px -2px 5px -5px #999;
+            transform: rotateZ(-45deg);
+            right: 73%;
+            cursor: grab;
+        }
+        #knobTr:after {
+        content: "";
+        display: block;
+        width: 20%;
+        position: absolute;
+        top: 0;
+        height: 50%;
+        background: #93eaf2;
+        box-shadow: 0 0 1px #999 inset;
+        }
+        #volumeBarCont {
+        position: absolute;
+        bottom: -25%;
+        margin: 0 auto;
+        width: 80%;
+        height: 50%;
+        display: block;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        transition: opacity 0.4s ease-out;
+        }
+        #volumeBarCont span {
+        font-family: Arial;
+        font-size: 100%;
+        display: block;
+        padding-left: 5px;
+        color: #000;
+        box-sizing: border-box;
+        position: absolute;
+        top: 5%;
+        transform: translateY(-50%);
+        /* right: 18%; */
+        }
+        #volumeBar {
+        width: 50%;
+        height: 10%;
+        position: absolute;
+        left: 30%;
+        overflow: hidden;
+        }
+        #volumeLevelWrap {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        height: 100%;
+        display: flex;
+        }
+        #volumeBar .levelBar {
+        height: 100%;
+        width: 5%;
+        display: block;
+        padding: 0 1px;
+        }
+        #volumeBar .levelBar:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        box-shadow: inset 0 0 0 1px #0006;
+        background: #0f8;
+        display: block;
+        }
+
+        </style>
+    </head>
+    <body style="aspect-ratio: 1;">
+        <div id="wrap">
+            <div id="cover-circle"></div>
+            <div id="level-circle"></div>
+            <div id="labRat">
+              <div id="knobTr"></div>
+            </div>
+            <div id="volumeBarCont"> <!--This is the element's ultimate output-->
+              <div id="volumeBar">
+                <div id="volumeLevelWrap">
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                  <div class="levelBar"></div>
+                </div>
+              </div><span>0%</span></div>
+          </div>
+    </body>
+    <script>
+        let knobTrigger = document.querySelector("#knobTr"),
+        knob = document.querySelector("#labRat"),
+        wrap = document.querySelector("#wrap"),
+        volumeCont = document.querySelector("#volumeBarCont"),
+        volumeBar = document.querySelector("#volumeBar"),
+        volumePercent = document.querySelector("#volumeBarCont span"),
+        fadeOut;
+        
+        function valBetween(v, min, max) {
+        return Math.min(max, Math.max(min, v));
+        }
+
+        knobTrigger.addEventListener("mousedown", e => {
+        let x0 = knob.getBoundingClientRect().left + knob.offsetWidth / 2,
+            y0 = knob.getBoundingClientRect().top + knob.offsetHeight / 2;
+
+        let p2 = {
+            x: x0,
+            y: y0
+        };
+        if (e.button === 0) {
+            let rotateKnob = function(e) {
+            let p1 = {
+                x: e.clientX,
+                y: e.clientY
+                },
+                
+                // angle in degrees
+                angleDeg = -Math.atan2(p1.x - p2.x, p1.y - p2.y) * 180 / Math.PI + 180;
+            let percentValue = parseInt((valBetween(angleDeg, 45, 315) - 315) / -2.7);
+            clearTimeout(fadeOut);
+            fadeOut = setTimeout(() => {
+                volumeCont.style.opacity = 0;
+            }, 3000);
+            volumeCont.style.opacity = 1;
+
+            knob.style.transform =
+                "rotateZ(" + (valBetween(angleDeg, 45, 315) - 315) + "deg)";
+            volumePercent.innerHTML = percentValue + "%";
+            if (percentValue % 5 === 0) {
+                volumeBar.style.width = percentValue * 2.4 + "px";
+            } else {
+                return false;
+            }
+            };
+            document.addEventListener("mousemove", rotateKnob, false);
+            document.addEventListener("mouseup", e => {
+            document.removeEventListener("mousemove", rotateKnob, false);
+            });
+        } else {
+            return false;
+        }
+        });
+
+        wrap.addEventListener("contextmenu", e => {
+        e.preventDefault();
+        });
+
+    </script>
+</html>

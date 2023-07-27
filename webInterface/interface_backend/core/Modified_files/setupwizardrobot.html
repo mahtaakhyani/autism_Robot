@@ -1,0 +1,332 @@
+
+<html>
+
+<head>
+  <title>Setup Wizard</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    
+    li {
+      display: table;
+      padding: 0.5rem;
+    }
+    .window {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 600px;
+      min-height: 400px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      animation: zoom-in 0.5s;
+    }
+
+    @keyframes zoom-in {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .header {
+      background-color: #f0f0f0;
+      padding: 10px;
+      border-radius: 10px 10px 0 0;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #333333;
+    }
+
+    .content {
+      padding: 20px;
+      padding-left: 50px;
+    }
+
+    .form {
+      margin-bottom: 50px;
+    }
+
+    .form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form input[type="text"],
+    .form select {
+      width: 100%;
+      padding: 5px;
+      border: none;
+      border-bottom: 1px solid #cccccc;
+      background-color: transparent;
+      outline: none;
+    }
+
+    .form select {
+      margin-top: 5px;
+    }
+
+    .form input[type="submit"] {
+      background-color: #007bff;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .form input[value="Back"] {
+      background-color: #818d9a;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .timeline {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 80%;
+      background-color: rgba(0, 0, 0, 0.1);
+      opacity: 0.5;
+    }
+
+    .timeline-item {
+      position: absolute;
+      top: 0;
+      left: 30px;
+      width: 150px;
+      padding: 5px;
+      font-size: 12px;
+      color: #999999;
+    }
+  </style>
+  <script>
+    var nm;
+
+  function submitForm() {
+      // Code to submit the form as a POST request to "/wizard/setup"
+  document.getElementById("form").addEventListener("submit", function(event) {
+  event.preventDefault();
+  let formData = new FormData(event.target);
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "/wizard/setup");
+  xhr.send(formData);
+});
+    }
+  </script>
+</head>
+
+<body>
+  <div class="window">
+    <div class="header">
+      <h1>Welcome to your social robot's setup wizard!</h1>
+    </div>
+    <div class="content">
+      <div class="form">
+        <label>What is your robot's name?</label>
+        <input type="text" name = 'name' placeholder="My Robot"  oninput="nm = this.value">
+      </div>
+      <div class="form">
+        <input type="submit" value="Next" onclick="showPage(1)">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var spec = []
+    var heads = [['Can...', 'Can listen and...', 'Can speak...'], ['Listen', 'Speak', 'Express Feelings', 'Move its Body'], ['have a dialogue', 'record for later manual processing', 'Stream the input'], ['a pre-written text', 'having a conversation with the user', 'Emotionally / Empathetically'], "'s body features"]
+
+    var nplus, n, nminus;
+    function showPage(pn) {
+      var window = document.querySelector('.window');
+      n = (pn + 1) - 1;
+      nplus = n + 1;
+      nminus = n - 1;
+      if ((pn + 1) - 2 == 0) {
+        nminus = 'showLandingPage()';
+      } else {
+        nminus = `showPage(${(pn + 1) - 2})`;
+      }
+      if (nplus == 4) {
+        nplus = 'showPage4()';
+      } else {
+        nplus = `showPage(${n + 1})`;
+      } 
+      spec.push(heads[0][n - 1])
+      window.innerHTML = `
+        <div class="header">
+          <h1>${nm}'s Control Panel Setup Wizard</h1>
+        </div>
+        <div class="content">
+          <div class="form">
+            <label>${nm} ${heads[0][n - 1]}</label>
+            
+
+          <ul>
+            ${heads[n].slice(1).map(item2 => `<li><input type="checkbox" name="items" value="${item2}" oninput="spec.push(this.value);">${item2}</li>`).join('')}
+          </ul>
+          </div>
+          <div class="form">
+          
+            <input type="submit" value="Back" onclick="showPage(${nminus})">
+            <input type="submit" value="Next" onclick="${nplus}">
+          </div>
+        </div>
+      `;
+    }
+
+    function showPage4() {
+      var window = document.querySelector('.window');
+      window.innerHTML = `
+        <div class="header">
+          <h1>${nm}'s body features</h1>
+        </div>
+        <div class="content">
+          <div class="form" id="body-form">
+            <label>Choose from the list:</label>
+            <input type="checkbox" name="items" value="head" onchange="if(this.checked){createDropdown(this.value)} else {deletedropdown(this.value)}"> Head<br>
+            
+            <input type="checkbox" name="items" value="hand" oninput="if(this.checked){createDropdown(this.value)} else {deletedropdown(this.value)}"> Hand<br>
+            <input type="checkbox" name="items" value="leg/wheel" oninput="if(this.checked){createDropdown(this.value)} else {deletedropdown(this.value)}"> Leg/Wheel<br>
+          </div>
+          <div class="form">
+            <input type="submit" value="Back" onclick="showPage(3)">
+            <input type="submit" value="Next" onclick="showPage5()">
+          </div>
+        </div>
+      `;
+    }
+var finalspec_string;
+    function showPage5() {
+      var finalspec = [...new Set(spec)];
+      if (typeof obj === 'undefined' | typeof obj === 'null' ) {
+        alert("Your Robot is not ready yet! Please go back and select something!'");
+      };
+      var nothing;
+      
+    if (finalspec.length < 4) 
+      { nothing = "Do nothing!"} else {nothing = ''};
+      finalspec_string = finalspec.toString();
+      var window = document.querySelector('.window');
+      window.innerHTML = `
+        <div class="header">
+          <h1>Summary</h1>
+        </div>
+        <div class="content">
+        <h2>${nm}</h2>
+          <ul>
+      ${finalspec.map(item1 =>
+        item1.includes("Can") ? `<h3>${item1}</h3>` : `
+        <li>&nbsp${item1}</li>
+        
+        `).join('')}<br>
+        <li>${nothing}</li>
+          <div class="form">
+            <input type="submit" value="Back" onclick="showPage4()">
+            <input type="submit" value="Finish!" onclick="submitForm()">
+          </div>
+        </div>
+      `;
+    }
+
+    function showLandingPage() {
+      var window = document.querySelector('.window');
+      window.innerHTML = `
+      <div class="window">
+    <div class="header">
+      <h1>Welcome to your social robot's setup wizard!</h1>
+    </div>
+    <div class="content">
+      <div class="form">
+        <label>What is your robot's name?</label>
+        <input type="text" placeholder="My Robot" valueoninput="nm = this.value">
+      </div>
+      <div class="form">
+        <input type="submit" value="Next" onclick="showPage(1)">
+      </div>
+    </div>
+  </div>
+      `;
+    }
+  </script>
+  <script>
+    
+    function createSubDropdown(name) {
+      var dropdown = document.createElement("select");
+      dropdown.setAttribute('class', name);
+      var options = ["Servo", "DC", "Stepper"];
+      // var prevoptions = document.querySelector(name)
+      for (var i = 0; i < options.length; i++) {
+        var option = document.createElement("option");
+        option.text = options[i];
+        dropdown.add(option);
+      };
+        // for (var i = 0; i < prevoptions.length; i++) {
+        //   prevoptions[i].remove();
+        // }
+      return dropdown;
+    }
+    var j = 100
+    function createDropdown(name) {
+      var windowElement = document.querySelector("#body-form");
+      var dropdown = document.createElement("select");
+      dropdown.setAttribute('class','dofdropdown')
+      dropdown.setAttribute('class',name)
+      var option = document.createElement("option");
+      option.text = 'DOF';
+      dropdown.add(option);
+      for (var i = 1; i <= 4; i++) {
+        var option = document.createElement("option");
+        option.text = i;
+        dropdown.add(option);
+      }
+      dropdown.addEventListener("change", function () {
+      var selectedNumber = parseInt(this.value);
+      var subDropdowns = document.querySelectorAll(i);
+      for (var i = 0; i < subDropdowns.length; i++) {
+        subDropdowns[i].remove();
+      }
+      for (var i = 0; i < selectedNumber; i++,j++) {
+        var jint =  name+ parseInt(j).toString(); 
+        var subDropdown = createSubDropdown(jint);
+        subDropdown.classList.add("sub-dropdown");
+        windowElement.appendChild(subDropdown);
+      }
+    });
+    windowElement.appendChild(dropdown);
+      return dropdown;
+    }
+    
+    function deletedropdown(name){
+      var elements = document.querySelectorAll('.'+name);
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].style.display = 'none';
+      };
+
+      var subelements = document.querySelectorAll('.sub-dropdown');
+      for (var i = 0; i < subelements.length; i++) {
+        subelements[i].remove();
+      }
+    }
+  </script>
+</body>
+
+</html>

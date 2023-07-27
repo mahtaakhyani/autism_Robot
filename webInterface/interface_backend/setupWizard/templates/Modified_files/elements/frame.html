@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <style>
+            iframe {
+                border: none;
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+                
+            }
+            #switch {
+                height: 300px;
+                width: 500px;
+            }
+            #knob {
+                height: 200px;
+                width: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <iframe id="switch" scrolling="no"  src="IOswitch.html"></iframe>
+        </div>
+        <div>
+            <iframe id="knob" scrolling="no" src="knob.html"></iframe>
+        </div>
+    </body>
+    <script>
+        const div = document.querySelector('div');
+        const resize = () => {
+        div.style.height = div.offsetWidth / 16 * 9 + 'px';
+        }
+        window.addEventListener('resize', resize);
+        resize();
+    </script>
+</html>

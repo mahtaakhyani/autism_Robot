@@ -1,0 +1,566 @@
+{% load static %}
+<html style="font-size: 16px;">
+  <head>
+    <meta charset="UTF-8">
+    <title>interface_backend Control Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+   <link rel="stylesheet" href=" {% static 'css/nicepage.css' %} " media="screen">
+   <link rel="stylesheet" href=" {% static 'css/styleui.css' %} " media="screen">
+   <link rel="stylesheet" href=" {% static 'css/Page-1.css' %} " media="screen">
+   <script class="u-script" type="text/javascript" src=" {% static 'js/jquery.js' %} " defer=""></script>
+   <script class="u-script" type="text/javascript" src=" {% static 'js/nicepage.js' %} " defer=""></script>
+   <script class="u-script" type="text/javascript" src=" {% static 'js/script.js' %} " defer=""></script>
+   <script class="u-script" type="text/javascript" src=" {% static 'js/joystick/webui.js' %} " defer=""></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.6/interact.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenLite.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/plugins/CSSPlugin.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/easing/EasePack.min.js"></script>
+   <script class="u-script" type="text/javascript" src="{% static 'carhartl-jquery-cookie-v1.4.1-0-g7f88a4e/carhartl-jquery-cookie-92b7715/jquery.cookie.js' %}"></script>
+   <script src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelement-and-player.min.js"></script>
+   <script src="https://static.robotwebtools.org/keyboardteleopjs/current/keyboardteleop.min.js"></script>
+   <link rel="stylesheet" href=" {% static 'font-awesome-4.7.0/css/font-awesome.min.css' %} ">
+   <link rel="stylesheet" href=" {% static 'icons-1.5.0/font/bootstrap-icons.css' %} ">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script type="text/javascript" type="text/javascript">
+    
+    
+    
+      // Calling a service
+      // -----------------
+      // var addTwoIntsClient = new ROSLIB.Service({
+      //   ros : ros,
+      //   name : '/add_two_ints',
+      //   serviceType : 'rospy_tutorials/AddTwoInts'
+      // });
+    
+      // var request = new ROSLIB.ServiceRequest({
+      //   a : 1,
+      //   b : 2
+      // });
+    
+      // addTwoIntsClient.callService(request, function(result) {
+      //   console.log('Result for service call on '
+      //     + addTwoIntsClient.name
+      //     + ': '
+      //     + result.sum);
+      // });
+    
+      // // Getting and setting a param value
+      // // ---------------------------------
+    
+      // ros.getParams(function(params) {
+      //   console.log(params);
+      // });
+    
+      // var maxVelX = new ROSLIB.Param({
+      //   ros : ros,
+      //   name : 'max_vel_y'
+      // });
+    
+      // maxVelX.set(0.8);
+      // maxVelX.get(function(value) {
+      //   console.log('MAX VAL: ' + value);
+      // });
+        </script>
+
+    <meta name="theme-color" content="#ee5009">
+    <meta property="og:title" content="Page 1">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode u-palette-5-light-2">
+    <section class="u-clearfix u-palette-5-light-2 u-section-1" id="sec-48f7">
+      <div class="u-layout-row u-align-left u-clearfix u-expanded-width-xs u-gutter-12 u-layout-spacing-left-right u-layout-wrap u-layout-wrap-1">
+      <div class="u-layout-row" style="margin-right: 20px;">
+        <div class="u-layout-col">
+        <div class=" u-layout-col u-clearfix u-expanded-width-xs u-gutter-14 u-layout-spacing-left-right u-layout-wrap u-layout-wrap-2">
+        <div class="u-gutter-0 u-layout">
+          <div class="u-layout-col">
+            <div class="u-expanded-width u-tab-links-align-left u-tabs u-tabs-1">
+              <ul class="u-border-2 u-border-grey-75 u-custom-color-7 u-tab-list u-unstyled u-tab-list-1" role="tablist">
+          
+                <li class="u-tab-item" role="presentation">
+                  <a class="active u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d34" href="#tab-3d34" role="tab" aria-controls="tab-3d34" aria-selected="true">Face</a>
+                </li>
+                <li class="u-tab-item" role="presentation">
+                  <a class="u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d35" href="#tab-3d35" role="tab" aria-controls="tab-3d35" aria-selected="true">Camera</a>
+                </li>
+                <li class="u-tab-item" role="presentation">
+                  <a class="u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d36" href="#tab-3d36" role="tab" aria-controls="tab-3d36" aria-selected="true">Localization</a>
+                </li>
+              
+              </ul>
+              <div class="u-tab-content">
+                <div class="u-container-style  u-layout-cell u-radius-16 u-shape-round u-size-30 u-uploaded-video u-video u-video-contain u-video-1 u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-3d34" role="tabpanel" aria-labelledby="link-tab-3d34">
+                  <div class="u-absolute-hcenter u-align-left u-background-video u-border-6 u-border-white u-expanded u-left-0" style="">
+                    <div class="embed-responsive">
+                      <video id="vidsrc" class="embed-responsive-item" loop="true" playsinline="">
+                        <source  src="" type="video/mp4">
+                        <p>Your browser does not support HTML5 video.</p>
+                      </video>
+                        <audio id="vidsoundsrc" class="fc-media" style="width: 100%;">
+                          <source src="" type="audio/mp3"/>
+                         </audio>
+                    </div>
+                  </div>
+                </div>
+                <div class="u-container-layout u-container-layout-13"></div>
+              </div>
+              <div class="u-tab-content">
+                <div class="u-container-style  u-layout-cell u-radius-16 u-shape-round u-size-30 u-uploaded-video u-video u-video-contain u-video-1 u-tab-pane u-white u-tab-pane-1" id="tab-3d35" role="tabpanel" aria-labelledby="link-tab-3d35">
+                  <div class="u-absolute-hcenter u-align-left u-background-video u-border-6 u-border-white u-expanded u-left-0" style="">
+                    <div class="embed-responsive">
+                      <img id="rgb-canvas" class="embed-responsive-item" src="http://localhost:8181/stream?topic=/camera/image_raw">
+                        <p>Unable to load camera frames.</p>
+                    </img>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+       </div>
+      <div class="u-layout-row" style="margin-right: -20%;">
+        <div class="u-size-30 u-layout-col u-clearfix u-expanded-width-xs u-gutter-14 u-layout-spacing-left-right u-layout-wrap u-layout-wrap-2">
+        <div class="u-layout-col" style="width: max-content;">
+            <div class="u-layout-row">
+              <div class="u-size-42 u-layout-col">
+                <div class="u-size-30">
+                  <div class="u-layout-row">
+                    <div class="u-align-center u-container-style u-layout-cell u-radius-16 u-shape-round u-size-60 u-white u-layout-cell-1">
+                      <div class="u-border-1 u-border-white u-container-layout u-container-layout-1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <h4 class="u-text u-text-1">Emotion</h4>
+                        <p id="msg">Null</p>
+                        <div class="u-align-center u-list u-list-1">
+                          <div class="u-repeater u-repeater-1" id="repeater">
+                            
+                            {% for emotion in emotions %}{% if emotion %}
+                            <div id="{{emotion}}" class="u-align-center u-container-style u-list-item u-repeater-item" id="{{emotion.face}}"  draggable="true" ondragstart="drag(event,this.id)">
+                              <div class="u-icon u-text-custom-color-7 u-icon-1 u-container-layout u-similar-container u-container-layout-3">
+                                <!-- <span class="u-icon u-text-custom-color-7 u-icon-1"> -->
+                                  <p class="bi"> {{emotion.interface_button_emoji}}</p>
+                                <input type="button"
+                                id={{emotion.face_video_url}} 
+                                onclick="exp_face(this);"
+                                value="{{emotion}}" 
+                                style="margin: 14px auto 0px;"
+                                class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
+                                </input>
+                                <!-- </span> -->
+                              </div>
+                            </div>
+                            {% endif %} {% endfor %}
+                            
+                            <div class="u-align-center u-container-style u-list-item u-repeater-item">
+                              <div class="u-container-layout u-similar-container u-container-layout-7">
+                                <!-- auto -->
+                                <input type="button"
+                                id="auto" 
+                                onclick="exp_face(this);"
+                                value="auto" 
+                                style="font-size: 50%; background-color: #ff0000 !important ; color: aliceblue !important;"
+                                class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
+                              </input>
+                                
+                              </div>
+                            </div>
+                            <div class="u-align-center u-container-style u-list-item u-repeater-item">
+                              <div class="u-container-layout u-similar-container u-container-layout-7">
+                                <!-- add -->
+                                <a href="/admininterface_backendapp/emotionmodel/add/" 
+                                target="_blank" 
+                                onclick="window.open('/admininterface_backendapp/emotionmodel/add/', 
+                            'add new emotion model', 
+                            'width=600,height=500','toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no'); 
+                                return false;"
+                                class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1"
+                                style="    padding: 0;
+                                min-width: auto;
+                                font-size: 2rem;
+                                background: #d0cdcd40 !important;
+                                border: 0rem  !important;
+                            ">
+                                <i class="bi bi-plus-circle-dotted"></i>
+                              </a>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="u-size-30">
+                  <div class="u-layout-row">
+                    <div class="u-container-style u-layout-cell u-opacity u-opacity-50 u-radius-16 u-shape-round u-size-60 u-white u-layout-cell-2">
+                      <div class="u-container-layout u-container-layout-8">
+                        <h4 class="u-align-center u-text u-text-2">Sound Track</h4>
+                        <h5 id="msg_sound"></h5>
+                        <div class="u-expanded-width u-tab-links-align-left u-tabs u-tabs-1">
+                          <ul class="u-border-2 u-border-grey-75 u-custom-color-7 u-tab-list u-unstyled u-tab-list-1" role="tablist">
+            
+                              <li class="u-tab-item" role="presentation">
+                                <a class="active u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d31" href="#tab-3d31" role="tab" aria-controls="tab-3d31" aria-selected="true">Tab 1</a>
+                              </li>
+                              <li class="u-tab-item" role="presentation">
+                                <a class="u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d32" href="#tab-3d32" role="tab" aria-controls="tab-3d32" aria-selected="true">Tab 2</a>
+                              </li>
+                              <li class="u-tab-item" role="presentation">
+                                <a class="u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d33" href="#tab-3d33" role="tab" aria-controls="tab-3d33" aria-selected="true">Tab 3</a>
+                              </li>
+                            
+                          </ul>
+                          <div class="u-tab-content" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-3d31" role="tabpanel" aria-labelledby="link-tab-3d31">
+                              <div class="u-container-layout u-container-layout-9 scrollable">
+                                <ul class="u-custom-font u-custom-list u-file-icon u-font-pt-sans u-indent-0 u-text u-text-3">
+                                  {% for sound in voices %}
+                                  <div class="u-icon u-text-custom-color-7 u-container-layout u-similar-container u-container-layout-3">
+                                    <li class="u-align-left " style="padding-bottom: 0.5%;"  id="robot_audio{{sound.id}}" draggable="true" ondragstart="drag(event,this.id)">
+                                      <audio id="robot_audio{{sound.id}}" class="fc-media" style="width: 100%;">
+                                        <source src="{% if sound.audio_file %}{{sound.audio_file}}{% else %}{{sound.url}}{% endif %}"
+                                              type="audio/mp3"/>
+                                      </audio>
+                                      <input id="robot_audio{{sound.id}}" 
+                                      value="{% if sound.audio_file %}{{sound.audio_file}}{% else %}{{sound.url}}{% endif %}"
+                                      class="play_btn"
+                                      onclick="exp_sound(this);" type="button"></input>
+                                    
+                                      <p class=".u-section-1 .u-icon-1  sp"> {{sound}}</p>
+                                    </li>
+                                    </div>
+                                {% endfor %}
+                                <li class="u-align-left " style="padding-bottom: 0.5%;">
+                                  <a href="/adminsoundsapp/song/add/" 
+                                    target="_blank" 
+                                    onclick="window.open('/adminsoundsapp/song/add/', 
+                                      'add new emotion model', 
+                                      'width=600,height=500','toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no'); 
+                                    return false;"
+                                    class="play_btn"
+                                    style="    padding: 4px;
+                                    min-width: auto;
+                                    font-size: 2rem;
+                                    background: #d0cdcd40 !important;">
+                                    <i class="bi bi-plus-circle-dotted"></i>
+                                  </a>
+                                </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="u-container-style u-tab-pane u-white u-tab-pane-1" id="tab-3d32" role="tabpanel" aria-labelledby="link-tab-3d32">
+                              <div class="u-container-layout u-container-layout-9 scrollable">
+                                <ul class="u-custom-font u-custom-list u-file-icon u-font-pt-sans u-indent-0 u-text u-text-3">
+                                  {% for sound in voices %}
+                                    <li class="u-align-left " style="padding-bottom: 3%;">
+                                      
+                                      <input id="robot_audio{{sound.id}}" 
+                                      value="{% if sound.audio_file %}{{sound.audio_file}}{% else %}{{sound.url}}{% endif %}"
+                                      class="play_btn"
+                                      onclick="exp_sound(this);" type="button"></input>
+                                    
+                                      &emsp;&emsp; -----
+                                    </li>
+                                {% endfor %}
+                                <!-- add -->
+                                <li class="u-align-left " style="padding-bottom: 3%;">
+                                  <a href="/admininterface_backendapp/emotionmodel/add/" 
+                                    target="_blank" 
+                                    onclick="window.open('/admininterface_backendapp/emotionmodel/add/', 
+                                      'add new emotion model', 
+                                      'width=600,height=500','toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no'); 
+                                    return false;"
+                                    class="play_btn"
+                                    style="    padding: 4px;
+                                    min-width: auto;
+                                    font-size: 2rem;
+                                    background: #d0cdcd40 !important;">
+                                    <i class="bi bi-plus-circle-dotted"></i>
+                                  </a>
+                                </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="u-container-style u-tab-pane u-white u-tab-pane-2" id="tab-acd9" role="tabpanel" aria-labelledby="link-tab-acd9">
+                              <div class="u-container-layout u-container-layout-10"></div>
+                            </div>
+                            <div class="u-container-style u-tab-pane u-white u-tab-pane-3" id="tab-f9eb" role="tabpanel" aria-labelledby="link-tab-f9eb">
+                              <div class="u-container-layout u-container-layout-11"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="u-size-15 u-layout-col">
+                <div class="u-layout-row">
+                  <div class=" u-layout-col u-clearfix u-expanded-width-xs u-gutter-14 u-layout-spacing-left-right u-layout-wrap u-layout-wrap-2">
+                    <div class=" u-layout-col" >
+                      <div class="u-layout-row">
+                        
+                          <div class="u-layout-row">
+                            <div class="u-align-center u-container-style u-layout-cell u-radius-16 u-shape-round u-size-60 u-white u-layout-cell-1">
+                              <div class="u-border-1 u-border-white u-container-layout u-container-layout-1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <h4 class="u-text u-text-1">Parrot Blue</h4>
+                                <p id="pb_msg">Null</p>
+                                <div class="u-align-center u-list u-list-1" style=" height: 80%;">
+                                  <div class="u-repeater u-repeater-2" id="repeater2">
+                                    
+                                    {% for commandb in p_commands.parrot_1.movement %}{% if commandb %}
+                                    <div id="{{commandb.name}}" class="u-align-center u-container-style u-list-item u-repeater-item" draggable="true" ondragstart="drag(event,this.id)">
+                                      <div class="u-icon u-text-custom-color-7 u-icon-1 u-container-layout u-similar-container u-container-layout-3">
+                                        <!-- <span class="u-icon u-text-custom-color-7 u-icon-1"> -->
+                                          <p class="bi"> {{commandb.interface_button_emoji}}</p>
+                                        <input type="button"
+                                        id={{commandb.id}} 
+                                        onclick="parr_b(this);"
+                                        value="{{commandb.name}}" 
+                                        style="margin: 14px auto 0px;"
+                                        class="u-align-center u-border-3 u-border-custom-color-8 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
+                                        </input>
+                                        <!-- </span> -->
+                                      </div>
+                                    </div>
+                                    {% endif %} {% endfor %}
+                                    
+                                    <div class="u-align-center u-container-style u-list-item u-repeater-item">
+                                      <div class="u-container-layout u-similar-container u-container-layout-7">
+                                        <!-- add -->
+                                        <a href="/adminparrot_control/blueparrotcommand/add/" 
+                                        target="_blank" 
+                                        onclick="window.open('/adminparrot_control/blueparrotcommand/add/', 
+                                    'add new emotion model', 
+                                    'width=600,height=500','toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no'); 
+                                        return false;"
+                                        class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1"
+                                        style="    padding: 0;
+                                        min-width: auto;
+                                        font-size: 2rem;
+                                        background: #d0cdcd40 !important;
+                                        border: 0rem  !important;
+                                    ">
+                                        <i class="bi bi-plus-circle-dotted"></i>
+                                      </a>
+                                        
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      
+                      </div>
+                      <div class="u-layout-row">
+                        
+                          <div class="u-layout-row">
+                            <div class="u-align-center u-container-style u-layout-cell u-radius-16 u-shape-round u-size-60 u-white u-layout-cell-1">
+                              <div class="u-border-1 u-border-white u-container-layout u-container-layout-1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <h4 class="u-text u-text-1">Parrot Red</h4>
+                                <p id="pr_msg">Null</p>
+                                <div class="u-align-center u-list u-list-1 scrollable" style="    height: 80%;">
+                                  <div class="u-repeater u-repeater-2" id="repeater2">
+                                    
+                                    {% for command in p_commands.parrot_0.movement %}{% if command %}
+                                    <div id="{{command.name}}" class="u-align-center u-container-style u-list-item u-repeater-item" draggable="true" ondragstart="drag(event,this.id)">
+                                      <div class="u-icon u-text-custom-color-7 u-icon-1 u-container-layout u-similar-container u-container-layout-3">
+                                        <!-- <span class="u-icon u-text-custom-color-7 u-icon-1"> -->
+                                          <p class="bi"> {{command.interface_button_emoji}}</p>
+                                        <input type="button"
+                                        id={{command.title}} 
+                                        onclick="parr_r(this);"
+                                        value="{{command.name}}" 
+                                        style="margin: 14px auto 0px;"
+                                        class="u-align-center u-border-3 u-border-custom-color-9 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1">
+                                        </input>
+                                        <!-- </span> -->
+                                      </div>
+                                    </div>
+                                    {% endif %} {% endfor %}
+                                    
+                                    <div class="u-align-center u-container-style u-list-item u-repeater-item">
+                                      <div class="u-container-layout u-similar-container u-container-layout-7">
+                                        <!-- add -->
+                                        <a href="/adminparrot_control/redparrotcommand/add/" 
+                                        target="_blank" 
+                                        onclick="window.open('/adminparrot_control/redparrotcommand/add/', 
+                                    'add new emotion model', 
+                                    'width=600,height=500','toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no'); 
+                                        return false;"
+                                        class="u-align-center u-border-3 u-border-custom-color-7 u-border-hover-palette-1-light-1 u-btn u-btn-round u-button-style u-none u-radius-50 u-btn-1"
+                                        style="    padding: 0;
+                                        min-width: auto;
+                                        font-size: 2rem;
+                                        background: #d0cdcd40 !important;
+                                        border: 0rem  !important;
+                                    ">
+                                        <i class="bi bi-plus-circle-dotted"></i>
+                                      </a>
+                                        
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+          <div class="u-size-15 u-layout-col u-clearfix u-expanded-width-xs u-gutter-14 u-layout-spacing-left-right u-layout-wrap u-layout-wrap-2">
+              <div class="u-gutter-0 u-layout">
+                <div class="u-layout-col">
+                  
+                  <div class="u-expanded-width u-tab-links-align-left u-tabs u-tabs-1">
+                    <h4 class="u-text u-text-1" style="width:-webkit-fill-available;">Drag & Drop Panel</h4>
+                    <ul class="u-border-2 u-border-grey-75 u-custom-color-7 u-tab-list u-unstyled u-tab-list-1" role="tablist">
+                
+                      <li class="u-tab-item" role="presentation">
+                        <a class="active u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d34" href="#tab-3d34" role="tab" aria-controls="tab-3d34" aria-selected="true">No. 1</a>
+                      </li>
+                      <li class="u-tab-item" role="presentation">
+                        <a class="u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d35" href="#tab-3d35" role="tab" aria-controls="tab-3d35" aria-selected="true">No. 2</a>
+                      </li>
+                      <li class="u-tab-item" role="presentation">
+                        <a class="u-active-white u-border-2 u-border-active-grey-75 u-border-grey-60 u-border-hover-grey-75 u-border-no-bottom u-button-style u-custom-color-7 u-tab-link u-tab-link-1" id="link-tab-3d36" href="#tab-3d36" role="tab" aria-controls="tab-3d36" aria-selected="true">No. 4</a>
+                      </li>
+                    
+                    </ul>
+                    <div class="u-tab-content"  ondrop="drop(event)" ondragover="allowDrop(event)">
+                      <div class="u-container-style  u-layout-cell u-radius-16 u-shape-round u-size-30 u-uploaded-video u-video u-video-contain u-video-1 u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-3d34" role="tabpanel" aria-labelledby="link-tab-3d34">
+                        <div class="u-absolute-hcenter u-align-left u-background-video u-border-6 u-border-white u-expanded u-left-0  scrollable" style="">
+                          <button class="auto_run btn btn-primary" onclick="auto_run();">Auto Run</button>
+                          <button class="clean_all btn btn-primary" onclick="clean();">Clear All</button>
+                          <ul class="dest_list">
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="u-container-layout u-container-layout-13"></div>
+                    </div>
+                    <div class="u-tab-content"  ondrop="drop(event)" ondragover="allowDrop(event)">
+                      <div class="u-container-style  u-layout-cell u-radius-16 u-shape-round u-size-30 u-uploaded-video u-video u-video-contain u-video-1 u-tab-pane u-white u-tab-pane-1" id="tab-3d35" role="tabpanel" aria-labelledby="link-tab-3d35">
+                        <div class="u-absolute-hcenter u-align-left u-background-video u-border-6 u-border-white u-expanded u-left-0  scrollable" style="">
+                          <button class="auto_run btn btn-primary" onclick="auto_run();">Auto Run</button>
+                          <button class="clean_all btn btn-primary" onclick="clean();">Clear All</button>
+                          <ul class="dest_list">
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="u-container-layout u-container-layout-13"></div>
+                    </div>
+                    <div class="u-tab-content"  ondrop="drop(event)" ondragover="allowDrop(event)">
+                      <div class="u-container-style  u-layout-cell u-radius-16 u-shape-round u-size-30 u-uploaded-video u-video u-video-contain u-video-1 u-tab-pane u-white u-tab-pane-1" id="tab-3d36" role="tabpanel" aria-labelledby="link-tab-3d36">
+                        <div class="u-absolute-hcenter u-align-left u-background-video u-border-6 u-border-white u-expanded u-left-0  scrollable" style="">
+                          <button class="auto_run btn btn-primary" onclick="auto_run();">Auto Run</button>
+                          <button class="clean_all btn btn-primary" onclick="clean();">Clear All</button>
+                          <ul class="dest_list">
+                          </ul>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+    <div>
+      <div class="logmenu">
+        <div class="label log">See log</div>
+        <div class="spacer"></div>
+        <ul id="log"><li class="item"></li></ul>
+      </div>
+      <div class="alert alert-info alert-dismissible" id="myAlert">
+        <a href="#" class="close" onclick="$(this).parent().fadeOut(250);">&times;</a>
+        <strong>Move The Robot!  </strong>Use the arrow keys to move the robot. Use WASD keys to tilt the head up/left/down/right relatively.
+      </div>
+      <nav class="c-circle-menu js-menu">
+        <div id="joycontainer" class=" joystick-container u-container-layout-13 no-select" style="position: fixed;">
+          
+          <div id="console">
+            <h>Active Actuator: <span id="actValue">0</span><br>
+              Force: <span id="powerValue">0</span><br>
+            Direction: <span id="dirValue">-</span></h><br>
+            Linear Velocity: <span id="linValue"></span>%</h><br>
+            Angular Velocity: <span id="angValue"></span>%</h>
+          </div>
+          <div class="u-cart-blocks-container u-columns-3">
+            <div class="buttons u-columns-3">
+              <hr>
+              <button class="button-circle button-A">A</button>
+              <button class="button-circle button-B">B</button>
+              <button class="button-circle button-X">X</button>
+              <button class="button-circle button-Y">Y</button>
+              <hr>
+              <button class="button-axes axes-U">
+                <i class="arrow arrow-up"></i>
+              </button>
+              <button class="button-axes axes-D">
+                <i class="arrow arrow-down"></i>
+              </button>
+              <button class="button-axes axes-L">
+                <i class="arrow arrow-left"></i>
+              </button>
+              <button class="button-axes axes-R">
+                <i class="arrow arrow-right"></i>
+              </button>
+            </div>
+            <div id="joystick" class="u-columns-3">
+              <div class="draggable" id="knob"></div>
+            </div>
+          </div>
+        </div>
+        <button class="c-circle-menu__toggle js-menu-toggle" id="c-circle-menu__toggle" onclick="cssCircleMenu('.circle-menu')">
+          <span>Toggle</span>
+        </button>
+        <ul class="c-circle-menu__items">
+          <li class="c-circle-menu__item">
+            <a href="#" class="c-circle-menu__link">
+              <i class="bi bi-power"></i>
+            </a>
+          </li>
+          <li class="c-circle-menu__item">
+            <a href="#" class="c-circle-menu__link">
+              <i class="bi bi-exclude"></i>
+            </a>
+          </li>
+          <li class="c-circle-menu__item">
+            <a href="#" class="c-circle-menu__link js-toggle" onclick="gameCircleMenuchild()">
+              <i class="bi bi-controller"></i>
+            </a>
+          </li>
+          <li class="c-circle-menu__item">
+            <a href="/admin" class="c-circle-menu__link">
+              <i class="bi bi-sliders"></i>
+            </a>
+          </li>
+          <li class="c-circle-menu__item">
+            <a href="#" class="c-circle-menu__link">
+              <i class="bi bi-house-fill"></i>
+            </a>
+          </li>
+        </ul>
+        <div class="c-circle-menu__mask js-menu-mask"></div>
+      </nav>
+  </div>
+    </section>
+    
+  </body>
+</html>
